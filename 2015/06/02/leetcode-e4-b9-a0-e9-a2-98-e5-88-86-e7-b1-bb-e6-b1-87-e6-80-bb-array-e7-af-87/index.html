@@ -1,0 +1,692 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="### 题记：刷了一大部分leetcode之后总想找个时间总结一下，也为了以后复习整理方便，这里给每个数据结构写一个分类汇总，总结遇到类似问题时的一般方法和思路。选取了62题中的45题。（其他有些未做暂时难度有点大，有些没意义）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode习题分类汇总-Array篇">
+<meta property="og:url" content="http://zhouchaowei.com/2015/06/02/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-array-e7-af-87/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="### 题记：刷了一大部分leetcode之后总想找个时间总结一下，也为了以后复习整理方便，这里给每个数据结构写一个分类汇总，总结遇到类似问题时的一般方法和思路。选取了62题中的45题。（其他有些未做暂时难度有点大，有些没意义）">
+<meta property="og:updated_time" content="2015-09-19T12:12:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode习题分类汇总-Array篇">
+<meta name="twitter:description" content="### 题记：刷了一大部分leetcode之后总想找个时间总结一下，也为了以后复习整理方便，这里给每个数据结构写一个分类汇总，总结遇到类似问题时的一般方法和思路。选取了62题中的45题。（其他有些未做暂时难度有点大，有些没意义）">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> leetcode习题分类汇总-Array篇 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                leetcode习题分类汇总-Array篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-02T12:13:57+08:00" content="2015-06-02">
+              2015-06-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/02/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-array-e7-af-87/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/02/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-array-e7-af-87/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div><br><br>### <span style="font-size: 18px; color: #008000;">题记：刷了一大部分leetcode之后总想找个时间总结一下，也为了以后复习整理方便，这里给每个数据结构写一个分类汇总，总结遇到类似问题时的一般方法和思路。选取了62题中的45题。（其他有些未做暂时难度有点大，有些没意义）</span><br><br><br><a id="more"></a><br><em> </em> <em><br><br>###<br><br>### <span style="font-size: 24px; color: #0000ff;">一组：二分搜索相关：</span>
+
+</em> <em> </em><br><br>###<br><br><div><br><div>1.<strong><span style="color: #00ff00;">Search Insert Position</span>-查找数组中目标值指定位置，没有则插入，返回插入位置</strong></div><br><div>思路：(1)遍历，大于等于话返回i.小的话往后直到结束返回i+1,时间复杂度O(n),空间O(1).(2)二分搜索，时间O(logn)</div><br><div><br><br>### <span style="color: #00ff00;">2.Find Minimum in Rotated Sorted Array-</span>寻找旋转过后有序数组最小值<br><br><div>思路：二分搜索，只是方向判断的条件不同，<br><pre xml:space="preserve">若中间数大于等于最左端数，那左半部分必定有序，否则右半部分有序。时间logN</pre><br><br>### 3.<span style="color: #00ff00;">Find Minimum in Rotated Sorted Array II</span>-寻找可旋转数组的最小值，允许重复<br><br><div>思路：二分搜索，只是加个对左右两边的判断条件，如果相同则把其中一个去掉，做这种题最重要的就是多实验，注意细节。时间logn</div><br><div><br><br>### 4.<span style="color: #00ff00;">Find Peak Element</span>-寻找数组中比两边元素都大的元素，时间要求logn<br><br><div>思路：二分搜索。注意“首先我们找到中间节点mid，如果大于两边返回当前index就可以了，如果左边的节点比mid大，那么我们可以继续在左半区间查找，这里面一定存在一个peak”这个特性</div><br><div><br><br>### 5.<span style="color: #00ff00;">Search in Rotated Sorted Array</span>-寻找旋转数组中的目标值位置，无重复值<br><br><div>思路：还是和寻找最小值差不多，和两边的元素对比判断，只是又加了个对目标值的判断条件，二分搜索。时间logN.</div><br><div><br><div><strong>6.<span style="color: #00ff00;">Search for a Range</span>-logN时间内寻找目标值在有序数组中的范围</strong></div><br><div><strong>思路：二分搜索找到第一个&gt;=target的位置，然后在二分找到第一个&gt;=target+1的值的位置(然后减去1），还是注意细节吧…</strong></div><br><div><br><br>### 7.<span style="color: #00ff00;">Median of Two Sorted Arrays</span>-寻找两个排序数组的中位数，要求时间复杂度log(m+n)<br><br><div>思路：（1）归并排序的简版，注意m+n奇偶对中位数的影响就好，时间复杂度(m+n)/2</div><br><div>(2)二分搜索，把问题转变为寻找第k小数的问题，还是分奇偶讨论</div><br><div></div><br><div><span style="color: #ff00ff;"><strong>总结</strong></span>：二分搜索非常常见，主要为了把时间复杂度提高到logn的级别，<span style="color: #ff0000;"><strong>遇到在数组有序或可以构造有序条件时寻找目标值或者范围</strong></span>可以优先尝试二分搜索。</div><br></div><br><div></div><br></div><br></div><br></div><br></div>
+
+<hr>
+<p></p></div><br></div><p></p>
+<div><span style="font-size: 24px; color: #0000ff;">二组：DP相关：</span><br><br><em> </em> <em><br><br></em></div><br><div><br><div><strong>1.<span style="color: #00ff00;">Maximum Subarray</span>-寻找和最大的连续子数组</strong></div><br><div><strong>思路：一维DP，维护一个最大值，遍历，不断计算包含i的前i个元素的最大值，避免前i-1最大值的重复计算，时间n,空间n</strong></div><br><div></div><br><div><br><div><strong>2. <span style="color: #00ff00;">Maximum Product Subarray</span>-求最大乘积的子数组</strong></div><br><div><strong>思路：（1）记录每种情况的最大值，O(N2)</strong></div><br><div><strong>(2)一维DP,注意和加法的不同，可能出现负数，所以在维护最大值的同时也要维护最小值，O(N).</strong></div><br><div></div><br></div><br><div><br><div><strong>3.<span style="color: #00ff00;">Best Time to Buy and Sell Stock</span>-一天中T+1买卖股票获得的最大利润</strong></div><br><div>思路：<strong>一维DP</strong>,维护一个maxProfit和一个前i时间段内的最小值，可以复用前i-1时间段内最小值的重复计算，时间n；</div><br><div></div><br><div><br><div><strong>4.<span style="color: #00ff00;">Best Time to Buy and Sell Stock II</span>-一天内T+0买卖股票获得的最大利润</strong></div><br><div>思路：贪心，逆向遍历，就是只要有利润那就买卖，最终求出最大值，额，有技术含量吗…时间N</div><br><div></div><br><div><br><div> 5<strong>.<span style="color: #00ff00;">Minimum Path Sum</span>-矩阵的最短路径问题</strong></div><br><div>思路：经典<strong>二维DP</strong>,维护到当前步骤的最小值，复用，直到最后一个最小值出现。时间N.</div><br><div></div><br><div><br><div><strong>6.<span style="color: #00ff00;">Jump Game</span>-测试数组是否可以从前跳跃到尾部</strong></div><br><div><strong>思路：贪心？..遍历，记录出每次跳跃的最大步骤max，其实只要知道什么时候false的条件就可以了,max&lt;=i而且当前A[i]=0的时候，大概这种题主要就是考验细心吧，至于DP,在求max的时候要用到，贪心是DP的特殊情况，没看出来，容我日后补补。时间N</strong></div><br><div></div><br></div><br><div><br><div><strong> 7.<span style="color: #00ff00;">Jump Game Two</span>- 测试数组从前跳跃到后面的最小步数</strong></div><br><div><strong>思路：</strong><br><pre xml:space="preserve">比较典型的贪心。维护一个区间，区间表示第i步所能到达的索引范围。递推的方法为：<br>每次都遍历一遍当前区间内的所有元素，从一个元素出发的最远可达距离是index+array[index]，那么下一个区间的左端点就是当前区间的右端点+1，下一个区间的右端点就是当前区间的max<br>(index+array[index])，以此类推，直到区间包含了终点，统计当前步数即可。</pre><br><br>### 8.<span style="color: #00ff00;">Unique Paths-</span>mn个方格机器人从左上到右下一共多少种方案<br><br><div>思路：二维DP，构造二维数组，用数字表示走到当前格子有多少种方法，递推式就是当前格子等于左边加上上面格子的总方法，不断复用，遍历矩阵得到结果，时间n,空间n.</div><br><div></div><br><div>9. <span style="color: #00ff00;">Unique Paths II</span>-同上，假设有障碍物有多少种方案</div><br><div>思路：递推式还是跟UniquePaths一样，只是每次我们要判断一下是不是障碍，如果是，则res[i][j]=0，否则还是res[i][j]=res[i-1][j]+res[i][j-1]。还是没习惯一维数组的解法，感觉二维的更加直观。</div><br><div></div><br><div><span style="color: #ff00ff;">总结</span>：DP就更加常见了，利用目的通常是重复利用之前的问题减少计算量以减少时间复杂度，<span style="color: #ff0000;">在遇到极值问题如最短路径，最大…以及多少种方案等问题时可以优先考虑</span>。</div><br></div><br></div><br></div><br></div><br></div>
+
+<hr>
+<p></p></div><p></p>
+<div><span style="font-size: 24px; color: #0000ff;">三组：借助其他数据结构 ：</span><br><br><em> </em> <em><br><br></em></div><br><div><br><br>### 1.<span style="color: #00ff00;">Contains Duplicate</span>-判断数组中是否有重复值<br><br><span style="font-size: 14px; color: #000000;"> 思路：创建<span style="color: #ff0000;">hashmap</span> key对应值，然后遍历  时间复杂度O(n),空间复杂度O(n)</span></div><br><div></div><br><div></div><br><div><br><div><strong>2.<span style="color: #00ff00;">Longest Consecutive Sequence</span>-O(n)时间内找到无序数组中的最长连续序列</strong></div><br><div><strong>思路：改变数据结构，换为<span style="color: #ff0000;">HashSet</span>(remove,add,contains操作均为O(1)),遍历数组，计算每个元素的左右边界（维护count)，并每次减去当前扩展值（防止重复计算，减少时间），最后得出max.</strong></div><br><div></div><br><div><strong> 3.<span style="color: #00ff00;">Two Sum</span>-数组中寻找两个数之和等于目标值，假设有且只有一个解。<br>思路：（1）先排序，然后两个指针一个在左一个在右边，时间logN+N;</strong></div><br><div><em>*(2)减少时间复杂度一般采用<span style="color: #ff0000;">hashtable</span>,这样可以省去排序的时间，key为target-当前值，value为当前i,如果碰到第二个合适的数就可以根据hash找到前一个数的索引然后存入int[2]里就可以了,时间N,空间N</em></div><br><div></div>
+
+<hr>
+<p></p></div><p></p>
+<div><span style="font-size: 24px; color: #0000ff;">四组：DFS相关：</span><br><br><em> </em> <em><br><br></em></div><br><div><br><div> <strong>1.<span style="color: #00ff00;">SubSets</span>-返回所有子数组，原数组无重复</strong></div><br><div>思路：dfs，回溯，注意list的浅拷贝和深拷贝。</div><br><div></div><br><div><br><div><strong>2.<span style="color: #00ff00;">SubSets II</span> -返回所有子数组，原数组有重复</strong></div><br><div><strong>思路：依然是dfs，回溯，只是要注意消除重复的情况，加到容器里的时候加个判断就可以了，时间n2</strong></div><br></div><br><div><br><br>### 3.<span style="color: #00ff00;">Combination Sum</span>-给定目标值返回数组中所有=target值的排列组合，元素可以重复利用<br><br><div>思路：<strong>回溯，dfs</strong>,因为不清楚当前元素利用的次数，所以是NP问题。</div><br><div></div><br><div><br><div><strong> 4.<span style="color: #00ff00;">Combination Sum II</span>-给定目标值返回数组中所有=target值的排列组合，元素不能重复利用重复利用</strong></div><br><div><strong>思路：回溯，dfs,和前一题类似，只是返回i+1而已。全排列的问题好像都是一个模型..</strong></div><br><div></div><br><div><strong>5.<span style="color: #00ff00;">Combination Sum III</span> -给定元素个数从1-9中选取指定元素，求等于目标值的排列组合。</strong></div><br><div><strong>思路：依然是回溯，dfs，只不过传的参数多一点而已</strong></div><br><div></div><br><div><br><div><strong>6.<span style="color: #ff6600;">Construct Binary Tree from Inorder and Postorder Traversal</span>-已知中序和后序遍历构造BT</strong></div><br><div><strong>思路：利用中序遍历的左中右和post的左右中，不断切分，map建立索引，dfs可以得出当前节点的左右子树，相当于一次树的遍历，时间N,空间N;</strong></div><br><div><br><br>### 7.<span style="color: #ff6600;">Construct Binary Tree from Preorder and Inorder Traversal</span>已知前序和中序遍历构造BT<br><br><div>思路：一样吧…<strong>利用中序遍历的左中右和pre的中左右，不断切分，map建立索引，dfs可以得出当前节点的左右子树，相当于一次树的遍历，时间N,空间N，这样的题目多练习就好。</strong></div><br><div><strong> </strong></div><br><div><em>*<span style="color: #ff00ff;">总结</span>：DFS出现概率也很高，主要也就是不断递归求解，主要用于<span style="color: #ff0000;">返回多种排列组合的问题求解。</span></em></div><br><div></div><br></div><br></div><br></div><br></div>
+
+<hr>
+<p></p></div><p></p>
+<h3 id="五组：双…N指针"><a href="#五组：双…N指针" class="headerlink" title="五组：双…N指针"></a><span style="color: #0000ff;"><strong><span style="font-size: 24px;">五组：双…N指针</span></strong></span></h3><hr>
+<p>### </p>
+<div><br><div><strong>1.<span style="color: #00ff00;">Sort Colors</span>-排序颜色，就是自己排序包含012三个数字的数组给出一遍遍历原地排序的解法</strong></div><br><div>思路：91）<strong>双指针，快速排序</strong>的思想，两头往中间遍历。一遍遍历</div><br><div>（2）两次遍历，第一次计算123的频率，第二次把123填入到数组里。</div><br><div></div><br><div><br><div><strong>2.<span style="color: #00ff00;">Container With Most Water</span>-计算最大容水量</strong></div><br><div>思路：双指针遍历，当从两边向中间考虑时，乘水的面积是由（两端较小的高度）×（两个板之间的宽度）决定的。想要变得大一点，只有增加高度以期望超过宽度的减少。所以维护一个maxarea,然后不断增加高度以减少宽度的减少。时间N</div><br><div></div><br><div><br><div><strong> 3.<span style="color: #00ff00;">Remove Duplicates from Sorted Array</span>-去除数组的重复值并返回长度，不借助其他数据结构</strong></div><br><div>思路：注意已经排序，快慢指针，快指针判断，慢指针填充，如果要返回数组的话copy一个，返回长度的话就是慢指针+1；时间N</div><br><div><br><div><strong>4. <span style="color: #00ff00;">3 Sum Closest</span>-在数组中找到3个数字的和使其最靠近目标值</strong></div><br><div><strong>思路：一开始我以为用dfs，时间复杂度N2;后来发现用三个指针维护也行，当前，next，已经从最后一个元素开始向前的指针，时间复杂度貌似也是N2,两个内循环;</strong></div><br><div></div><br><div><br><div><strong>5.<span style="color: #00ff00;">ThreeSum</span>-数组中寻找三个数的和等于0</strong></div><br><div>思路：这题就是比3sum closest 多考虑一个去重问题，因为排好序了所以也简单，1.利用两个指针寻找sum； 2.去重  时间N2</div><br><div><br><div><br><pre xml:space="preserve"></pre><br><strong>6.<span style="color: #ff6600;">4Sum</span>-数组中寻找4个数的组合之和等于目标值，要求无重复的列出
+</strong>思路 ：跟3 sum差不多，只是需求扩展到四个的数字的和了。我们还是可以按照3 sum中的解法，只是在外面套一层循环，相当于求n次3 sum。我们知道3 sum的时间复杂度是O(n^2)，所以如果这样解的总时间复杂度是O(n^3)。</div><br><div>（2）hashtable,具体未展开了解…</div><br><div>扩展：k-sum问题</div><br><div></div><br></div><br></div><br><div><br><div><strong>7.<span style="color: #ff6600;">Minimum Size Subarray Sum-</span>给定数组和目标值求长度最小且不小于目标值的左数组。</strong></div><br><div><strong>思路：(1)两个指针遍历数组，维护长度最小值，时间O(N);<br>**</strong> (2)NlogN解法，<em>*构造一个递增序列以便二分搜索, 不展开了，感觉没啥意义</em></div><br><div></div><br><div><span style="color: #ff00ff;">总结</span>：多指针通常是为了减少空间复杂度的情况下遍历数据结构，<span style="color: #ff0000;">通常为了解决一些动态变化，维护最值，或者排序时的问题。</span></div><br><div>
+
+ <em> </em><br><br></div><br></div><br></div><br></div><br></div><br></div>
+
+<h3 id="六组：利用本身特性"><a href="#六组：利用本身特性" class="headerlink" title="六组：利用本身特性"></a><span style="color: #0000ff;"><strong><span style="font-size: 24px;">六组：利用本身特性</span></strong></span></h3><hr>
+<p>### </p>
+<div><strong>1.<span style="color: #00ff00;">Majority Element</span>-寻找数组中出现频率最大的数字，且假设频率大于n/2</strong></div><br><div>思路：（1）利用特性直接排序然后返回2/n的数值。O(nlogn)</div><br><div>(2) 设定一个count值，维护一个major，最后返回出现频率最大的值，O(n)</div>
+
+<h3 id="2-Remove-Element-去除数组中的目标元素并返回长度·"><a href="#2-Remove-Element-去除数组中的目标元素并返回长度·" class="headerlink" title="2.Remove Element-去除数组中的目标元素并返回长度·"></a>2.<span style="color: #00ff00;">Remove Element</span>-去除数组中的目标元素并返回长度·</h3><p><div>思路：额，遍历一遍，维护一个next,把返回长度的数组顺序弄好就ok了，感觉木有什么意义啊…好像就是考察你如何在去除的同时记录长度，时间n。</div></p>
+<p><div></div></p>
+<p><div></div></p>
+<p><div><strong>3.<span style="color: #00ff00;">Remove Duplicates from Sorted ArrayII</span>-去除数组两次以上的重复值并返回长度</strong></div></p>
+<p><div>思路：维护一个counter和 idx，&gt;3时跳过，A[idx++]=A[i]</div></p>
+<p><div></div><br></p></div><p></p>
+<p><div></div></p>
+<p><div><strong><span style="color: #ff6600;">4.Rotate Image</span>-旋转矩阵</strong></div></p>
+<p><div>思路：这个问题还是有固定套路的，和玩魔方一样，上面和最后一行互换，然后对角线元素互换，还是比较巧妙的，私以为这种有现成方案的问题还是知其然就好，但是不同语言的表达能力不同，所以这题最好用c++方便点，因为有swap函数</div></p>
+<p><div></div></p>
+<p><div></div></p>
+<p><div><strong>5.<span style="color: #00ff00;">Plus One</span>-模拟加法，数组表示数字加一然后返回</strong></div></p>
+<p><div>思路：纯数学，注意进位carry和特殊情况999+1…</div></p>
+<div>
+
+<h3 id="6-Merge-Sorted-Array-合并两个有序数组-第一个数组有足够空间"><a href="#6-Merge-Sorted-Array-合并两个有序数组-第一个数组有足够空间" class="headerlink" title="6.Merge Sorted Array-合并两个有序数组,第一个数组有足够空间"></a>6.Merge Sorted Array-合并两个有序数组,第一个数组有足够空间</h3><p><div>思路：归并排序，只不过，因为防止元素被破坏逆向遍历。时间m+n</div></p>
+<p><div></div><br></p></div><br><br><p></p>
+<p><div></div></p>
+<p><div><strong>7.<span style="color: #00ff00;">First Missing Positive</span>-找到无需数组中缺失的正整数 常量空间与时间</strong></div></p>
+<p><div><strong>思路：</strong>常量时间的排序不基于比较，这题目就是桶排序的变种，利用数组的下标这样就可以不用hash table记录了，目标是尽可能将数字i放到数组第i-1个位置。</div></p>
+<p><pre xml:space="preserve">扫描数组中每个数：<br>1. 如果A[i]&lt;1或者A[i]&gt;n。说明A[i]一定不是first missing positive。跳过<br>2. 如果A[i] = i+1，说明A[i]已经在正确的位置，跳过<br>3. 如果A[i]!=i+1，且0&lt;A[i]&lt;=n，应当将A[i]放到A[A[i]-1]的位置，所以可以交换两数。<br>这里注意，当A[i] = A[A[i]-1]时会陷入死循环。这种情况下直接跳过。</pre></p>
+<p></p>
+<p><div><strong>8.<span style="color: #00ff00;">Rotate Array</span>-给出旋转个数旋转数组</strong></div></p>
+<p><div><strong>思路：三次旋转，主要就是数组翻转的基本操作，比如k=3,n=9,1234567,4321，765，然后5671234。和矩阵链表的翻转一样，没啥区别…</strong></div></p>
+<p><div><strong> </strong></div></p>
+<p><div><strong> 9. <span style="color: #ff6600;">Spiral Matrix II</span> -给定n,返回二维数组表示的螺旋矩阵<br> 思路：递归构造，时间N2，不谈了，还是多练</strong></div></p>
+<p><div><strong> </strong></div></p>
+<p><div></div></p>
+<p><div><strong>10.<span style="color: #00ff00;">Search a 2D Matrix</span>-在一个按顺序递归的螺旋矩阵中寻找目标值</strong></div></p>
+<p><div><strong>思路：遍历就不说了，减少时间复杂度肯定用二分搜索</strong></div></p>
+<p><div><strong>（1）</strong>做两次二分就好了，首先二分第一列，找出target所在的行，然后二分该行。</div></p>
+<p><div><strong>（2）利用矩阵的特性</strong></div></p>
+<p><pre xml:space="preserve">int mid_value = matrix[mid / col_num][mid % col_num];</pre><br><strong>，把它看做一个有序数组，一次二分即可</strong></p>
+<p><div><strong> </strong></div></p>
+<p><div><strong>11.<span style="color: #ff6600;">Set Matrix Zeroes</span>-在矩阵中把0的行列全部设为0；</strong></div></p>
+<p><div><strong>思路：</strong></div></p>
+<p><pre xml:space="preserve">check if first row and column are zero or not<br>mark zeros on first row and column<br>use mark to set elements<br>set first column and row by using marks in step </pre></p>
+<p><br><br><br><br><br></p>
+<p><div><span style="color: #ff00ff;">总结</span>：每种数据结构都有自身的特性，根据题意也有不同的效果，比如数组可以利用自身下标，矩阵可以看做有序数组等等，这些<span style="color: #ff0000;"><span style="color: #ff0000;">隐含条件往往在解题时会有意想不到的效果。</span></span></div></p>
+<hr>
+<hr>
+<p></p>
+<p><div><span style="color: #333300;"> </span></div></p>
+<p><div><span style="color: #333300;"><strong><span style="font-size: 18px;">后记：总结主要为了以后遇到问题时的思路可以更加清晰，而不是干是看着问题，却无法下手，有一个清晰的逻辑过程，并且在实践中不断完善这个过程是练习的最终目的。简单说下解题的步骤：（我擦ヾ(｡｀Д´｡)，感觉回到高中时代了…)</span></strong></span></div></p>
+<p><div><strong><span style="color: #008000; font-size: 18px;">1.拿到题目先考察题目要求,隐含条件</span></strong></div></p>
+<p><div><strong><span style="color: #008000; font-size: 18px;">2.直觉给出第一方案（长期练习习得）</span></strong></div></p>
+<p><div><strong><span style="color: #008000; font-size: 18px;">3.考虑其他方案的可行性，排除法</span></strong></div></p>
+<p><div><strong><span style="color: #008000; font-size: 18px;">4.演算，并给出最终方案</span></strong></div></p>
+<p><div><strong><span style="color: #008000; font-size: 18px;">5.编码</span></strong></div></p>
+<p><div><strong><span style="color: #008000; font-size: 18px;">6.复查，测试</span></strong></div></p>
+<p><div></div></p>
+<p><div><strong><span style="color: #008000; font-size: 18px;">（over。。。）</span></strong></div></p>
+<p><div></div></p>
+<p><pre xml:space="preserve"></pre><br></p>
+<p><div><strong><span style="color: #000000;"><br></span>**</strong><span style="color: #000000;"><br></span><em>**</em><span style="color: #000000;"> </span></div></p>
+<hr>
+<hr>
+<p>**</p>
+<p></p>
+<div>
+
+<p></p></div><br>&nbsp;<p></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/31/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e5-81-a5-e5-ba-b7-e6-8c-87-e5-8d-97-e3-80-8b-e7-9a-84-e7-ac-94-e8-ae-b0-e4-bb-a5-e5-8f-8a-e4-b8-aa-e4-ba-ba-e6-b8-85-e5-8d-95/" rel="next" title="《程序员健康指南》的笔记以及个人清单">
+                <i class="fa fa-chevron-left"></i> 《程序员健康指南》的笔记以及个人清单
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/04/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-linkedlist-e7-af-87/" rel="prev" title="leetcode习题分类汇总-LinkedList篇">
+                leetcode习题分类汇总-LinkedList篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/06/02/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-array-e7-af-87/"
+           data-title="leetcode习题分类汇总-Array篇" data-url="http://zhouchaowei.com/2015/06/02/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-array-e7-af-87/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#五组：双…N指针"><span class="nav-number">1.</span> <span class="nav-text">五组：双…N指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六组：利用本身特性"><span class="nav-number">2.</span> <span class="nav-text">六组：利用本身特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Remove-Element-去除数组中的目标元素并返回长度·"><span class="nav-number">3.</span> <span class="nav-text">2.Remove Element-去除数组中的目标元素并返回长度·</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Merge-Sorted-Array-合并两个有序数组-第一个数组有足够空间"><span class="nav-number">4.</span> <span class="nav-text">6.Merge Sorted Array-合并两个有序数组,第一个数组有足够空间</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="### Generate Parentheses-给N对（），给出所有的组合方式思路：DFS+backtraceing+具体判断1. Left代表余下的’(‘的数目2. right代表余下的’)’的数目3. 注意right余下的数目要大于left,否则就是非法的，比如，先放一个’)’就是非法的。4. 任何一个小于0，也是错的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode习题分类汇总-String篇">
+<meta property="og:url" content="http://zhouchaowei.com/2015/06/07/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-string-e7-af-87/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="### Generate Parentheses-给N对（），给出所有的组合方式思路：DFS+backtraceing+具体判断1. Left代表余下的’(‘的数目2. right代表余下的’)’的数目3. 注意right余下的数目要大于left,否则就是非法的，比如，先放一个’)’就是非法的。4. 任何一个小于0，也是错的。">
+<meta property="og:updated_time" content="2015-09-19T12:12:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode习题分类汇总-String篇">
+<meta name="twitter:description" content="### Generate Parentheses-给N对（），给出所有的组合方式思路：DFS+backtraceing+具体判断1. Left代表余下的’(‘的数目2. right代表余下的’)’的数目3. 注意right余下的数目要大于left,否则就是非法的，比如，先放一个’)’就是非法的。4. 任何一个小于0，也是错的。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> leetcode习题分类汇总-String篇 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                leetcode习题分类汇总-String篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-07T06:40:17+08:00" content="2015-06-07">
+              2015-06-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/07/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-string-e7-af-87/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/07/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-string-e7-af-87/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div><br><br>### <span style="color: #00ff00;">Generate Parentheses</span>-给N对（），给出所有的组合方式<br><br><div>思路：DFS+backtraceing+具体判断<br><pre xml:space="preserve"><br>1. Left代表余下的’(‘的数目<br><br>2. right代表余下的’)’的数目<br><br>3. 注意right余下的数目要大于left,否则就是非法的，比如，先放一个’)’就是非法的。<br><br>4. 任何一个小于0，也是错的。<br><br><a id="more"></a><br><br>5. 递归的时候，我们只有2种选择，就是选择’(‘还是选择’)’。<br><br>6. 递归的时候，一旦在结果的路径上尝试过’(‘还是选择’)’，都需要回溯，即是sb.deleteCharAt(sb.length() - 1);</pre><br></div><br></div><br><div><br><br>### <span style="color: #00ff00;">Length of Last Word</span>-返回有空白符的最后一个字符的长度<br><br><div>思路：基本操作，直接用API,split或者s.trim().length()-s.trim().lastIndexOf(“ “)-1</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Valid Parentheses</span>-Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.<br><br><pre xml:space="preserve"><br>思路：用栈的push,pop以及isEmpty()来判断是否符合条件</pre><br></div><br><div><br><br>### <span style="color: #00ff00;">Edit Distance</span>-计算从一个单词转换到另一个单词的最小操作数，可以进行替换，插入，删除操作<br><br><div>思路：二维DP：<br><pre xml:space="preserve">两个String看成两个char数组，分别是x[m]以及y[n]。对于x[1]…x[i]和y[1]…y[j]的edit distance为A[i][j]。那么有如下recursion:<br><br>A[i][j]=A[i-1][j-1] if x[i] = y[j];<br><br>A[i][j]=min(A[i-1][j], A[i][j-1], A[i-1][j-1])+1 if x[i] != y[j]<br><br>其中第二种x[i]!=y[j]的min中的三个元素分别代表insert, delete和replace三种情况，要看哪种最小。<br><br>Base case是A[0][j]=j, A[i][0] = i。<br><br><span style="color: #ff0000; font-family: georgia, palatina, serif;"><strong>Distinct Subsequences-</strong></span></pre><br>Given a string S and a string T, count the number of distinct subsequences of T in S.<br><pre xml:space="preserve"></pre><br>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, <code>&quot;ACE&quot;</code> is a subsequence of <code>&quot;ABCDE&quot;</code> while <code>&quot;AEC&quot;</code> is not).<br><pre xml:space="preserve">思路：When you see string problem that is about<strong> subsequence or matching</strong>, dynamic programming method should come to your mind naturally. The key<br>is to find the changing condition.<br><br>遇到这种两个串的问题，很容易想到DP。但是这道题的递推关系不明显。可以先尝试做一个二维的表int[][] dp，用来记录匹配子序列的个数（以S =”rabbbit”,T = “rabbit”为例）：<br>r a b b b i t<br>1 1 1 1 1 1 1 1<br>r 0 1 1 1 1 1 1 1<br>a 0 0 1 1 1 1 1 1<br>b 0 0 0 1 2 3 3 3<br>b 0 0 0 0 1 3 3 3<br>i 0 0 0 0 0 0 3 3<br>t 0 0 0 0 0 0 0 3<br>从这个表可以看出，无论T的字符与S的字符是否匹配，dp[i][j] = dp[i][j - 1].就是说，假设S已经匹配了j - 1个字符，得到匹配个数为dp[i][j - 1].现在无论S[j]是不是和T[i]匹配，匹配的个数至少是dp[i][j -<br>1]。除此之外，当S[j]和T[i]相等时，我们可以让S[j]和T[i]匹配，然后让S[j - 1]和T[i - 1]去匹配。所以递推关系为：<br>dp[0][0] = 1; // T和S都是空串.<br>dp[0][1 … S.length() - 1] = 1; // T是空串，S只有一种子序列匹配。<br>dp[1 … T.length() - 1][0] = 0; // S是空串，T不是空串，S没有子序列匹配。<br>dp[i][j] = dp[i][j - 1] + (T[i - 1] == S[j - 1] ? dp[i - 1][j - 1] : 0).1 &lt;= i &lt;= T.length(), 1 &lt;= j &lt;= S.length()</pre><br><pre xml:space="preserve"></pre><br></div><br><div><span style="color: #00ff00;">L</span><strong><span style="color: #00ff00;">ongest Common Prefix</span>-找到string[]的最大公共前缀</strong></div><br><div></div><br><div>思路：先找到最小字符串，然后两个for循环即可</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Letter Combinations of a Phone Number</span>-给出数字键组合列出所有可能的字母组合。<br><br><div>思路：<br><pre xml:space="preserve">先把对应关系存储起来（利用数组下标），然后想办法遍历,DFS或者BFS，可以借助queue</pre><br></div><br><strong> </strong><br><br>### <span style="color: #00ff00;">Count and Say</span>-The count-and-say sequence is the sequence of integers beginning as follows:<br><code>1, 11, 21, 1211, 111221, ...返回第N个序列</code><br><br><div>思路：序列的问题首先想到还是DP，根据上一个值求下一个，维护prev的值，然后维护当前元素say和计数count,两个for循环即可。</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Add Binary</span>-二进制数的加法<br><br><div>思路：维护carry和count值，while循环不断insert即可，注意最后一次carry==1需要插入。</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Anagrams</span>-返回string[]中所有回文字符串<br><br>思路：<br><pre xml:space="preserve">首先简单介绍一下Anagram（回文构词法）。Anagrams是指由颠倒字母顺序组成的单词，比如“dormitory”颠倒字母顺序会变成“dirty room”，“tea”会变成“eat”。<br><br>回文构词法有一个特点：单词里的字母的种类和数目没有改变，只是改变了字母的排列顺序。<br><br>由此我们可以想到，只要将几个单词按照字母顺序进行排序，就可以通过比较判断他们是否是anagrams。<br>思路：用map&lt;string, int&gt;记录排序后的字符串以及首次出现的位置。<br><br>1. 从strs的第一个元素开始遍历，首先对元素进行排序得到s；<br><br>2. 在map里查找s；<br><br>3. 若不存在，将s以及该元素的下标存入map&lt;string ,int&gt;；<br><br>4. 若存在，首先将第一次出现s时的原始字符串存入结果res，即strs[map[s]]，并将map[s]设置为-1（防止下次再存），再将该字符串本身存入结果res；<br><br>5. 重复以上1-4步，直到遍历结束。<br><br></pre><br><br>### <span style="color: #ff6600;">Implement strStr()</span>- 判断一个字符串是否是另一个字符串的子串。<br><br><pre xml:space="preserve">思路：这个题目最经典的算法应该是KMP算法，<a href="http://en.wikipedia.org/wiki/Knuth-Morris-Pratt_algorithm" target="_blank" rel="external">Knuth–Morris–Pratt algorithm</a>。KMP算法是最优的线性算法，复杂度已经达到这个问题的下限。但是KMP算法比较复杂，很难在面试的短时间里面完整正确的实现。所以一般在面试中并不要求实现KMP算法。</pre><br>采用brute force的算法，假设原串的长度是n，匹配串的长度是m。思路很简单，就是对原串的每一个长度为m的字串都判断是否跟匹配串一致。总共有n-m+1个子串，所以算法时间复杂度为O((n-m+1)<em>m)=O(n</em>m)，空间复杂度是O(1)。<br><br></div>
+
+<h3 id="Valid-Palindrome-判断是否为回文串"><a href="#Valid-Palindrome-判断是否为回文串" class="headerlink" title="Valid Palindrome-判断是否为回文串"></a><span style="color: #00ff00;">Valid Palindrome</span>-判断是否为回文串</h3><div>思路：把其他符号大小写都去掉然后reverse，判断是否equals即可</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Multiply Strings</span>-字符串相乘，非负数<br><br><div>思路：不能化为数字，要考虑溢出。</div><br><div><br><pre>方法一：大整数乘法，一位一位往上乘，注意进位的处理即可。此外，注意0的处理<br>方法二：思路：<br>1 翻转string<br>2 建立数组，双层循环遍历两个string，把单位的乘积累加到数组相应的位置<br>3 处理进位并输出<br>4 注意前导零的corner case</pre><br></div><br></div>
+
+<p>### </p>
+<h3 id="Longest-Substring-Without-Repeating-Characters-返回字符串无重复的字符个数"><a href="#Longest-Substring-Without-Repeating-Characters-返回字符串无重复的字符个数" class="headerlink" title="Longest Substring Without Repeating Characters-返回字符串无重复的字符个数"></a><span style="color: #00ff00;">Longest Substring Without Repeating Character</span>s-返回字符串无重复的字符个数</h3><div>思路：两个指针确定max,用hashmap存储数据</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Longest Palindromic Substring</span>-返回最长的回文子字符串<br><br><div>思路：<br><pre>思路1：最土的算法，将所有的子串求出来，再选出最长的回文子串。不用试，肯定超时。O(n^3)</pre><br><pre>思路2：挑出最短的回文串（单个字符，或者两个相邻的相同字符）， 然后向两端辐射，时间复杂度O(n^2)，空间复杂度可以优化到O(1)</pre><br><pre>思路3：DP<br><br></pre><br><br>### <span style="color: #00ff00;">Reverse Words in a String</span>-翻转string[]<br><br><div>思路：基本操作，split,stringbuilder优化</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Compare Version Numbers</span>-比较版本大小<br><br><div>思路：基本操作，split后遍历，熟悉三元操作符以及parseInt等API即可。</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">String to Integer</span> -字符串转换为数字<br><br><div>思路：基本操作，考虑各种corner case.</div><br><div>1.null or empty string 判断</div><br><div>2.white spaces   trim()</div><br><div>3. +/- sign 用flag判断</div><br><div>4.calculate real value double来存储</div><br><div>5.handle min &amp; max</div><br><div></div><br><div><span style="color: #800000;">总结</span>：一共40题、只选取了18题，应该说对字符串的操作自己掌握的还是相当糟糕的。<strong><span style="color: #99cc00;">主要目的还是掌握字符串的基本操作</span></strong>，至于其他技巧，比如组合排列用DFS+Backtracing，极值问题用DP,存储借助数组或hashmap，反而和string本身的关联不大，多加练习就好。剩余的题目依然还是要找机会补上的。</div><br></div><br></div><br><pre></pre><br><pre></pre><br></div><br></div>
+
+<p>### </p>
+<p></p></div><br><strong> </strong></div><br></div><br></div><p></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/04/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-linkedlist-e7-af-87/" rel="next" title="leetcode习题分类汇总-LinkedList篇">
+                <i class="fa fa-chevron-left"></i> leetcode习题分类汇总-LinkedList篇
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/09/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-tree-e7-af-87/" rel="prev" title="leetcode习题分类汇总-Tree篇">
+                leetcode习题分类汇总-Tree篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/06/07/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-string-e7-af-87/"
+           data-title="leetcode习题分类汇总-String篇" data-url="http://zhouchaowei.com/2015/06/07/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-string-e7-af-87/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Valid-Palindrome-判断是否为回文串"><span class="nav-number">1.</span> <span class="nav-text">Valid Palindrome-判断是否为回文串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Longest-Substring-Without-Repeating-Characters-返回字符串无重复的字符个数"><span class="nav-number">2.</span> <span class="nav-text">Longest Substring Without Repeating Characters-返回字符串无重复的字符个数</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

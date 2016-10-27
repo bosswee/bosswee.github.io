@@ -1,0 +1,620 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Single Number-在其他数均出现两次的数组中找到唯一出现一次的数字思路：位运算，0^0=0,0^1=1 0异或任何数＝任何数，1^0=1,1^1=0 1异或任何数－任何数取反，任何数异或自己＝把自己置0。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode习题分类汇总-Math篇">
+<meta property="og:url" content="http://zhouchaowei.com/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-math-e7-af-87/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="Single Number-在其他数均出现两次的数组中找到唯一出现一次的数字思路：位运算，0^0=0,0^1=1 0异或任何数＝任何数，1^0=1,1^1=0 1异或任何数－任何数取反，任何数异或自己＝把自己置0。">
+<meta property="og:updated_time" content="2015-09-19T12:12:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode习题分类汇总-Math篇">
+<meta name="twitter:description" content="Single Number-在其他数均出现两次的数组中找到唯一出现一次的数字思路：位运算，0^0=0,0^1=1 0异或任何数＝任何数，1^0=1,1^1=0 1异或任何数－任何数取反，任何数异或自己＝把自己置0。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> leetcode习题分类汇总-Math篇 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                leetcode习题分类汇总-Math篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-22T10:54:36+08:00" content="2015-06-22">
+              2015-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Life-Essay/" itemprop="url" rel="index">
+                    <span itemprop="name">Life Essay</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-math-e7-af-87/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-math-e7-af-87/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div><span style="color: #00ff00;"><strong>Single Number</strong></span>-在其他数均出现两次的数组中找到唯一出现一次的数字<br><br>思路：位运算，0^0=0,0^1=1 0异或任何数＝任何数，1^0=1,1^1=0 1异或任何数－任何数取反，任何数异或自己＝把自己置0。<br><br><br><a id="more"></a><br><br><span style="color: #00ff00;"><strong>Count Primes</strong></span>-统计到N的素数<br><br>思路：<br>(1)计算出每个素数，TLE<br> (2)要得到自然数n以内的全部素数，必须把不大于的所有素数的倍数剔除，剩下的就是素数。<br>给出要筛数值的范围n，找出根号N以内的素数。先用2去筛，即把2留下，把2的倍数剔除掉；再用下一个质数，也就是3筛，把3留下，把3的倍数剔除掉；接下去用下一个质数5筛，把5留下，把5的倍数剔除掉；不断重复下去……。<br>用boolean[]来跟踪当前位置是否是prime.</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Happy Number-</span><br><br>Example: 19 is a happy number<br><br><em>   12 + 92 = 82
+</em>   82 + 22 = 68<br><em>   62 + 82 = 100
+</em>   12 + 02 + 02 = 1<br><div><br><pre xml:space="preserve">解题思路：一开始直接模拟，循环100次还不是1直接剪掉return false，也能AC，<br>但是毕竟可能有情况覆盖不到，改用HastSet存放中间数就行了，<br>如果得到的新结果在中间数集合中出现了，那么一定会陷入循环并且得到的不是1。</pre><br></div>
+
+<p>### </p>
+<div><strong>5.<span style="color: #00ff00;">Plus One</span>-模拟加法，数组表示数字加一然后返回</strong></div><br><div>思路：纯数学，注意进位carry和特殊情况999+1…</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Palindrome Number</span>-判断数字是否回文<br><br><div>思路：转换为字符串比较</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Factorial Trailing Zeroes-</span>给定一个整数n，返回n!（n的阶乘）数字中的后缀0的个数。<br><br>思路：首先求出n!，然后计算末尾0的个数。（重复÷10，直到余数非0）<br><br>该解法在输入的数字稍大时就会导致阶乘得数溢出，不足取。<br><br>### O（logn）解法：<br><br>一个更聪明的解法是：考虑n!的质数因子。后缀0总是由质因子2和质因子5相乘得来的。如果我们可以计数2和5的个数，问题就解决了。考虑下面的例子：<br><br>n = 5: 5!的质因子中 (2 <em> 2 </em> 2 <em> 3 </em> 5)包含一个5和三个2。因而后缀0的个数是1。<br><br>n = 11: 11!的质因子中(2^8 <em> 3^4 </em> 5^2 * 7)包含两个5和三个2。于是后缀0的个数就是2。<br><br>我们很容易观察到质因子中2的个数总是大于等于5的个数。因此只要计数5的个数就可以了。那么怎样计算n!的质因子中所有5的个数呢？一个简单的方法是计算floor(n/5)。例如，7!有一个5，10!有两个5。除此之外，还有一件事情要考虑。诸如25，125之类的数字有不止一个5。例如，如果我们考虑28!，我们得到一个额外的5，并且0的总数变成了6。处理这个问题也很简单，首先对n÷5，移除所有的单个5，然后÷25，移除额外的5，以此类推。下面是归纳出的计算后缀0的公式。<br><br></div><br></div>
+
+<h3 id="Pow-x-n-返回x的n次方"><a href="#Pow-x-n-返回x的n次方" class="headerlink" title="Pow(x, n)-返回x的n次方"></a><span style="color: #00ff00;">Pow(x, n)</span>-返回x的n次方</h3><div>思路：(1)先判断n±，然后递归二分x的n/2次方，时间logn</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Reverse Integer</span>-数值的翻转<br><br>思路：利用运算符，注意值的溢出判断</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Add Binary</span>-二进制数的加法<br><br><div>思路：维护carry和count值，while循环不断insert即可，注意最后一次carry==1需要插入</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Sqrt(x)</span>-实现x的平方根<br><br>思路：<br><pre xml:space="preserve">二分法提高效率，对于一个非负数n，注意不要溢出。 它的平方根不会小于大于（n/2+1）。在[0, n/2+1]这个范围内可以进行二分搜索，求出n的平方根。<br><br></pre><br><br>### <span style="color: #00ff00;">Add Two Numbers</span>-两个链表每个节点分别表示一个数字，求数字相加的第三个链表，可以进位<br><br><div>思路： carry表示进位，p1,p2,p3遍历，考虑链表长度不同的状况</div><br><pre xml:space="preserve"></pre><br></div><br></div><br><div><br><br>### <span style="color: #00ff00;">Multiply Strings</span>-字符串相乘，非负数<br><br><div>思路：不能化为数字，要考虑溢出。</div><br><div><br><pre xml:space="preserve">方法一：大整数乘法，一位一位往上乘，注意进位的处理即可。此外，注意0的处理<br>方法二：思路：<br>1 翻转string<br>2 建立数组，双层循环遍历两个string，把单位的乘积累加到数组相应的位置<br>3 处理进位并输出<br>4 注意前导零的corner case</pre><br></div><br></div><br><div></div>
+
+<p>### </p>
+<h3 id="String-to-Integer-字符串转换为数字"><a href="#String-to-Integer-字符串转换为数字" class="headerlink" title="String to Integer -字符串转换为数字"></a><span style="color: #00ff00;">String to Integer</span> -字符串转换为数字</h3><div>思路：基本操作，考虑各种corner case.</div><br><div>1.null or empty string 判断</div><br><div>2.white spaces   trim()</div><br><div>3. +/- sign 用flag判断</div><br><div>4.calculate real value double来存储</div><br><div>5.handle min &amp; max</div>
+
+<h3 id="Fraction-to-Recurring-Decimal-分数化为小数"><a href="#Fraction-to-Recurring-Decimal-分数化为小数" class="headerlink" title="Fraction to Recurring Decimal-分数化为小数"></a><span style="color: #00ff00;">Fraction to Recurring Decimal</span>-分数化为小数</h3><div>思路：<br><pre xml:space="preserve">难点：如何识别循环体？<br><br>解决方法：用一个HashMap记录每一个余数，当出现重复的余数时，那么将会进入循环，两个重复余数之间的部分就是循环体。<br><br>示例：1/13=0.076923076923076923…，当小数部分第二次出现0时，就意味着开始了循环，那么需要把076923用括号括起来，结果为0.(076923)。<br><br>涉及技巧：1）在不断相除的过程中，把余数乘以10再进行下一次相除，保证一直是整数相除；2）HashMap的key和value分别是&lt;当前余数, 对应结果下标&gt;，这样获取076923时就可根据value值来找。<br><br>注意点1：考虑正负数，先判断符号，然后都转化为正数；<br><br>注意点2：考虑溢出，如果输入为Integer.MIN_VALUE，取绝对值后会溢出。<br><br>一定要先把 int 转为 long，然后再取绝对值。如果写成 long num = Math.abs(numerator) 就会有问题，因为这句代码在 numerator=Integer.MIN_VALUE 时相当于 long num = Math.abs<br>(-2147483648)，这样得到的 num还是 -2147483648。</pre><br></div>
+
+<h3 id="Excel-Sheet-Column-Title"><a href="#Excel-Sheet-Column-Title" class="headerlink" title="Excel Sheet Column Title-"></a><span style="color: #00ff00;">Excel Sheet Column Title</span>-</h3><p>For example:</p>
+<p><pre xml:space="preserve">    1 -&gt; A<br>    2 -&gt; B<br>    3 -&gt; C<br>    …<br>    26 -&gt; Z<br>    27 -&gt; AA<br>    28 -&gt; AB<br>思路：</pre></p>
+<div>将n转化为26进制表示的数，然后对每一位的数，根据『1-&gt;A,2-&gt;B,3-&gt;C….25-&gt;Y,26-&gt;Z』来转化。</div><br><div>当然，按照进制转换的方法（不断地除26取余数），不可能有26的余数，比如：52-&gt;(20)-&gt;AZ，此时余数是0，这种情况要特殊处理。</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Excel Sheet Column Number</span>-<br><br>For example:<br><pre xml:space="preserve">    A -&gt; 1<br>    B -&gt; 2<br>    C -&gt; 3<br>    …<br>    Z -&gt; 26<br>    AA -&gt; 27<br>    AB -&gt; 28<br><br>思路：hashmap存储对应关系，然后从左到右按照26进制相加。</pre><br></div>
+
+<h3 id="总结：数值计算主要考察运算符的利用，一些常见的数学规律，和字符串的互操作以及corner-case的全面考虑。"><a href="#总结：数值计算主要考察运算符的利用，一些常见的数学规律，和字符串的互操作以及corner-case的全面考虑。" class="headerlink" title=" 总结：数值计算主要考察运算符的利用，一些常见的数学规律，和字符串的互操作以及corner case的全面考虑。"></a><span style="color: #800000;"> 总结</span>：数值计算主要考察<span style="color: #ff0000;">运算符的利用，一些常见的数学规律，和字符串的互操作以及corner case的全面考虑。</span></h3><p></p></div><p></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/09/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-tree-e7-af-87/" rel="next" title="leetcode习题分类汇总-Tree篇">
+                <i class="fa fa-chevron-left"></i> leetcode习题分类汇总-Tree篇
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-two-pointers-e7-af-87/" rel="prev" title="leetcode习题分类汇总-Two Pointers篇">
+                leetcode习题分类汇总-Two Pointers篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-math-e7-af-87/"
+           data-title="leetcode习题分类汇总-Math篇" data-url="http://zhouchaowei.com/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-math-e7-af-87/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pow-x-n-返回x的n次方"><span class="nav-number">1.</span> <span class="nav-text">Pow(x, n)-返回x的n次方</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-to-Integer-字符串转换为数字"><span class="nav-number">2.</span> <span class="nav-text">String to Integer -字符串转换为数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fraction-to-Recurring-Decimal-分数化为小数"><span class="nav-number">3.</span> <span class="nav-text">Fraction to Recurring Decimal-分数化为小数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Excel-Sheet-Column-Title"><span class="nav-number">4.</span> <span class="nav-text">Excel Sheet Column Title-</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结：数值计算主要考察运算符的利用，一些常见的数学规律，和字符串的互操作以及corner-case的全面考虑。"><span class="nav-number">5.</span> <span class="nav-text"> 总结：数值计算主要考察运算符的利用，一些常见的数学规律，和字符串的互操作以及corner case的全面考虑。</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

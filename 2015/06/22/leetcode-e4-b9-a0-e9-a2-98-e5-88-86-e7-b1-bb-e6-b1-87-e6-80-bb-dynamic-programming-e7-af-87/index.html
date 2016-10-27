@@ -1,0 +1,603 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Unique Binary Search Trees-给定n返回所有可能的二叉搜索树的数量思路：主要是问题规约，对于BST是否Unique，很难判断。最后引入了一个条件以后，立即就清晰了，即当数组为 1，2，3，4，.. i，.. n时，基于以下原则的BST建树具有唯一性：以i为根节点的树，其左子树由[0, i-1]构成， 其右子树由[i+1, n]构成。定义Count[i] 为以[0,i]能产生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode习题分类汇总- Dynamic Programming篇">
+<meta property="og:url" content="http://zhouchaowei.com/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-dynamic-programming-e7-af-87/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="Unique Binary Search Trees-给定n返回所有可能的二叉搜索树的数量思路：主要是问题规约，对于BST是否Unique，很难判断。最后引入了一个条件以后，立即就清晰了，即当数组为 1，2，3，4，.. i，.. n时，基于以下原则的BST建树具有唯一性：以i为根节点的树，其左子树由[0, i-1]构成， 其右子树由[i+1, n]构成。定义Count[i] 为以[0,i]能产生">
+<meta property="og:updated_time" content="2015-09-19T12:12:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode习题分类汇总- Dynamic Programming篇">
+<meta name="twitter:description" content="Unique Binary Search Trees-给定n返回所有可能的二叉搜索树的数量思路：主要是问题规约，对于BST是否Unique，很难判断。最后引入了一个条件以后，立即就清晰了，即当数组为 1，2，3，4，.. i，.. n时，基于以下原则的BST建树具有唯一性：以i为根节点的树，其左子树由[0, i-1]构成， 其右子树由[i+1, n]构成。定义Count[i] 为以[0,i]能产生">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> leetcode习题分类汇总- Dynamic Programming篇 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                leetcode习题分类汇总- Dynamic Programming篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-22T10:59:22+08:00" content="2015-06-22">
+              2015-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-dynamic-programming-e7-af-87/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-dynamic-programming-e7-af-87/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Unique-Binary-Search-Trees-给定n返回所有可能的二叉搜索树的数量"><a href="#Unique-Binary-Search-Trees-给定n返回所有可能的二叉搜索树的数量" class="headerlink" title="Unique Binary Search Trees-给定n返回所有可能的二叉搜索树的数量"></a><span style="color: #ff0000;">Unique Binary Search Trees</span>-给定n返回所有可能的二叉搜索树的数量</h3><div>思路：主要是问题规约，<br><pre xml:space="preserve">对于BST是否Unique，很难判断。最后引入了一个条件以后，立即就清晰了，即<br>当数组为 1，2，3，4，.. i，.. n时，基于以下原则的BST建树具有唯一性：<br>以i为根节点的树，其左子树由[0, i-1]构成， 其右子树由[i+1, n]构成。<br>定义Count[i] 为以[0,i]能产生的Unique Binary Tree的数目，<br><br>如果数组为空，毫无疑问，只有一种BST，即空树，<br>Count[0] =1<br><br>如果数组仅有一个元素{1}，只有一种BST，单个节点<br>Count[1] = 1<br><br><a id="more"></a><br><br>如果数组有两个元素{1,2}， 那么有如下两种可能<br>1                       2<br>\                    /<br>2                1<br>Count[2] = Count[0] <em> Count[1]   (1为根的情况)<br>+ Count[1] </em> Count[0]  (2为根的情况。<br><br>再看一遍三个元素的数组，可以发现BST的取值方式如下：<br>Count[3] = Count[0]<em>Count[2]  (1为根的情况)<br>+ Count[1]</em>Count[1]  (2为根的情况)<br>+ Count[2]<em>Count[0]  (3为根的情况)<br><br>所以，由此观察，可以得出Count的递推公式为<br>Count[i] = ∑ Count[0…k] </em> [ k+1….i]     0&lt;=k&lt;i-1<br>问题至此划归为一维动态规划。<br><br></pre><br><pre xml:space="preserve">动态规划,感觉最重要的是递推式和初始值<br><br></pre><br><br>### <span style="color: #ff0000;">Unique Binary Search Trees II</span>-同上，这次直接返回树了<br><br><div>思路：</div><br><div><br><pre xml:space="preserve">这道题是求解所有可行的二叉查找树，从Unique Binary Search Trees中我们已经知道，可行的二叉查找树的数量是相应的卡特兰数，不是一个多项式时间的数量级，所以我们要求解所有的树，<br>自然是不能多项式时间内完成的了。算法上还是用求解NP问题的方法来求解，也就是N<br>-Queens<br>中介绍的在循环中调用递归函数求解子问题。<br>思路是每次一次选取一个结点为根，然后递归求解左右子树的所有结果，<br>最后根据左右子树的返回的所有子树，依次选取然后接上（每个左边的子树跟所有右边的子树匹配，<br>而每个右边的子树也要跟所有的左边子树匹配，总共有左右子树数量的乘积种情况），<br>构造好之后作为当前树的结果返回。<br>实现中还是有一些细节的，因为构造树时两边要遍历所有左右的匹配，然后接到根上面。<br>当然我们也可以像在Unique Binary Search Trees中那样存储所有的子树历史信息，然后进行拼合，虽然可以省一些时间，<br>但是最终还是逃不过每个结果要一次运算，时间复杂度还是非多项式的，并且要耗费大量的空间，<br>感觉这样的意义就不是很大了。</pre><br></div><br><pre xml:space="preserve"><br><br></pre><br><div><strong><span style="color: #00ff00;">Maximum Subarray</span>-寻找和最大的连续子数组</strong></div><br><div><strong>思路：一维DP，维护一个最大值，遍历，不断计算包含i的前i个元素的最大值，避免前i-1最大值的重复计算，时间n,空间n</strong></div><br><div></div><br><div><br><div><strong> <span style="color: #00ff00;">Maximum Product Subarray</span>-求最大乘积的子数组</strong></div><br><div><strong>思路：（1）记录每种情况的最大值，O(N2)</strong></div><br><div><strong>(2)一维DP,注意和加法的不同，可能出现负数，所以在维护最大值的同时也要维护最小值，O(N).</strong></div><br><div></div><br><div><br><div><strong><span style="color: #00ff00;">Best Time to Buy and Sell Stock</span>-一天中T+1买卖股票获得的最大利润</strong></div><br><div>思路：<strong>一维DP</strong>,维护一个maxProfit和一个前i时间段内的最小值，可以复用前i-1时间段内最小值的重复计算，时间n；</div><br><div></div><br><div><br><div><strong><span style="color: #00ff00;">Best Time to Buy and Sell Stock II</span>-一天内T+0买卖股票获得的最大利润</strong></div><br><div>思路：贪心，逆向遍历，就是只要有利润那就买卖，最终求出最大值，额，有技术含量吗…时间N</div><br><div></div><br><div><br><div><strong><span style="color: #00ff00;">Minimum Path Sum</span>-矩阵的最短路径问题</strong></div><br><div>思路：经典<strong>二维DP</strong>,维护到当前步骤的最小值，复用，直到最后一个最小值出现。时间N.</div><br><div></div><br><div><br><div><strong><span style="color: #00ff00;">Jump Game</span>-测试数组是否可以从前跳跃到尾部</strong></div><br><div><strong>思路：贪心？..遍历，记录出每次跳跃的最大步骤max，其实只要知道什么时候false的条件就可以了,max&lt;=i而且当前A[i]=0的时候，大概这种题主要就是考验细心吧，至于DP,在求max的时候要用到，贪心是DP的特殊情况，没看出来，容我日后补补。时间N</strong></div><br><div></div><br><div><br><div><strong>.<span style="color: #00ff00;">Jump Game Two</span>- 测试数组从前跳跃到后面的最小步数</strong></div><br><div><strong>思路：</strong><br><pre xml:space="preserve">比较典型的贪心。维护一个区间，区间表示第i步所能到达的索引范围。递推的方法为：<br>每次都遍历一遍当前区间内的所有元素，从一个元素出发的最远可达距离是index+array[index]，那么下一个区间的左端点就是当前区间的右端点+1，下一个区间的右端点就是当前区间的max<br>(index+array[index])，以此类推，直到区间包含了终点，统计当前步数即可。<br><br></pre><br><br>### <span style="color: #00ff00;">Unique Paths-</span>m<em>n个方格机器人从左上到右下一共多少种方案<br><br><div>思路：二维DP，构造二维数组，用数字表示走到当前格子有多少种方法，递推式就是当前格子等于左边加上上面格子的总方法，不断复用，遍历矩阵得到结果，时间n,空间n.</div><br></em></div><br></div><br></div><br></div><br></div><br><div></div><br><div><br><div><span style="color: #00ff00;">Unique Paths II</span>-同上，假设有障碍物有多少种方案</div><br><div>思路：递推式还是跟UniquePaths一样，只是每次我们要判断一下是不是障碍，如果是，则res[i][j]=0，否则还是res[i][j]=res[i-1][j]+res[i][j-1]。还是没习惯一维数组的解法，感觉二维的更加直观。</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Climbing Stairs</span>-N级阶梯每次1-2步，多少种方案到达终点<br><br><div>思路：把握初始值，利用当前方案数等于n-1和n-2的方案之和，一维DP</div><br></div><br><div><br><br>### <span style="color: #00ff00;">House Robber</span>-偷窃，相邻的房子不能偷，求获利最大值<br><br><div>思路：<br><pre xml:space="preserve">极值的问题首先考虑动态规划Dynamic Programming来解，<br>依然是初始值，递推式，维护当前房子的最大值，</pre><br><pre xml:space="preserve">状态转移公式为: dp[i]=Math.max(dp[i-3]+num[i], dp[i-2]+num[i])。<br><br></pre><br><pre xml:space="preserve"><span style="font-family: georgia, palatina, serif;"><em>*<span style="color: #00ff00;">HouseRobberTwo</span> -同上，不过房子连成一个环<br><br>思路：</em></span></pre><br><pre xml:space="preserve">讨论是否抢劫第一件房屋。如果是，则不可以抢最后一件房屋。否则，可以抢最后一间房屋。<br><br>以此为依据，将环形DP问题转化为两趟线性DP问题，可以复用House Robber的代码。<br><br>另外需要特判一下只有一件房屋的情形</pre><br><pre xml:space="preserve"></pre><br><pre xml:space="preserve"></pre><br></div>
+
+<h3 id="Edit-Distance-计算从一个单词转换到另一个单词的最小操作数，可以进行替换，插入，删除操作"><a href="#Edit-Distance-计算从一个单词转换到另一个单词的最小操作数，可以进行替换，插入，删除操作" class="headerlink" title="Edit Distance-计算从一个单词转换到另一个单词的最小操作数，可以进行替换，插入，删除操作"></a><span style="color: #00ff00;">Edit Distance</span>-计算从一个单词转换到另一个单词的最小操作数，可以进行替换，插入，删除操作</h3><div>思路：二维DP：<br><pre xml:space="preserve">两个String看成两个char数组，分别是x[m]以及y[n]。对于x[1]…x[i]和y[1]…y[j]的edit distance为A[i][j]。那么有如下recursion:<br><br>A[i][j]=A[i-1][j-1] if x[i] = y[j];<br><br>A[i][j]=min(A[i-1][j], A[i][j-1], A[i-1][j-1])+1 if x[i] != y[j]<br><br>其中第二种x[i]!=y[j]的min中的三个元素分别代表insert, delete和replace三种情况，要看哪种最小。<br><br>Base case是A[0][j]=j, A[i][0] = i。<br><br>依然是记录当前位置的最小操作数，局部最优解，重复子问题，状态转移方程式。思路相同，不过是不同问题的抽象化。<br><br></pre><br><pre xml:space="preserve"><span style="color: #ff0000; font-family: georgia, palatina, serif;"><strong>Distinct Subsequences-</strong></span></pre><br>Given a string S and a string T, count the number of distinct subsequences of T in S.<br><pre xml:space="preserve"></pre><br>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, <code>&quot;ACE&quot;</code> is a subsequence of <code>&quot;ABCDE&quot;</code> while <code>&quot;AEC&quot;</code> is not).<br><pre xml:space="preserve">思路：When you see string problem that is about<strong> subsequence or matching</strong>, dynamic programming method should come to your mind naturally. The key<br>is to find the changing condition.<br><br>遇到这种两个串的问题，很容易想到DP。但是这道题的递推关系不明显。可以先尝试做一个二维的表int[][] dp，用来记录匹配子序列的个数（以S =”rabbbit”,T = “rabbit”为例）：<br>r a b b b i t<br>1 1 1 1 1 1 1 1<br>r 0 1 1 1 1 1 1 1<br>a 0 0 1 1 1 1 1 1<br>b 0 0 0 1 2 3 3 3<br>b 0 0 0 0 1 3 3 3<br>i 0 0 0 0 0 0 3 3<br>t 0 0 0 0 0 0 0 3<br>从这个表可以看出，无论T的字符与S的字符是否匹配，dp[i][j] = dp[i][j - 1].就是说，假设S已经匹配了j - 1个字符，得到匹配个数为dp[i][j - 1].现在无论S[j]是不是和T[i]匹配，匹配的个数至少是dp[i][j -<br>1]。除此之外，当S[j]和T[i]相等时，我们可以让S[j]和T[i]匹配，然后让S[j - 1]和T[i - 1]去匹配。所以递推关系为：<br>dp[0][0] = 1; // T和S都是空串.<br>dp[0][1 … S.length() - 1] = 1; // T是空串，S只有一种子序列匹配。<br>dp[1 … T.length() - 1][0] = 0; // S是空串，T不是空串，S没有子序列匹配。<br>dp[i][j] = dp[i][j - 1] + (T[i - 1] == S[j - 1] ? dp[i - 1][j - 1] : 0).1 &lt;= i &lt;= T.length(), 1 &lt;= j &lt;= S.length()<br><br>……<br><br><span style="color: #ff0000;"><strong>总结：DP有些类似数学归纳法，最重要的是观察，局部最优解，重复子问题，找到状态转移方程式是关键，经常在求极值（不断维护当前极值），字符串序列和匹配（当然也可以用regex)等问题遇到</strong></span>，这部分，自己掌握的一般，难度也比较大，因为问题比较抽象，所以有时即使知道是DP也不一定可以解决出来。</pre><br><pre xml:space="preserve"><br><br></pre><br></div><br></div><br></div><br></div><br></div><br></div>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-two-pointers-e7-af-87/" rel="next" title="leetcode习题分类汇总-Two Pointers篇">
+                <i class="fa fa-chevron-left"></i> leetcode习题分类汇总-Two Pointers篇
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-hashcode-e7-af-87/" rel="prev" title="leetcode习题分类汇总-HashCode篇">
+                leetcode习题分类汇总-HashCode篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-dynamic-programming-e7-af-87/"
+           data-title="leetcode习题分类汇总- Dynamic Programming篇" data-url="http://zhouchaowei.com/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-dynamic-programming-e7-af-87/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unique-Binary-Search-Trees-给定n返回所有可能的二叉搜索树的数量"><span class="nav-number">1.</span> <span class="nav-text">Unique Binary Search Trees-给定n返回所有可能的二叉搜索树的数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Edit-Distance-计算从一个单词转换到另一个单词的最小操作数，可以进行替换，插入，删除操作"><span class="nav-number">2.</span> <span class="nav-text">Edit Distance-计算从一个单词转换到另一个单词的最小操作数，可以进行替换，插入，删除操作</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

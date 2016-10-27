@@ -1,0 +1,887 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Design Patterns," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="第一章代码无错就是优 - 简单工厂模式
+1.6 面向对象的好处
+开始考虑通过封装，继承，多态把程序的耦合度降低，开始用设计模式使得程序更加容易修改，并且易于复用。
+（之后作者用一个计算器的例子介绍了封装，继承，多态的应用，以及简单的工厂模式）。
+
+1.11 UML类图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FD：“大话设计模式”5.19-5.26">
+<meta property="og:url" content="http://zhouchaowei.com/2014/05/19/fd-e5-a4-a7-e8-af-9d-e8-ae-be-e8-ae-a1-e6-a8-a1-e5-bc-8f5-19/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="第一章代码无错就是优 - 简单工厂模式
+1.6 面向对象的好处
+开始考虑通过封装，继承，多态把程序的耦合度降低，开始用设计模式使得程序更加容易修改，并且易于复用。
+（之后作者用一个计算器的例子介绍了封装，继承，多态的应用，以及简单的工厂模式）。
+
+1.11 UML类图">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/21-300x151.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/11-300x243.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/31-300x89.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/41-300x213.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/61-300x198.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/71-300x160.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/8-300x150.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/9-300x179.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/10-300x210.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/111-300x241.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/12-300x239.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/13-300x121.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/14-300x186.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/15-300x151.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/16-300x142.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/17-300x209.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/18-300x219.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/19-300x76.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/20-300x181.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/211-300x164.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/22-300x205.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/23-300x157.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/24-300x150.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/25-300x169.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/26-300x183.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/27-287x300.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/28-300x262.png">
+<meta property="og:updated_time" content="2015-09-19T12:12:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FD：“大话设计模式”5.19-5.26">
+<meta name="twitter:description" content="第一章代码无错就是优 - 简单工厂模式
+1.6 面向对象的好处
+开始考虑通过封装，继承，多态把程序的耦合度降低，开始用设计模式使得程序更加容易修改，并且易于复用。
+（之后作者用一个计算器的例子介绍了封装，继承，多态的应用，以及简单的工厂模式）。
+
+1.11 UML类图">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> FD：“大话设计模式”5.19-5.26 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                FD：“大话设计模式”5.19-5.26
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-05-19T07:56:25+08:00" content="2014-05-19">
+              2014-05-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Reading-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Reading notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/05/19/fd-e5-a4-a7-e8-af-9d-e8-ae-be-e8-ae-a1-e6-a8-a1-e5-bc-8f5-19/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/05/19/fd-e5-a4-a7-e8-af-9d-e8-ae-be-e8-ae-a1-e6-a8-a1-e5-bc-8f5-19/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>第一章代码无错就是优 - 简单工厂模式</strong></p>
+<p>1.6 面向对象的好处</p>
+<p>开始考虑通过封装，继承，多态把程序的耦合度降低，开始用设计模式使得程序更加容易修改，并且易于复用。</p>
+<p>（之后作者用一个<strong>计算器</strong>的例子介绍了封装，继承，多态的应用，以及简单的工厂模式）。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/21.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/21-300x151.png" alt="2"></a></p>
+<p><strong>1.11 UML类图</strong></p>
+<a id="more"></a>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/11.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/11-300x243.png" alt="1"></a></p>
+<p>聚合Aggregation表示一种弱的拥有关系，体现A对象可以包含B,但B不是A的一部分。(雁群和大雁的关系）</p>
+<p>合成Composition 是一种强的拥有关系，体系那了严格的部分和整体的关系，部分和整体的生命周期一样。（鸟和翅膀的关系）<br><strong>第二章 商场促销–策略模式</strong></p>
+<p>2.3 简单工厂实现</p>
+<p>面向对象的编程，并不是类越多越好，类的划分是为了封装，但分类的基础是抽象，<strong>具有相同属性和功能的对象的抽象集合才是类。</strong></p>
+<p><strong>2.4 策略模式</strong><br>Strategy：它定义了算法家族，分别封装<br>起来，果然他们之间可以互相替换，此模式让算法的变化，不会影响到使用算法的客户。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/31.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/31-300x89.png" alt="3"></a></p>
+<p><strong>2.7 策略模式解析</strong></p>
+<p>策略模式是一种定义一系列算法的方法，从概念上看，所有这些算法完成的都是相同的工作，只是实现不同，它可以以相同的方式调用所有的算法，<strong>减少了各种算法类与使用算法类之间的耦合</strong>。</p>
+<p>Strategy类层次为Context定义了一系列可供重用的算法或行为，继承有助于吸取出这些算法中的公共功能。</p>
+<p>策略模式的优点是<strong>简化了单元测试</strong>，因为每个算法都有自己的类，可以通过自己的接口单独测试。</p>
+<p>当不同行为堆砌在一个类中时，就很难避免使用条件语句来选择合适的行为；将这些行为封装在一个个独立的strategy类中，可以在使用这些行为的类中消除条件语句；</p>
+<p>策略模式就是用来封装算法的，但在实践中，我们发现可以用它来封装几乎如何类型的规则，<strong>只要在分析过程中听到需要在不同时间应用不同的业务规则</strong>，就可以考虑使用策略模式处理这种变化的可能性。</p>
+<p>在基本的策略模式中，选择所用具体实现的职责由客户端对象承担，并转给策略模式的context对象。</p>
+<p>任何需求的变更都是需要成本的。</p>
+<p>更好的方案：反射？？<br><strong>第三章 拍摄UFO-单一职责原则</strong></p>
+<p>SRP<strong>:就一个类而言，应该仅有一个引起它变化的原因。</strong></p>
+<p><strong>3.5 方块游戏的设计</strong></p>
+<p>如果一个类承担的职责过多，就等于把这些职责耦合在一起，一个职责的变化可能会削弱或者一直这个类完成其他职责的能力。这种耦合会导致脆弱的设计，当变化发生时，设计会遭受到意想不到的破坏。</p>
+<p>软件设计真正要做的许多内容，<strong>就是发现职责并把那些职责分离</strong>；</p>
+<p>如果你能够想到多于一个的动机去改变一个类，那么这个类就具有多于一个的职责。<br><strong>第四章 考研求职两不误-开放-封闭原则</strong></p>
+<p>OCP,是说<strong>软件实体（类，模板，函数等等）应该可以扩展，但是不可修改。</strong></p>
+<p>怎样的设计才能面对需求的改变却可以保持相对稳定，从而使得系统可以在第一个版本以后不断推出新的版本呢？</p>
+<p><strong>4.3 何时应对变化</strong></p>
+<p>无论模块多么封闭，都会存在一些无法对峙封闭的变化。既然不可能完全封闭，设计人员必须对于他设计的模块应该对哪种变化封闭做出选择。他必须先猜测出最有可能发生的变化种类，然后构造抽象来隔离这些变化。</p>
+<p>等到变化发生时立即采取行动。</p>
+<p>在我面前最初比那些代码时，假设变化不会发生，<strong>当变化发生时，我们就创建抽象来隔离以后发生的同类变化。</strong></p>
+<p>面对需求，对程序的改动是通过增加新改吗进行的，而不是更改现有的代码。</p>
+<p>我们希望的是在开发工作展开不就就知道可能发生的变化，查明可能发生的变化所等待的时间越长，要创建正确的抽象就越困难。</p>
+<p>OCP是面向对象设计的核心所在，遵循这个原则可以带来面向对象技术所声称的巨大好处，也就是可维护，可扩展，可复用，灵活性好。开发人员应该仅对程序中呈现出频繁变化的那学部分作出抽象，然而，对于应用程序中的每个本部分都刻意地进行抽象同样不是一个好主意。<strong>拒绝不成熟的抽象和抽象本身一样重要。</strong><br><strong>第五章 会修电脑不会修收音机？-依赖倒转原则</strong></p>
+<p>依赖倒转原则：<br><strong>A,高层模块不应该依赖低层模块。两个都应该依赖抽象。</strong><br><strong>B.抽象不应该依赖细节。细节应该依赖抽象。</strong></p>
+<p><strong>5.4 里氏代换原则</strong></p>
+<p>一个软件实体如果使用的是一个父类的话，那么一定适用于其子类，而且它察觉不出父类对象和子类对象的区别。也就是说，在如啊你按里面，把父类都替换成它的子类，程序的行为没有变化。</p>
+<p>LSP:<strong>子类型必须能够替换掉它们的父类型。</strong></p>
+<p>只有当子类可以替换掉父类型，软件单位的功能不受到影响时，父类才能真正被服用，而子类能够在父类的基础上增加新的行为。</p>
+<p>由于子类型的可替换性才使得使用父类类型的模块在无需修改的情况下就可以扩展。</p>
+<p>依赖倒转其实可以会所是面向对象设计的标志，用哪种语言编写程序不重要，<strong>如果编写时考虑的都是如何针对抽象编程而不是针对细节编程，即程序中所有的依赖关系都是终止于抽象类或者接口，那就是面向对象的设计，反之那就是过程化的设计了。</strong><br><strong>第六章 穿什么有这么重要？-装饰模式</strong></p>
+<p>我们需要把所需的功能按正确的顺序串联起来进行控制。</p>
+<p>Decorator动态的给对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/41.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/41-300x213.png" alt="4"></a></p>
+<p>装饰模式是利用SetComponent 对对象进行包装的。每个装饰对象的实现就和如何使用这个对象分离开了，每个钻石对象只关心自己的功能，不需要关心如何被添加到对象链当中。</p>
+<p>学习模式要善于变通，如果只有一个ConcreteComponent类而没有抽i型那个的Component类，那么Decorator类可以是ConcreteComponent的一个子类。同样道理，如果只有一个ConcreteDecorator类那么就没有必要建立一个单独的Decorator类，而可以把Decorator和ConcreteDecorator的责任合并成一个类。</p>
+<p><strong>总结：</strong></p>
+<p>装饰模式是为已有功能动态添加更多功能的一种方式。<br>当系统需要新功能的时候，是向旧的类中添加新的代码。这些新加的代码通常装饰了原有类的核心职责或主要行为，在主类中加入了新的字段，方法和逻辑，从而增加了主类的复杂度，而这些新加入的东西仅仅是为了满足一些只在某种特定情况下才会执行的特殊行为的需要，装饰模式提供了一个非常好的解决方案，它把每个要装饰的功能放在单独的类中，并让这个类包装它所要修饰的对象，一次，当需要执行特殊行为时，客户代码就可以在运行时根据需要有选择的，按顺序的使用装饰功能包装对象了。</p>
+<p>优点： <strong>把类中的装饰功能从类中搬移去除，这样可以简化原有的类。</strong><br><strong>有效的把类的核心职责和装饰功能分开，而且可以去除相关类型中重复的装饰逻辑。</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>第七章 为别人做嫁衣-代理模式</strong></p>
+<p>Proxy：为其他对象提供一种代理以控制对这个对象的访问。</p>
+<p><strong>7.6 代理模式应用</strong></p>
+<p>第一 远程代理，也就是为一个对象在不同的地址空间提供局部代表。这样可以隐藏一个对象存在于不同地址空间的事实。</p>
+<p>第二 虚拟代理，是根据需要创建很大的对象，通过它来存放实例化需要很长时间的真实对象。</p>
+<p>第三 安全代理，用来控制真实对象访问时的权限。</p>
+<p>第四 智能指引，是指当调用真实的对象时，代理处理另外一些事。<br><strong>第八章 雷锋依然在人间-工厂方法模式</strong></p>
+<p><strong>8.4 简单工厂vs工厂方法</strong></p>
+<p>简单工厂模式的最大优点在于工厂类中包含了必要的逻辑判断，根据客户端的选择条件动态实例化相关的类，对于客户端来说，去除了与具体产品的依赖。</p>
+<p>Factory Method:定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法是一个类的实例化延迟到其子类。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/61.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/61-300x198.png" alt="6"></a></p>
+<p>工厂方法模式实现时，客户端需要决定实例化哪一个工厂来实现运算类，选择判断的问题还是存在的，也就是说，<strong>工厂方法把简单工厂的内部逻辑判断移到了客户端代码来进行</strong>，你想要加功能，本来是改工厂类的，而现在是修改客户端！<br><strong>第九章 简历复印-原型模式</strong></p>
+<p>Prototype,用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/71.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/71-300x160.png" alt="7"></a></p>
+<p>原型模式其实就是从一个对象再创建另外一个可制定的对象，而且不需知道如何创建的细节。</p>
+<p>.NET在System命名空间中提供了ICloneable接口，方法Clone(),实现这个接口就可以完成原型模式了。</p>
+<p>一般在初始化的信息不发生改变的请款下，克隆是最好的办法，既然、隐藏了对象创建的细节，又对性能是大大的提高。</p>
+<p>不用重新初始化对象，而是动态的获得对象运行时的状态。</p>
+<p><strong>9.5 浅复制与深复制</strong></p>
+<p>如果字段是值类型，则对该字段执行逐位复制，如果字段是引用类型，则复制引用但不复制引用的对象。一次原始对象及其复本引用同一对象。</p>
+<p>浅复制，<strong>被复制对象的所有变量都含有与原来的对象相同的值，而所有的对其他对象的引用都仍然指向原来的对象。</strong></p>
+<p>深复制把引用对象的变量指向复制过的新对象，而不是原有的被引用的对象。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>第10章 考题抄错会做也白搭-模板方法模式</strong><br>当我们要完成在某一细节层次上一致的一个过程或一系列步骤，但其个别步骤更详细的层次上的实现可能不同时，我们通常考虑采用模板方法模式来处理。</p>
+<p>TemplateMethod：<br>定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法<strong>使得子类可以不改变一个算法的结构即可重新定义该算法的某些步骤。</strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/8.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/8-300x150.png" alt="8"></a></p>
+<p>10.5 特点</p>
+<p>模板方法模式是通过把不变行为搬移到超类，去除子类中的重复代码。其提供了一个很好的代码复用平台。</p>
+<p>当不变的行为在方法的子类实现中混合在一起的时候，不变的行为就会在子类中重复出现。我们通过模板方法模式<strong>把这些行为搬移到单一的地方，这样就帮助子类摆脱重复的不变行为的纠缠。</strong><br><strong>第11章 无熟人难办事？-迪米特法则</strong></p>
+<p>LoD（最少知识原则） ,如果两个类不必彼此通信，那么这两个类就不应当发生直接的相互作用。如果其中一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。</p>
+<p>在类的结构设计上，<strong>每一个类都应当尽量降低成员的访问权限。</strong></p>
+<p>其根本思想，是强调了类之间的松耦合。类之间的耦合越弱，越利于复用，一个处于弱耦合的类被修改，不会对有关系的类造成波及。<br><strong>第12章 牛市股票还会亏钱？-外观模式</strong></p>
+<p>Facade，为子系统中的一组接口提供一个一致的界面。此模式定义了一个高层接口，这个接口是的这一子系统更加容易使用。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/9.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/9-300x179.png" alt="9"></a></p>
+<p><strong>12.5 何时使用外观模式</strong></p>
+<p>首先，在设计初期阶段，应该有意识的将不同的两个层分离，层与层之间建立外观Facade,其次，在开发阶段，子系统玩个昂因为不断的重构烟花而变得越来越复杂，增加外观Facade可以提供一个简单的接口，减少它们之间的依赖。第三，在维护一个遗留的大型项目时，可能这个系统已经非常难以维护和扩展了，为新系统开发一个外观类，来提供设计粗糙或高度复杂的遗留代码的比较清晰简单的接口，让新系统与Facade对象交互。facade与遗留代码交互所有复杂的工作。<br><strong>第13章 好菜每回味不同-建造者模式</strong></p>
+<p>Builder 将一个复杂对象的构建于它的表示分离，使得同样的构建过程可以创建不同的表示。</p>
+<p>作者举了一个画小人的例子。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/10.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/10-300x210.png" alt="10"></a></p>
+<p>建造者模式是<strong>当创建复杂对象的算法应该独立于该对象的组成部分以及他们的装配方法时适用的模式。</strong><br><strong>第14章 老板回来，我不知道-观察者模式</strong></p>
+<p>Publish/Subscribe 模式 定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态发生变化时，会通知所有观察者对象吗，使得它们能够自动更新自己。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/111.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/111-300x241.png" alt="11"></a></p>
+<p>14.6 特点</p>
+<p>将一个系统分割成一系列相互协作的类有一个很不好的副作用，那就是需要维护相关对象的一致性。我们不希望为了维持一致性而使得各类紧密耦合，这样会给维护，扩展和重用都带来不便。</p>
+<p><strong>当一个对象的改变需要同时改变其他对象，而且它不知道具体有多少对象有待改变时，应该考虑使用观察者模式。</strong></p>
+<p>一个抽象模型有两个方面，其中一方面依赖于另一方面，这时用观察者模式可以将这两者封装在独立的对象中使得它们各自独立的改变和复用。</p>
+<p>观察者模式所做的工作其实就是在接触耦合，让耦合的双方都依赖于抽象，而不是依赖于具体。从而使得各自的变化都不会影响另一边的变化。</p>
+<p><strong>14.9 事件委托说明</strong></p>
+<p>委托就是一种引用方法的类型。一旦为委托分配了方法，委托就将与该方法具有完全相同的行为。委托方法的使用可以像其他任何方法一样，具有参数和返回值，委托可以看做是对函数的抽象，是函数的类，委托的实例将代表一个具体的函数。</p>
+<p>一个委托可以搭载多个办法，所有方法被依次唤起。<strong>它可以使得委托对象所搭载的方法并不需要属于同一个类。</strong></p>
+<p>委托对象所搭载的所有办法必须具有相同的原形和形式，也就是拥有相同的参数列表和返回值类型。<br><strong>第15章 就不能不换DB吗？抽象工厂模式</strong></p>
+<p>莱鸟程序员碰到问题，只会用时间来摆平…</p>
+<p>Abstract Factory ,<strong>提供一个创建一系列相关或互相依赖对象的接口，而无需指定它们具体的类。</strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/12.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/12-300x239.png" alt="12"></a></p>
+<p>优点和缺点：<br>1.好处便是易于交换产品系列，由于具体工厂类，在一个应用中只需要在初始化的时候出现一次，这就使得改变一个应用的具体工厂变得非常容易，它只需要改变具体工厂即可使用不同的产品配置。<br>2.它让具体的创建实例过程与客户端分离，客户端是通过它们的抽象接口操纵实例，产品的具体类名也被具体工厂的实现分离，不会出现在客户代码中。</p>
+<p>编程是门艺术…大批量的改动，显然是非常丑陋的做法。</p>
+<p><strong>15.8 用反射+抽象工厂的数据访问程序</strong></p>
+<p>依赖注入…</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/13.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/13-300x121.png" alt="13"></a></p>
+<p><strong>15.9 用反射+配置文件实现数据访问程序</strong>。</p>
+<p>所用在用简单工厂的地方，都可以考虑用反射技术去除swith或if，接触分支判断带来的耦合。</p>
+<p>一个程序员如果从来没有熬夜写程序的经历，不能算会一个好程序员，因为他没有痴迷过，所以他不会有大成就。<br><strong>第16章 无尽加班何时休-状态模式</strong></p>
+<p>面向对象涉及其实就是希望做到代码的责任分解。</p>
+<p>State,当一个对象的内在状态改变时允许改变其行为，这个对象看起来像是改变了其类。</p>
+<p>状态模式主要解决的是当控制一个对象转换的条件表达式过于复杂时的情况。把状态的判断逻辑转移到表示不同状态的一系列类当中，可以把复杂的判断逻辑简化。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/14.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/14-300x186.png" alt="14"></a></p>
+<p>&nbsp;</p>
+<p><strong>好处与用处</strong></p>
+<p>将与特定状态的行为局部化，并且将不同状态的行为分割开来。</p>
+<p>将特定的状态相关的行为都放入一个对象中，由于所有与状态相关的代码都存在于某个ConcreteState中，所有就通过定义新的子类可以很容易地增加新的状态和转换。</p>
+<p>目的：<strong>消除庞大的条件分支语句。状态模式通过把各种状态转移逻辑分布到state的子类，来减少互相的依赖。</strong></p>
+<p><strong>当一个对象的行为取决于它的状态，并且它必须在运行时时刻工具状态改变它的行为时</strong>，考虑使用。<br><strong>第17章 在NBA我需要翻译-适配器模式</strong></p>
+<p>Adaptor:将一个类的接口转换成客户希望的另一个接口。使得原本由于接口不兼容而不能一起工作的哪些类可以一起工作。<br>系统的数据和行为都正确，但接口不符时，我们应该考虑适配器，目的是使得控制范围之外的一个原有对象与某个接口匹配。适配器模式应用于希望复用一些现存的类，但是接口又与复用环境要求不一样的情况。</p>
+<p>类配适器模式（通过多重继承），这里讲对象配适器模式。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/15.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/15-300x151.png" alt="15"></a></p>
+<p><strong>何时使用？</strong></p>
+<p><strong>使用一个已将存在的类，但如果它的接口，也就是它的方法和你的要求不相同时</strong>，就应该考虑配适器模式。</p>
+<p>客户代码可以统一调用统一接口，更简单直接。</p>
+<p><strong>要在双方都不太容易修改的时候再使用适配器模式适配。</strong></p>
+<p>17.5 Adaptor的.NET应用</p>
+<p>DataAdapter用作DataSet和数据源之间的配适器以便检索和保存数据。</p>
+<p><strong>只用碰到无法改变原有设计和代码的情况下，才考虑适配。</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>第18章 如果再回到从前-备忘录模式</strong></p>
+<p>Memento:在不破坏封装性的前提下，捕捉一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/16.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/16-300x142.png" alt="16"></a></p>
+<p>MeMento模式比较适用于功能比较复杂的，但需要维护或记录属性历史的类，或者需要保存的属性知识众多属性的一小部分时，Originator可以根据保存的Menento信息还原到前一状态。</p>
+<p>适用备忘录可以把复杂的对象内部信息对其他的对象屏蔽起来。<br>当角色的状态改变的时候，有可能这个状态无效，这时候就可以适用暂时存储起来的备忘录将状态复原。</p>
+<p>&nbsp;</p>
+<p><strong>第19章 分公司=一部门-组合模式</strong></p>
+<p>Composite,将对象组合成树桩结构以表示 部分-整体 的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/17.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/17-300x209.png" alt="17"></a></p>
+<p><strong>何时使用？</strong></p>
+<p>需求中是体现不封与整体层次结构时，以及你希望用户可以忽略组合对象与单个对象的不同，统一地使用组合结构中的所有对象时考虑使用。</p>
+<p><strong>好处</strong></p>
+<p>组合模式定义了包括基本对象和组合对象的类层次结构。基本对象可以被组合成更复杂的组合对象，而这个组合对象又可以被组合，这样不断递归下去，客户代码中，任何用到基本对象的地方都可以使用组合对象了。</p>
+<p><strong>组合模式让客户可以一致地使用组合结构和单个对象。</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>第20章 想走？可以！先买票-迭代器模式</strong></p>
+<p>Iterator,提供一种方法顺序访问一个聚合对象中各个元素，而又不暴露该对象的内部表示。</p>
+<p>当你需要访问一个聚焦对象，而且不管对象时什么都需要遍历的时候，<strong>你需要对聚焦有多种方式遍历时</strong>，为遍历不同的聚焦结构提供如开始，下一个，是否结束，当前哪一项等统一的接口。</p>
+<p>研究历史是为了更好的迎接未来。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/18.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/18-300x219.png" alt="18"></a></p>
+<p>分离了集合对象的遍历行为，抽象出一个迭代器来负责，这样既可以<strong>做到不暴露集合的内部结构，又可以让外部代码透明的访问集合内部的数据。</strong><br><strong>第21章 有些类也需计划-单例模式</strong></p>
+<p>所有类都有构造方法，不编码则系统默认生成空的构造方法，若有显示定义的构造方法，默认的构造方法就会失效。</p>
+<p>Singleton，<strong>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/19.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/19-300x76.png" alt="19"></a></p>
+<p>Singleton 因为单例类封装它的唯一实例，这样它可以严格控制客户怎样访问以及何时访问它。简单说就是对唯一实例的受控访问。</p>
+<p><strong>21.5 多线程时的单例</strong></p>
+<p>lock是确保当一个线程位于代码的临界区时，另一个线程不线程不进入临界区。如果其他线程试图进入锁定的代码，则它将一直等待，直到该对象被释放。</p>
+<p>为了只让实例未被创建时再加锁处理，采用双重锁定。</p>
+<p><strong>21.7 静态初始化</strong></p>
+<p><strong>静态初始化的方式是在自己被加载时就将自己实例化，所以被形象的称为饿汉式单例</strong>，要在第一次被引用时才会将自己实例化，则被称为懒汉式单例类。<br><strong>第22章 手机软件何时统一-桥接模式</strong></p>
+<p>子类的实现与它的父类有非常紧密的依赖关系，以至于父类实现的任何变化必然会导致子类发生变化。这种依赖关系限制了灵活性并最终限制了复用性。（强耦合）</p>
+<p>22.3 合成/聚合复用原则</p>
+<p>CARP:<strong>尽量使用合成/聚合，尽量不要使用类继承。</strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/20.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/20-300x181.png" alt="20"></a></p>
+<p>优先使用对象的合成/聚合将有助于你保持每个类被封装，并被击中在单个任务上，这样类和类继承层次会保持较小规模，并且不太可能助长为不可控制的庞然大物。</p>
+<p><strong>Bridge:将抽象部分与它的实现部分分离，使得它们都可以独立的变化。</strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/211.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/211-300x164.png" alt="21"></a></p>
+<p>实现系统可能有多角度分类，每一种分类有可能变化，那么就把这种多角度分离出来让他们独立变化，减少它们之间的耦合。</p>
+<p><strong>只要真正深入的理解了设计规则，很多设计模式其实就是原则的应用而已，或许在不知不觉中就在使用设计模式了。</strong><br><strong>第23章 烤羊肉串引来的思考-命令模式</strong></p>
+<p>23.2 烧烤摊vs烧烤店</p>
+<p>行为请求者 与 行为实现者的紧耦合。</p>
+<p>对请求排队或记录请求日志，以及支持可撤销的操作等行为不太适合。</p>
+<p>Commend:<strong>将一个请求封装为一个对象，从而使得你可用不同的请求对客户进行参数化。</strong>对请求排队或记录请求日志，以及支持可撤销的操作。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/22.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/22-300x205.png" alt="22"></a></p>
+<p>23.7 作用</p>
+<p>1.它能比较容易地设计一个命令队列；<br>2.在需要的情况下，可以比较容易地将命令记入日志；<br>3.允许接受请求的一方决定时候否决请求；<br>4.可以容易的实现对请求的撤销和重做；<br>5.由于加入新的具体命令类不影响其他的类，一次在家新的具体命令类很容易。</p>
+<p>关键：<strong>命令模式把请求一个操作的对象与指导怎么执行一个操作的对象分割开。</strong></p>
+<p>敏捷开发原则告诉我们，<strong>不要为代码添加基于猜测的，实际上不需要的功能</strong>，如果不清楚一个系统是否需要命令模式，不要着急去实现它，只有在需要真正如撤销，恢复操作等功能时，通过重构实现这个模式才有意义。<br><strong>第24章 加薪非要老总批？-责任链模式</strong></p>
+<p>Chain of Responsibility:<br>使得多个对象都有机会处理请求，并沿着这条链传递该请求，知道有一个对象处理它为止。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/23.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/23-300x157.png" alt="23"></a></p>
+<p>好处：</p>
+<p>当客户提交一个请求时，请求时沿链传递直至友谊个concreteHandler对象负责处理它。</p>
+<p>这使得接受者和发送者都没有对方的明确信息，且链中的对象自己也并不知道链的结构，结构是职责链可简化对象的相互连接<strong>，它们仅需保持一个指向其后继者的引用，而不需要保持它所有的候选者的引用。</strong></p>
+<p>可以随时增加或修改处理一个请求的结构，增加了给对象指派职责的灵活性。</p>
+<p>当心。<strong>一个请求极有可能到了链的末端都得不到处理</strong>，或者因为没有正确配置而得不到处理。<br><strong>第25章 世界需要和平-中介者模式</strong><br>Mediator，用一个中介对象来封装一系列的对象交互。中介者使得各对象不需要显式的互相引用，从而使其耦合松散，而且可以独立的改变它们之间的交互。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/24.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/24-300x150.png" alt="24"></a></p>
+<p>优缺点：</p>
+<p>中介者模式很容易在系统中应用，也很容易在系统中误用。当系统出现了多对多交互复杂的对象群时，不要急于使用中介者模式，而要先反思你的系统在设计上是不是合理。</p>
+<p>交互复杂性转化为中介者的复杂性，使得中介者会变得比任何一个ConcreteColleague都复杂。</p>
+<p>中介者模式一般<strong>应用于一组对象以定义良好但是复杂通信的场合，以及定制一个分布在多个类中的行为，而又不想生成太多子类的场合。</strong><br><strong>第26章 项目多也别傻做-享元模式</strong></p>
+<p>Flyweight,运用共享技术有效的支持大量细粒度的对象。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/25.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/25-300x169.png" alt="25"></a></p>
+<p><strong>26.4 内部状态与外部状态</strong></p>
+<p>享元模式<br>可以避免大量非常相似类的开销。在程序设计中，有时需要生成大量细粒度的类实例来表示数据，如果能发现这些实例除了几个参数基本上都是相同的，有时就能够受大幅度地减少需要实例化的类的数量。如果能把那些参数移到类实例的外面，在方法调用时将它们传递进来，就可以<strong>通过共享大幅度的减少单个实例的数目。</strong></p>
+<p>26.5 应用</p>
+<p>如果一个应用程序使用了大量的对象，而大量的这些对象造成了很大的存储开销时就应该考虑使用；还有就是<strong>对象的大多数状态可以外部状态，如果删除对象的外部状态，那么可以用相对较少的共享对象取代很多组对象，</strong>此时可以考虑享元模式。<br><strong>第27章 其实你不懂老板的心-解释器模式</strong></p>
+<p>interpreter，给定一种语言，定义它的文法的一种白哦是，并定义一个解释器，这个解释器使用该表示来解释语言中的句子。</p>
+<p>&nbsp;</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/26.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/26-300x183.png" alt="26"></a></p>
+<p>当有一个语言需要解释执行，并且你可将<br>该语言中的句子表示为一个抽象语法树时，可使用解释器模式。</p>
+<p>容易的改变和扩展文法，因为该模式使用类来表示文法规则，你可使用继承<br>来改变或扩展该文法。也比较容易实现文法，因为大一抽象语法树中各个节点的类的实现大体类似，这些类都易于直接编写。<br>不足：为文法中的每一条规则至少定义了一个类，因此包含许多规则的文法可能难以管理和维护，建议当文法非常复杂时，使用其他的技术如语法分析程序或编译生成器来处理。<br><strong>第28章 男人和女人-访问者模式</strong></p>
+<p>Visitor,表示一个作用于某对象结构的各元素的操作。<br>它使你可以在不改变个元素的类的前提下定义作用域折现元素的新操作。<br><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/27.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/27-287x300.png" alt="27"></a></p>
+<p>访问者模式适用于数据结构相对稳定的系统。</p>
+<p>目的是<strong>要把处理从数据结构分离出来，如果系统有比较稳定的数据结构，又有易于变化的算法的话，使用访问者模式就是比较适合的。因为访问者模式使得算法操作的增加变得容易。</strong></p>
+<p>缺点也就是使得增加新的数据结构变得困难了。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>第29章 OOTV杯超级模式大赛-模式总结（2B…)</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/28.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/28-300x262.png" alt="28"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Design-Patterns/" rel="tag">#Design Patterns</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/05/10/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e4-bf-ae-e7-82-bc-e4-b9-8b-e9-81-93-e3-80-8b5-10/" rel="next" title="FD:《程序员修炼之道》5.10-5.18">
+                <i class="fa fa-chevron-left"></i> FD:《程序员修炼之道》5.10-5.18
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/06/01/e5-ad-a6-e4-b9-a0-e7-94-9f-e6-b4-bb2014-e5-b9-b46-e6-9c-88/" rel="prev" title="学习$生活@2014年6月">
+                学习$生活@2014年6月 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/05/19/fd-e5-a4-a7-e8-af-9d-e8-ae-be-e8-ae-a1-e6-a8-a1-e5-bc-8f5-19/"
+           data-title="FD：“大话设计模式”5.19-5.26" data-url="http://zhouchaowei.com/2014/05/19/fd-e5-a4-a7-e8-af-9d-e8-ae-be-e8-ae-a1-e6-a8-a1-e5-bc-8f5-19/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

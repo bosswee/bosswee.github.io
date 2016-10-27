@@ -1,0 +1,638 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="SubsetsGiven a set of distinct integers, S, return all possible subsets.
+Note:
+
+Elements in a subset must be in non-descending order.
+The solution set must not contain duplicate subsets.For example,If">
+<meta property="og:type" content="article">
+<meta property="og:title" content="由LeetCode SubSets问题引发的ArrayList深拷贝的问题">
+<meta property="og:url" content="http://zhouchaowei.com/2015/04/15/e7-94-b1leetcode-subsets-e9-97-ae-e9-a2-98-e5-bc-95-e5-8f-91-e7-9a-84arraylist-e6-b7-b1-e6-8b-b7-e8-b4-9d-e7-9a-84-e9-97-ae-e9-a2-98/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="SubsetsGiven a set of distinct integers, S, return all possible subsets.
+Note:
+
+Elements in a subset must be in non-descending order.
+The solution set must not contain duplicate subsets.For example,If">
+<meta property="og:updated_time" content="2015-09-19T12:11:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="由LeetCode SubSets问题引发的ArrayList深拷贝的问题">
+<meta name="twitter:description" content="SubsetsGiven a set of distinct integers, S, return all possible subsets.
+Note:
+
+Elements in a subset must be in non-descending order.
+The solution set must not contain duplicate subsets.For example,If">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> 由LeetCode SubSets问题引发的ArrayList深拷贝的问题 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                由LeetCode SubSets问题引发的ArrayList深拷贝的问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-15T13:16:37+08:00" content="2015-04-15">
+              2015-04-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/15/e7-94-b1leetcode-subsets-e9-97-ae-e9-a2-98-e5-bc-95-e5-8f-91-e7-9a-84arraylist-e6-b7-b1-e6-8b-b7-e8-b4-9d-e7-9a-84-e9-97-ae-e9-a2-98/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/15/e7-94-b1leetcode-subsets-e9-97-ae-e9-a2-98-e5-bc-95-e5-8f-91-e7-9a-84arraylist-e6-b7-b1-e6-8b-b7-e8-b4-9d-e7-9a-84-e9-97-ae-e9-a2-98/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Subsets"><a href="#Subsets" class="headerlink" title="Subsets"></a>Subsets</h3><p>Given a set of distinct integers, <em>S</em>, return all possible subsets.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>Elements in a subset must be in non-descending order.</li>
+<li>The solution set must not contain duplicate subsets.<br>For example,<br>If <strong><em>S</em></strong> = <code>[1,2,3]</code>, a solution is:<br><pre>[<br>[3],<br>[1],<br>[2],<br>[1,2,3],<br>[1,3],<br>[2,3],<br>[1,2],<br>[]<br>]<br>一开始这么写：</pre></li>
+</ul>
+<a id="more"></a>
+<p>[java]<br>public class SubSets {<br> private static List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;List&lt;Integer&gt;&gt;();<br> public static List&lt;List&lt;Integer&gt;&gt; subsets(int[] S) {<br> Arrays.sort(S);<br> ArrayList&lt;Integer&gt; tmpres = new ArrayList&lt;Integer&gt;();<br> dfs(S, 0, tmpres);<br> return res;<br> }</p>
+<p> private static void dfs ( int[] S, int i, ArrayList&lt;Integer &gt; tmpres){<br> if (i == S.length) {</p>
+<p> res.add(tmpres);//res的值好像会随着tmpres的值改变。。。似乎增加的只是tmpres的引用？<br> return;<br> }<br> tmpres.add(S[i]);<br> dfs(S,i+1,tmpres);</p>
+<p> tmpres.remove(tmpres.size()-1);//tmpres remove为什么会把res的中的值改变？？<br> dfs(S,i+1,tmpres);//尼玛不知道哪错了<br> }</p>
+<p> public static void main(String[] args) {<br> int[] test = {1,2};<br> System.out.print(subsets(test));<br> }</p>
+<p>}<br>[/java]</p>
+<p>结果报错，res的值全是[][][]…<br>step into看了一下发现res中tmpres的值居然会随着tmpres的值更改，也就是说res.add()只是添加了tmpres的引用，dfs部分修改如下。</p>
+<p>[java]<br> private static void dfs ( int[] S, int i, ArrayList&lt;Integer &gt; tmpres){<br> if (i == S.length) {<br> List&lt;Integer&gt; tmpclone = new ArrayList&lt;Integer&gt;();<br> for (int j : tmpres) {<br> tmpclone.add(j);<br> }//深拷贝下<br> res.add(tmpclone);<br> return;<br> }<br> tmpres.add(S[i]);<br> dfs(S,i+1,tmpres);</p>
+<p> tmpres.remove(tmpres.size()-1)；<br> dfs(S,i+1,tmpres)；<br> }<br>[/java]</p>
+<p>或者</p>
+<p>[java]<br> private static void dfs ( int[] S, int i, ArrayList&lt;Integer &gt; tmpres){<br> if (i == S.length) {<br> res.add((List&lt;Integer&gt;) tmpres.clone());//深拷贝<br> return;<br> }<br> tmpres.add(S[i]);<br> dfs(S,i+1,tmpres);</p>
+<p> tmpres.remove(tmpres.size()-1);<br> dfs(S,i+1,tmpres);<br>}<br>[/java]</p>
+<p>关于java深拷贝和浅拷贝的知识点：<br>预定义集合类型–clone方法：实际是逐个调用每个元素的operator=方法因此，预定义集合类型的clone()结果为浅拷贝还是深拷贝，取决于其元素类型<br>1.预定义集合类型,元素为预定义非集合类型,执行clone()方法 – 深拷贝<br>2.预定义集合类型,元素为预定义集合类型,执行clone()方法 – 实际是逐个调用每个元素的operator=方法，即这时的clone()方法其实为浅拷贝。比如二维链表…</p>
+<p></p>
+<pre>
+
+PS顺便提提现在的学习状态，最缺少的是一种打破砂锅问到底的精神。当遇到一个问题的时候就要不断的一直追着问下去，怎么实现的，为什么，原理是什么。这点是我目前必须加强的。
+
+</pre>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/26/e6-96-b0-e9-97-bb-e8-81-9a-e5-90-88-e5-8d-9a-e5-ae-a2-e9-a1-b9-e7-9b-ae-e7-9a-84-e5-88-9d-e6-ad-a5-e8-ae-be-e8-ae-a1/" rel="next" title="新闻聚合+博客项目的初步设计">
+                <i class="fa fa-chevron-left"></i> 新闻聚合+博客项目的初步设计
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/20/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e5-91-90-e5-96-8a-e3-80-8b-e8-af-bb-e4-b9-a6-e7-ac-94-e8-ae-b0/" rel="prev" title="《程序员的呐喊》读书笔记">
+                《程序员的呐喊》读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/04/15/e7-94-b1leetcode-subsets-e9-97-ae-e9-a2-98-e5-bc-95-e5-8f-91-e7-9a-84arraylist-e6-b7-b1-e6-8b-b7-e8-b4-9d-e7-9a-84-e9-97-ae-e9-a2-98/"
+           data-title="由LeetCode SubSets问题引发的ArrayList深拷贝的问题" data-url="http://zhouchaowei.com/2015/04/15/e7-94-b1leetcode-subsets-e9-97-ae-e9-a2-98-e5-bc-95-e5-8f-91-e7-9a-84arraylist-e6-b7-b1-e6-8b-b7-e8-b4-9d-e7-9a-84-e9-97-ae-e9-a2-98/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Subsets"><span class="nav-number">1.</span> <span class="nav-text">Subsets</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

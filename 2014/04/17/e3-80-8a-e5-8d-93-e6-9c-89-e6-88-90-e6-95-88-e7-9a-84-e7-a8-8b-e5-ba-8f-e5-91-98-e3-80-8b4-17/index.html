@@ -1,0 +1,846 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Code Skills," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;nbsp;
+译者序：
+“泰勒实验”：剖析每个个体日常工作中每个细节，对细节进行持续优化，通过对细节的改进提升生产率。
+脑力的开发程度还远未达到极限。
+他们有一些根深蒂固的好习惯，而且不断在细节上精益求精。
+从注意每天的细节，让自己成为一个高效的程序员，其实每个人都能做到。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="持续的细节优化-《卓有成效的程序员》4.17-4.22（待续...)">
+<meta property="og:url" content="http://zhouchaowei.com/2014/04/17/e3-80-8a-e5-8d-93-e6-9c-89-e6-88-90-e6-95-88-e7-9a-84-e7-a8-8b-e5-ba-8f-e5-91-98-e3-80-8b4-17/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="&amp;nbsp;
+译者序：
+“泰勒实验”：剖析每个个体日常工作中每个细节，对细节进行持续优化，通过对细节的改进提升生产率。
+脑力的开发程度还远未达到极限。
+他们有一些根深蒂固的好习惯，而且不断在细节上精益求精。
+从注意每天的细节，让自己成为一个高效的程序员，其实每个人都能做到。">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/1-300x141.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/2-300x224.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/3-300x188.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/4-300x165.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/5-300x186.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/6-300x110.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/7-300x204.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/8-300x179.png">
+<meta property="og:updated_time" content="2015-09-19T11:48:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="持续的细节优化-《卓有成效的程序员》4.17-4.22（待续...)">
+<meta name="twitter:description" content="&amp;nbsp;
+译者序：
+“泰勒实验”：剖析每个个体日常工作中每个细节，对细节进行持续优化，通过对细节的改进提升生产率。
+脑力的开发程度还远未达到极限。
+他们有一些根深蒂固的好习惯，而且不断在细节上精益求精。
+从注意每天的细节，让自己成为一个高效的程序员，其实每个人都能做到。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> 持续的细节优化-《卓有成效的程序员》4.17-4.22（待续...) | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                持续的细节优化-《卓有成效的程序员》4.17-4.22（待续...)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-04-17T06:42:18+08:00" content="2014-04-17">
+              2014-04-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Reading-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Reading notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/04/17/e3-80-8a-e5-8d-93-e6-9c-89-e6-88-90-e6-95-88-e7-9a-84-e7-a8-8b-e5-ba-8f-e5-91-98-e3-80-8b4-17/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/17/e3-80-8a-e5-8d-93-e6-9c-89-e6-88-90-e6-95-88-e7-9a-84-e7-a8-8b-e5-ba-8f-e5-91-98-e3-80-8b4-17/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&nbsp;</p>
+<p><span><span><span><span>译者序：</span></span></span></span></p>
+<p><span><span><span><span>“泰勒实验”：剖析每个个体日常工作中每个细节，对细节进行持续优化，通过对细节的改进提升生产率。</span></span></span></span></p>
+<p><span><span><span><span>脑力的开发程度还远未达到极限。</span></span></span></span></p>
+<p><span><span><span><span>他们有一些根深蒂固的好习惯，而且不断在细节上精益求精。</span></span></span></span></p>
+<p><span><span><span><span>从注意每天的细节，让自己成为一个高效的程序员，其实每个人都能做到。</span></span></span></span></p>
+<a id="more"></a>
+<p><strong><span><span><span><span>第一章：概述</span></span></span></span></strong></p>
+<p><span><span><span><span>生产率是指在一定的时间内完成的有效工作量？</span></span></span></span></p>
+<p><span><span><span><span>为什么要写一本关于程序员生产率的书？</span></span></span></span></p>
+<p><span><span><span><span>软件开发的效率越来越低。</span></span></span></span></p>
+<p><span><span><span><span>那些使用图形界面长大的程序开发者对一些酷且高效的技巧一无所知。</span></span></span></span><strong><span><span><span><span>他们的计算机在大部分时间里根本不是在跑，简直就是在散步。</span></span></span></span></strong><br><span><span><span><span>浏览器的地址补全</span></span></span></span></p>
+<p><span><span><span><span>按Ctrl + Enter键自动补全的“万维网。”+“。com”，你注意到了吗？</span></span></span><strong><span><span><span>本书涵盖的内容</span></span></span></strong></span></p>
+<p><strong><span><span><span><span>第一部分：机制（生产率法则）</span></span></span></span></strong></p>
+<p><span><span><span><span>包括加速法则，专注法则，自动化法则以及规范性法则。</span></span></span></span></p>
+<p><strong><span><span><span><span>第二部分：实践（方法）</span></span></span></span></strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><span><span><span><span>第一部分：机制</span></span></span></span></strong></p>
+<p>&nbsp;</p>
+<p><strong><span><span><span><span>第二章：加速法则</span></span></span></span></strong></p>
+<p><span><span><span><span>使用计算机有很多繁文缛节。</span></span></span></span></p>
+<p><span><span><span><span>提示：关注本质，而非形式。</span></span></span></span></p>
+<p><span><span><span><span>启动面板</span></span></span></span></p>
+<p><span><span><span><span>提示：一个应用程序的有用程度与它的长度成反比。</span></span></span></span></p>
+<p><strong><span><span>加载器（发射器）</span></span></strong></p>
+<p><span><span><span><span>提示：华而不实的东西中看不中用。</span></span></span></span></p>
+<p><span><span>免费加载器：</span></span><strong><span><span>Launchy</span></span></strong><span><span>，Colibri的，拉恩索。</span></span></p>
+<p><span><span>创建一个视窗启动面板</span></span></p>
+<p><span><span>提示：键盘输入总比导航快</span></span></p>
+<p><span><span>快速启动项“WIN +数字：。</span></span></p>
+<p><span><span>的Mac OS X</span></span></p>
+<p><span><span>水银（加载器）。</span></span></p>
+<p><span><span>在Linux的上加载</span></span></p>
+<p><span><span>GNOME。</span></span></p>
+<p><span><span>加速器</span></span></p>
+<p><span><span>提示：</span></span><strong><span><span>首选键盘而非鼠标。</span></span></strong></p>
+<p><span><span>VI编辑器（学习曲线陡峭），Emacs的IDE：永远不要将你的双手从字符按键上移开。</span></span></p>
+<p><span><span>介绍一些技巧，加速你对底层操作系统和IDE等工具的使用。</span></span></p>
+<p><strong><span><span>操作系统加速器</span></span></strong></p>
+<p><strong><span><span>窗口地址栏</span></span></strong></p>
+<p><span><span>提示：地址栏是的Windows资源管理器中最高效的部分。</span></span></p>
+<p><span><span>ALT-D切换至地址栏，Tab键自动补全。</span></span><br><span><span>的Mac OS X的Finder</span></span></p>
+<p><span><span>苹果移-G显示对话框。</span></span></p>
+<p><span><span>提示：</span></span><strong><span><span>花点时间学习你手边所有隐藏的快捷键。</span></span></strong></p>
+<p><span><span>剪贴板</span></span></p>
+<p><span><span>提示：环境切换会消耗时间</span></span></p>
+<p><strong><span><span>多重剪贴板（寄存器</span></span></strong><span><span>） 。</span></span></p>
+<p><span><span>提示：成批复制粘贴比反复多次粘贴快。</span></span><br><span><span>增强软件：</span></span><br><span><span>Windows系统：</span></span><strong><span><span>CLCL</span></span></strong><span><span> ; </span></span><br><span><span>的Mac OS X：JumpCut，jClip;</span></span></p>
+<p><strong><span><span>记住历史</span></span></strong></p>
+<p><span><span>提示（P）：忘记历史就意味着你再输入一遍。</span></span></p>
+<p><span><span>Windows中，键入先前命令一部分按F8,Shell会对匹配的历史命令做反向搜索。F7查看历史记录列表。</span></span></p>
+<p><strong><span><span>去那儿再回来</span></span></strong></p>
+<p><span><span>隐藏的</span></span><strong><span><span>使用Alt-Tab</span></span></strong><span><span>条目（切换窗口，赢下最大21项）。</span></span></p>
+<p><span><span>触手可及的命令提示符</span></span></p>
+<p><span><span>命令提示符浏览器栏</span></span></p>
+<p><span><span>提示：嵌入图形化的命令提示符让你鱼与熊掌兼得。</span></span></p>
+<p><span><span>Ctrl+M打开命令提示符窗口，让窗口依附在你当前所使用的资源管理器视图底部。</span></span></p>
+<p><span><span>这里：</span></span><br><span><span>提示：在资源管理器中嵌入命令提示符使环境切换更容易。</span></span></p>
+<p><strong><span><span>PowToy（微软组件）</span></span></strong></p>
+<p><span><span>Tweak UI的/ TaskSwitch /虚拟桌面管理器…</span></span></p>
+<p><strong><span><span>开发加速器</span></span></strong></p>
+<p><span><span>提示：编程时始终优先使用键盘而非鼠标。</span></span></p>
+<p><strong><span><span>把IDE的快捷键都学会！</span></span></strong><br><span><span> eclipse：Ctrl-Shift-L(在某个特定视图显示所有其他快捷键）</span></span></p>
+<p><span><span>提示：在上下文中学习IDE的快捷键，而不要去背长长的列表。</span></span></p>
+<p><span><span>让别人提醒：月食：重点提词。</span></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/1.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/1-300x141.png" alt="1"></a></p>
+<p><span><span>*引入变量：</span></span><br><span><span>日历万年历= Calendar.getUnstance（）让IDE提供左侧内容。</span></span></p>
+<p><span><span>记录归类你不知道但觉得酷的快捷键。</span></span></p>
+<p><strong><span><span>代码模板</span></span></strong><span><span>（为模板设置参数），制表键到下一个参数。</span></span></p>
+<p><span><span>提示：当你第二次输入一个复杂结构时，将它做成模板。</span></span></p>
+<p><span><span>在工具中也使用查找手段来导航。</span></span></p>
+<p><span><span>快速找到容易的java源文件：</span></span><strong><span><span>CTRL-SHIFT-T;</span></span></strong><br><span><span>非的java源文件：CTRL-SHIFT-R; </span><strong><span>宏</span></strong></span></p>
+<p><span><span>宏是被记录下来的与计算机交互的片段。</span></span></p>
+<p><strong><span><span>宏记录器</span></span></strong></p>
+<p><span><span>提示：如果要对多行文本做同样的操作，就应该找出其中的模式，并把它记录为一个宏。</span></span></p>
+<p><span><span>提示：在一段文本上执行某个特定操作的次数越多，就越有可能会再次重复它。</span></span></p>
+<p><strong><span><span>键盘宏工具</span></span></strong></p>
+<p><span><span>提示：不要总是重复输入相同的命令。</span></span></p>
+<p><span><span>便于捕捉一些需要重复进行的操作系统级的交互，保存为特定的格式以便于重用…</span></span></p>
+<p><span><span>窗户：</span></span><strong><span><span>AutoHotkey的</span></span></strong><span><span>。</span></span><br><span><span>的Mac OS X：TextExpander …</span></span></p>
+<p><span><span>小结：</span></span><br><span><span>谈论如何使用加载器，粘贴板管理器，IDE快捷方式…是一回事，但运用它们又是另外一回事。</span></span></p>
+<p><span><span>“以后的事情”永远不会发生。</span></span></p>
+<p><strong><span><span>尝试每周掌握一种提高生产率的方式，将精力集中子啊一个方法上直到根深蒂固，然后再尝试下一个</span></span></strong><span><span>。</span></span></p>
+<p><span><span>注意：每天花一点点时间来使每一天都更高效。</span></span></p>
+<p><span><span>运用加速方法有两个条件：</span></span><strong><span><span>对加速器的了解，以及使用它们的适当场景。</span></span></strong></p>
+<p><span><span>找到一种平衡：一方面需要花时间去学习，另一方面这些学习会让你变得更高效。</span><strong><span>第三章：</span>**</strong><span>专注法则</span>**</span></p>
+<p><span><span>本章主要介绍一些去除低效率和不必要的干扰的方法，来帮你集中注意力。</span></span></p>
+<p><strong><span><span>排除干扰</span></span></strong></p>
+<p><span><span>当你集中精力时，时间会过的很快。</span></span></p>
+<p><span><span>一单分心，就得努力会到原来的状态。</span></span></p>
+<p><span><span>提示：精力越集中，思维越缜密。</span></span></p>
+<p><strong><span><span>隔离策略</span></span></strong></p>
+<p><span><span>听力干扰：戴耳机，“请勿打扰”。</span></span></p>
+<p><span><span>视觉打扰：关掉所有分散注意力的东西，一次性检查事物。</span></span></p>
+<p><strong><span><span>关掉不需要的提示</span></span></strong></p>
+<p><span><span>窗口关闭气球式提示：</span></span></p>
+<p><span><span>Tweak UI的PowerToy的设置或编辑注册表。</span></span></p>
+<p><span><span>创造安静时间（定时） - 冲破办公环境中的条条框框。</span></span></p>
+<p><strong><span><span>搜索优于导航</span></span></strong></p>
+<p><span><span>提示：草堆越大，从中找到一根针就越难。</span></span></p>
+<p><span><span>（个人觉得搜索文件内容用一切就可以了…）</span></span></p>
+<p><span><span>。谷歌桌面搜索</span></span><br><span><span>Mac的：聚光灯。</span></span></p>
+<p><span><span>提示：不要文件树，要搜索。</span></span></p>
+<p><span><span>不远的将来：按属性搜索（按内容搜索）</span></span></p>
+<p><strong><span><span>找出难找的目标</span></span></strong></p>
+<p><span><span>提示：在诉诸高级搜索之前，先尝试简单的搜索。</span></span></p>
+<p><span><span>各种UNIX(Windows下Cygwin)都有一个叫做</span></span><strong><span><span>find</span></span></strong><span><span>的工具，可以从指定目录起向下递归遍历目录结构查找文件。</span></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/2.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/2-300x224.png" alt="2"></a></p>
+<p><strong><span><span>使用有根视图</span></span></strong></p>
+<p><span><span>为了充分利用，在创建资源管理器快捷方式时就应该加上根目录参数。</span></span></p>
+<p><span><span>提示：有根视图把资源管理器变成了项目管理工具。</span></span></p>
+<p><strong><span><span>设好“粘贴属性”</span></span></strong></p>
+<p><span><span>提示，充分利用内建的机制（例如颜色）来帮助你集中注意力。</span></span></p>
+<p><span><span>建议做如下设置：</span></span><br><span><span>1.尽可能加大宽度。</span></span><br><span><span>2.近乎无限的滚屏长度。</span></span><br><span><span>3.指定位置</span></span><br><span><span>4. </span></span><strong><span><span>设置独一无二的前景和背景颜色。</span></span></strong><br><span><span> 5.关掉快速编辑模式。</span></span></p>
+<p><strong><span><span>使用基于项目的快捷方式</span></span></strong></p>
+<p><span><span>提示：用链接来创建虚拟的项目管理目录。</span></span></p>
+<p><span><span>将项目管理目录放在窗口的快速启动或MAC地址的被告席上。</span><strong><span>使用多显示器。</span></strong></span></p>
+<p><span><span>你还可以利用虚拟桌面把这两个工作空间各自编程一组具有特定功能的视图。</span></span></p>
+<p><strong><span><span>用虚拟桌面拆分工作空间。</span></span></strong></p>
+<p><span><span>提示：虚拟桌面可以让原本杂乱无章的一大堆窗口变得整洁。</span></span></p>
+<p><span><span>窗口的PowerToy：</span></span><strong><span><span>虚拟桌面管理器</span></span></strong><span><span>。</span></span></p>
+<p><span><span>小结：想办法改变环境以减少干扰，减少来自电脑的干扰，以及借助工具保持专注。</span></span></p>
+<p>&nbsp;</p>
+<p><strong><span><span>第四章：自动化法则</span></span></strong></p>
+<p><span><span>窗户上可以用红宝石来驱动的COM对象。</span></span></p>
+<p><span><span>图形化环境是用来帮助新手的。</span></span></p>
+<p><span><span>软件开发中有很多显而易见的东西需要自动化：构建，持续集成和文档。</span></span></p>
+<p><strong><span><span>不要重新发明轮子</span></span></strong></p>
+<p><strong><span><span>建立本地缓存</span></span></strong></p>
+<p><strong><span><span>wget的</span></span></strong><span><span>，用于将互联网的内容保存到本地（的Windows可以通过Cygwin的找到它）</span></span></p>
+<p><span><span>创建网站镜像：</span></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/3.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/3-300x188.png" alt="3"></a></p>
+<p><strong><span><span>自动访问网站</span></span></strong></p>
+<p><strong><span><span>卷曲</span></span></strong><span><span>偏重于与页面交互以获取内容或是抓取资源。</span></span></p>
+<p><strong><span><span>与RSS源交互</span></span></strong></p>
+<p><span><span>雅虎管道。</span></span></p>
+<p><strong><span><span>在构建之外使用的Ant</span></span></strong></p>
+<p><span><span>提示：即使不是工具最初的设计意图，只要是合适的场合，同样可以使用这些工具。</span></span></p>
+<p><span><span>对文件进行批量操作。</span></span></p>
+<p>&nbsp;</p>
+<p><strong><span><span>用耙（红宝石的制作工具）执行常见任务</span></span></strong></p>
+<p><span><span>优势是能够非常轻松地与操作系统进行交互。</span></span></p>
+<p><strong><span><span>用硒浏览网页</span></span></strong></p>
+<p><span><span>硒IDE的脚本记录操作记录。</span></span></p>
+<p><span><span>提示：不要浪费时间动手去做可以被自动化的事情。</span></span></p>
+<p><strong><span><span>用bash的统计异常数</span></span></strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/4.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/4-300x165.png" alt="4"></a></p>
+<p><span><span>用Windows的电源外壳替代批处理文件。</span></span></p>
+<p><span><span>用的Mac OS X的Automator的来删除过时的下载文件</span></span></p>
+<p><strong><span><span>驯服的Subversion命令行</span></span></strong></p>
+<p><span><span>前端工具：窗口集成的乌龟。</span></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/5.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/5-300x186.png" alt="5"></a></p>
+<p><strong><span><span>用红宝石编写的SQL拆分工具</span></span></strong></p>
+<p><span><span>提示：做简单重复的事实在浪费注意力</span></span></p>
+<p><span><span>提示：以创造性的方式解决问题，有助于在将来解决类似的问题。</span></span></p>
+<p><strong><span><span>我应该把它自动化吗</span></span></strong></p>
+<p><span><span>不必保存做过的每件事，不过一旦发现自己第二次做某件事，就将其自动化。</span></span></p>
+<p><span><span>是否应该自动化的关键在于投资回报率和缓解风险。</span></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/6.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/6-300x110.png" alt="6"></a></p>
+<p><span><span>规定“时间盒”: </span></span><strong><span><span>首先定好一段时间来探索和了解情况，时间一到就客观地评估是否值得去做这件事。</span></span></strong></p>
+<p><span><span>提示：研究性的工作应该放在时间盒里做。</span></span></p>
+<p><strong><span><span>别给牦牛剪牛毛</span></span></strong></p>
+<p><span><span>牢记你到底要什么，如果情况开始失控就及时抽身。</span></span></p>
+<p>&nbsp;</p>
+<p><strong><span><span>小结：</span></span></strong></p>
+<p><span><span>计算机生来就是未来执行简单重复的入伍的，你应该让他们去工作！找出那些每天，每周都在做的重复工作，问我呢自己，我能把这件事自动化吗？</span></span><br><strong><span><span>第五章规范化法则</span></span></strong></p>
+<p><span><span>我们将会介绍非DRY情形的三种常见来源</span></span><br><span><span>：</span></span><strong><span><span>数据库的对象-关系映射，文档和沟通。</span></span></strong></p>
+<p><strong><span><span>干式版本控制</span></span></strong></p>
+<p><span><span>把二进制文件保存在版本控制系统中。</span></span></p>
+<p><span><span>提示：对于如何你不自己去构建的东西，旨在版本控制中保存一份副本。</span></span></p>
+<p><span><span>可能会导致空间问题，代替方案：</span></span><br><span><span>。1.Suberverison的外部选项将共享库保存在外部项目中</span></span><br><span><span>2将二进制文件放在映射的网络驱动器上。</span></span></p>
+<p><strong><span><span>使用标准的架构服务器</span></span></strong></p>
+<p><span><span>用持续集成服务器作为单独的构建机器。</span></span></p>
+<p><strong><span><span>间接机制</span></span></strong></p>
+<p><span><span>驯服的Eclipse插件</span></span></p>
+<p><span><span>提示：使用间接机制创建友善的工作空间。</span></span></p>
+<p><span><span>Eclispe的允许配置多个插件和特性的存放位置。</span></span></p>
+<p><span><span>管理插件的解决方案：脉冲。</span></span></p>
+<p><strong><span><span>同步jEdit的宏定义</span></span></strong></p>
+<p><span><span>TextMate的捆绑</span></span></p>
+<p><span><span>窗口中：E文本编辑器;</span></span></p>
+<p><span><span>提示：通过复制粘贴来复用是邪恶的，不论你复制粘贴的是什么。</span><strong><span>规范的配置</span></strong></span></p>
+<p><span><span>一些项目采取了在操作系统级别创建镜像的方式，而借助间接机制，你可以显著地简化这个问题。</span></span></p>
+<p><strong><span><span>利用虚拟平台</span></span></strong></p>
+<p><span><span>提示：利用虚拟平台依赖标准化。</span></span></p>
+<p><span><span>Vmware。</span></span></p>
+<p><strong>DRY阻抗失配</strong><br>impedance mismatch</p>
+<p>发生在两周抽象风格边界处：从基于集合到基于对象，或从过程式到面向对象。</p>
+<p><strong>数据映射</strong></p>
+<p>提示：不要让对象-关系映射工具（O/R映射器，比如hibernate） 违反规范规则。</p>
+<p>使用O/R映射器引入了重复。</p>
+<p>提示：通过扩展。开放类（open classe)(在类似ruby,groovy,python中），或者部分类(类似C#)来为生成的代码增加行为。</p>
+<p><strong>数据迁移</strong></p>
+<p>同样来自代码与SQL间的失配。</p>
+<p>提示：始终保持代码与数据库结构的同步。</p>
+<p><strong>Rake迁移</strong></p>
+<p>Ruby on Rails的迁移。</p>
+<p>dbDeploy</p>
+<p>基于java。<br>提示：使用迁移为数据库结构的改动创建可重复的快照。</p>
+<p><strong>DRY文档</strong></p>
+<p>提示：过时的文档比没有文档更糟，因为它会主动误导你。</p>
+<p>提示：对管理者来说，文档意味着缓解风险。</p>
+<p>SVN2Wiki</p>
+<p>提示：始终保持“活”的文档</p>
+<p><strong>类图</strong></p>
+<p>提示：任何需要费劲创造的东西，都让它的创造者欲罢不能。</p>
+<p>提示：白板+数码相机强过任何CASE工具。</p>
+<p>提示：尽量生成所有技术文档。</p>
+<p>yDoc，从代码中产生UML图。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/7.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/7-300x204.png" alt="7"></a></p>
+<p>提示：永远不要为同一份信息保存两份拷贝。</p>
+<p><strong>数据库结构</strong></p>
+<p>SchemaSpy 产生数据库实体/关系图。</p>
+<p>小结：</p>
+<p>提示：重复是软件开发中最大的阻力。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/8.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/8-300x179.png" alt="8"></a></p>
+<p>&nbsp;</p>
+<p><strong>第二部分 实践</strong></p>
+<p><strong>第六章 测试驱动设计</strong></p>
+<p>&nbsp;</p>
+<p>…(待续）</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Code-Skills/" rel="tag">#Code Skills</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/04/09/e7-b2-be-e5-8a-9b-e7-ae-a1-e7-90-86-e3-80-8a-e5-85-a8-e5-8a-9b-e4-bb-a5-e8-b5-b4-e3-80-8b-e8-af-bb-e4-b9-a6-e7-ac-94-e8-ae-b04-9/" rel="next" title="精力管理--《全力以赴》读书笔记4.9-4.16">
+                <i class="fa fa-chevron-left"></i> 精力管理--《全力以赴》读书笔记4.9-4.16
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/04/22/e3-80-8a-e5-a4-a7-e8-af-9d-e6-95-b0-e6-8d-ae-e7-bb-93-e6-9e-84-e3-80-8b4-22/" rel="prev" title="《大话数据结构》4.22-5.9(...)">
+                《大话数据结构》4.22-5.9(...) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/04/17/e3-80-8a-e5-8d-93-e6-9c-89-e6-88-90-e6-95-88-e7-9a-84-e7-a8-8b-e5-ba-8f-e5-91-98-e3-80-8b4-17/"
+           data-title="持续的细节优化-《卓有成效的程序员》4.17-4.22（待续...)" data-url="http://zhouchaowei.com/2014/04/17/e3-80-8a-e5-8d-93-e6-9c-89-e6-88-90-e6-95-88-e7-9a-84-e7-a8-8b-e5-ba-8f-e5-91-98-e3-80-8b4-17/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

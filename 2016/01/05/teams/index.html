@@ -1,0 +1,1216 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Reading Notes," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="从关于产品，技术和团队，到作为一名程序员在日常修行当中的注意事项，Yevgeniy Brikman把他知道的一切都告诉我们了.这可能是我今年读过最好的书了，就是这样。
+Outline
+Hello, Startup is a practical, actionable, how-to guide to startups. The book consists of three parts: Produ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reading Notes of Hello, Startup-A Programmer’s guide to building products,technologies, and teams">
+<meta property="og:url" content="http://zhouchaowei.com/2016/01/05/teams/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="从关于产品，技术和团队，到作为一名程序员在日常修行当中的注意事项，Yevgeniy Brikman把他知道的一切都告诉我们了.这可能是我今年读过最好的书了，就是这样。
+Outline
+Hello, Startup is a practical, actionable, how-to guide to startups. The book consists of three parts: Produ">
+<meta property="og:image" content="http://7bv8za.com1.z0.glb.clouddn.com/Hello.start-up.png">
+<meta property="og:updated_time" content="2016-01-16T07:57:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reading Notes of Hello, Startup-A Programmer’s guide to building products,technologies, and teams">
+<meta name="twitter:description" content="从关于产品，技术和团队，到作为一名程序员在日常修行当中的注意事项，Yevgeniy Brikman把他知道的一切都告诉我们了.这可能是我今年读过最好的书了，就是这样。
+Outline
+Hello, Startup is a practical, actionable, how-to guide to startups. The book consists of three parts: Produ">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> Reading Notes of Hello, Startup-A Programmer’s guide to building products,technologies, and teams | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Reading Notes of Hello, Startup-A Programmer’s guide to building products,technologies, and teams
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-01-05T22:08:06+08:00" content="2016-01-05">
+              2016-01-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/05/teams/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/05/teams/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>从关于产品，技术和团队，到作为一名程序员在日常修行当中的注意事项，Yevgeniy Brikman把他知道的一切都告诉我们了.这可能是我今年读过最好的书了，就是这样。
+</code></pre><h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><blockquote>
+<p>Hello, Startup is a practical, actionable, how-to guide to startups. The book consists of three parts: Products, Technologies, and Teams. Although at its core, this is a book for programmers, by programmers, only Part II, Technologies, is significantly technical. Parts I and III should be accessible to technical and non-technical audiences alike. Below is the list of chapters in each part, and under each chapter, a sampling of the concrete techniques, tools, and skills you will learn from reading it.</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="Part-I-Products"><a href="#Part-I-Products" class="headerlink" title="Part I: Products"></a>Part I: Products</h2><h3 id="Chapter-1-Why-Startups"><a href="#Chapter-1-Why-Startups" class="headerlink" title="Chapter 1.Why Startups"></a>Chapter 1.Why Startups</h3><ul>
+<li>What is a tech startup?</li>
+<li><p>A tech startup is an organization with the following characteristics:</p>
+<ul>
+<li><p>Product: technology</p>
+</li>
+<li><p>Environment: extremely uncertain</p>
+</li>
+<li><p>Goal: massive growth</p>
+</li>
+<li><p>Mode of operation: search</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Why you should work at a startup<ul>
+<li>More opportunity<ul>
+<li>More ownership</li>
+<li>More fun</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://www.safaribooksonline.com/library/view/hello-startup/9781491910016/assets/hstu_0104.png" target="_blank" rel="external"></a></p>
+<ul>
+<li>Why you shouldn’t work at a startup<ul>
+<li>It’s not glamorous</li>
+<li>It’s a sacrifice</li>
+<li>You probably won’t get rich</li>
+<li>Joining versus founding a startup</li>
+</ul>
+</li>
+</ul>
+<h3 id="Chapter-2-Startup-Ideas"><a href="#Chapter-2-Startup-Ideas" class="headerlink" title="Chapter 2. Startup Ideas"></a>Chapter 2. Startup Ideas</h3><ul>
+<li>Where ideas come from</li>
+<li><p>creativity boils down to three stages that are all various forms of remixing :</p>
+<ul>
+<li>Copy</li>
+<li>Transform</li>
+<li>Combine</li>
+</ul>
+</li>
+<li><p>Knowledge</p>
+<blockquote>
+<p>what should you invest your time in learning? One of the most effective strategies is to try to become a T-shaped person:People who are both generalists (highly skilled at a broad set of valuable things—the top of the T) and also experts (among the best in their field within a narrow discipline—the vertical leg of the T).</p>
+</blockquote>
+<ul>
+<li>EXPERTS:  you’ll need to spend some time on side projects, 20% projects, and hackathons</li>
+<li>GENERALISTS: you have to regularly seek out new ideas.One way to do this is to come up with top five lists</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Environment for creativity</p>
+<ul>
+<li><p>Give yourself plenty of time.</p>
+</li>
+<li><p>Keep an idea journal.</p>
+</li>
+<li><p>Work on the problem.</p>
+</li>
+<li><p>Get away from work.：Make a habit every day of spending at least 20 minutes doing something that relaxes you and lets you listen to your own thoughts. </p>
+</li>
+<li><p>Add constraints.</p>
+</li>
+<li><p>Look for pain points.The important thing is to write down the problem even if you don’t know how to solve it yet.Learning to identify and fix particularly nasty problems is a valuable skill.</p>
+</li>
+<li><p>Talk to others.</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Idea versus execution eg.</p>
+<ul>
+<li>Problem: I don’t know any investors.</li>
+</ul>
+<ul>
+<li><p>Idea: let’s find someone who can introduce us.</p>
+</li>
+<li><p>Execution: search for contacts on LinkedIn who know investors.</p>
+</li>
+</ul>
+</li>
+<li><p>Validation</p>
+<ul>
+<li>Speed Wins</li>
+<li>Validate the problem</li>
+<li>MARKET SIZING<ul>
+<li>Advertising</li>
+<li>Competition</li>
+<li>Community</li>
+<li>Market research and reports</li>
+<li>product data</li>
+</ul>
+</li>
+<li>TALKING TO REAL CUSTOMERS</li>
+</ul>
+</li>
+<li><p>feasibility</p>
+</li>
+</ul>
+<h3 id="Chapter-3-Product-Design"><a href="#Chapter-3-Product-Design" class="headerlink" title="Chapter 3. Product Design"></a>Chapter 3. Product Design</h3><h4 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h4><h3 id="Chapter-4-Data-and-Distribution"><a href="#Chapter-4-Data-and-Distribution" class="headerlink" title="Chapter 4. Data and Distribution"></a>Chapter 4. Data and Distribution</h3><h2 id="Part-II-Technologies"><a href="#Part-II-Technologies" class="headerlink" title="Part II. Technologies"></a>Part II. Technologies</h2><h3 id="Chapter-5-Choosing-a-Tech-Stack"><a href="#Chapter-5-Choosing-a-Tech-Stack" class="headerlink" title="Chapter 5. Choosing a Tech Stack"></a>Chapter 5. Choosing a Tech Stack</h3><p>Evolving the tech stack</p>
+<ul>
+<li><p>Technologies you should never build yourself</p>
+<ul>
+<li><p>Security: cryptography, password storage, credit card storage</p>
+</li>
+<li><p>Web technologies: HTTP servers, server-side and client-side frameworks</p>
+</li>
+<li><p>Data systems: databases, NoSQL stores, caches, message queues</p>
+</li>
+<li><p>Software delivery: version control, build systems, deployment automation</p>
+</li>
+<li><p>CS 101: basic data structures (map, list, set), sorting algorithms</p>
+</li>
+<li><p>Libraries for common data formats: XML, HTML, CSV, JSON, URLs</p>
+</li>
+<li><p>Utility libraries: date/time manipulation, string manipulation, logging</p>
+</li>
+<li><p>Operating systems</p>
+</li>
+<li><p>Programming languages </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Build in-house, buy commercial, or use open source summary?</p>
+<p><a href="https://www.safaribooksonline.com/library/view/hello-startup/9781491910016/assets/hstu_0501.png" target="_blank" rel="external"></a></p>
+<h4 id="Choosing-a-programming-language"><a href="#Choosing-a-programming-language" class="headerlink" title="Choosing a programming language"></a>Choosing a programming language</h4><p>Programming paradigms</p>
+<ul>
+<li>OBJECT-ORIENTED PROGRAMMINg</li>
+<li>FUNCTIONAL PROGRAMMING</li>
+<li>STATIC TYPING</li>
+<li>AUTOMATIC MEMORY MANAGEMENT</li>
+<li>Problem fit</li>
+<li>Performance</li>
+<li>Productivity</li>
+</ul>
+<ul>
+<li>Final thoughts on choosing a programming language<br>C family (C, C++, C#)</li>
+</ul>
+<p>Go</p>
+<p>Groovy</p>
+<p>Haskell</p>
+<p>Java</p>
+<p>JavaScript</p>
+<p>Lisp family (e.g., Clojure or Scheme)</p>
+<p>Perl</p>
+<p>PHP</p>
+<p>Python</p>
+<p>Ruby</p>
+<p>Scala</p>
+<p>You can quickly shorten this list by applying three filters: problem fit, programming paradigm, and performance requirements. </p>
+<h4 id="Choosing-a-server-side-framework"><a href="#Choosing-a-server-side-framework" class="headerlink" title="Choosing a server-side framework"></a>Choosing a server-side framework</h4><p>it’s usually not a question of libraries versus framework but minimal framework versus full-stack framework</p>
+<ul>
+<li>Problem fit</li>
+<li>Data Layer</li>
+<li>View Layer/BUILT-IN VIEW HELPERS</li>
+<li>SERVER-SIDE VERSUS CLIENT-SIDE</li>
+<li>LOGIC VERSUS LOGIC-LESS TEMPLATES</li>
+<li>Testing</li>
+<li>Scalability</li>
+<li>I/O BOUND - use a web server built around non-blocking I/O, such as Node.js or Netty</li>
+<li>CPU/MEMORY BOUND</li>
+<li>Deployment</li>
+<li>Security</li>
+<li>AUTHENTICATION- You do not store passwords as plain text</li>
+<li>CSRF ATTACKS</li>
+<li>CODE INJECTION ATTACKS</li>
+</ul>
+<ul>
+<li>Final thoughts on choosing a server-side framework</li>
+<li>Hot Frameworks</li>
+<li>C#: .NET</li>
+</ul>
+<p>Clojure: Ring, Compojure, Hoplon</p>
+<p>Go: Revel, Gorilla</p>
+<p>Groovy: Grails</p>
+<p>Haskell: Snap, Happstack, Scotty</p>
+<p>Java: Spring, Play Framework, DropWizard, JSF, Struts</p>
+<p>JavaScript: express.js, sails.js, derby.js, geddy.js, koa, kraken.js, meteor</p>
+<p>Perl: Mojolicious, Catalyst, Dancer</p>
+<p>PHP: Laravel, Phalcon, Symfony, CakePHP, Yii, Zend</p>
+<p>Python: Django, Flask</p>
+<p>Ruby: Ruby on Rails, Sinatra</p>
+<p>Scala: Play Framework, Spray</p>
+<h4 id="Choosing-a-database-the-most-important-consideration-is-maturity"><a href="#Choosing-a-database-the-most-important-consideration-is-maturity" class="headerlink" title="Choosing a database - the most important consideration is maturity"></a>Choosing a database - the most important consideration is maturity</h4><ul>
+<li>Relational Databases</li>
+<li>NoSQL databases<ul>
+<li>KEY-VALUE STORES</li>
+<li>DOCUMENT STORES</li>
+<li>COLUMN-ORIENTED DATABASES</li>
+<li>GRAPH DATABASES</li>
+</ul>
+</li>
+</ul>
+<p>Optimize the data storage format and queries on your existing database.</p>
+<p>Set up a cache in front of the database (e.g., memcached).</p>
+<p>Set up master/slave replication.</p>
+<p>Vertically partition unrelated tables.</p>
+<p>Horizontally partition a single table.</p>
+<p>Set up multi-master replication.</p>
+<h4 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h4><p>Here are the key trade-offs to consider when evaluating a <strong>programming language</strong>:</p>
+<ul>
+<li><p>Programming paradigms<br>Is it an object-oriented or functional programming language? Does it support static typing or automatic memory management?</p>
+</li>
+<li><p>Problem fit<br>For example, C is particularly good for embedded systems, Erlang for fault-tolerant distributed systems, and R for statistics.</p>
+</li>
+<li><p>Performance<br>How does the language handle concurrency? Does the language use garbage collection and how tunable is the collector?</p>
+</li>
+<li><p>Productivity<br>How popular is the language? How many frameworks and libraries are available for it? How concise is it?</p>
+</li>
+</ul>
+<p>Here are the key trade-offs to consider when evaluating a <strong>server-side framework</strong>:</p>
+<ul>
+<li><p>Problem fit<br>For example, Rails is particularly good for CRUD applications, DropWizard for RESTful API servers, and Node.js for real-time webapps.</p>
+</li>
+<li><p>Data layer<br>Does the framework help you manipulate URLs, JSON, and XML?</p>
+</li>
+<li><p>View layer<br>Are there many built-in templating helpers? Does it use server-side or client-side rendering? Does it allow logic or is it logic-less?</p>
+</li>
+<li><p>Testing<br>Is it easy to write unit tests for apps built on top of the framework? Is the framework itself well-tested?</p>
+</li>
+<li><p>Scalability<br>Does the framework use blocking or non-blocking I/O? Have you benchmarked the framework with your use cases?</p>
+</li>
+<li><p>Deployment<br>Do you know how to integrate the framework into your build? Do you know how to configure, deploy, and monitor it in production?</p>
+</li>
+<li><p>Security<br>Is there an built-in, well-tested way within the framework to handle authentication, CSRF, code injection, and security advisories?</p>
+</li>
+</ul>
+<p>Here are the key trade-offs to consider when evaluating a <strong>database</strong>:</p>
+<ul>
+<li><p>Database type<br>Is it a relational database or a NoSQL store (key-value store, document store, column-oriented database, or graph database)?</p>
+</li>
+<li><p>Reading data<br>Do you need to look up data by primary key or secondary key? Do you need JOINs? How do you map the data into an in-memory representation?</p>
+</li>
+<li><p>Writing data<br>Do your writes update just a single aggregate or many? Do you need atomic updates or transactions?</p>
+</li>
+<li><p>Schemas<br>Is the schema stored explicitly in the database or implicitly in your application code? Is your data uniform or unstructured?</p>
+</li>
+<li><p>Scalability<br>Can you get by with just vertically scaling your database? If not, does the database support replication, partitioning, or both?</p>
+</li>
+<li><p>Failure modes<br>How many different ways can the system fail? How easy are the failures to debug?</p>
+</li>
+<li><p>Maturity<br>For how long has this database been in development? How many companies are using it? How rich is the ecosystem of supporting tools?</p>
+<p>Towards a model of polyglot programming, where you use different technologies for different use cases. That is, you build a tech stack on top of a number of different services, where each service is written using different languages and frameworks, is deployed to different servers, talks to different data stores, and communicates with other services via remote messages .</p>
+</li>
+</ul>
+<h3 id="Chapter-6-Clean-Code"><a href="#Chapter-6-Clean-Code" class="headerlink" title="Chapter 6. Clean Code"></a>Chapter 6. Clean Code</h3><p>Code is for people</p>
+<ul>
+<li>introduce the basic principles of clean code, including code layout, naming, don’t repeat yourself (DRY), the single responsibility principle (SRP), functional programming, loose coupling, high cohesion, comments, and refactoring.</li>
+</ul>
+<p><a href="https://www.safaribooksonline.com/library/view/hello-startup/9781491910016/assets/hstu_0601.png" target="_blank" rel="external"></a></p>
+<h3 id="Chapter-7-Scalability"><a href="#Chapter-7-Scalability" class="headerlink" title="Chapter 7. Scalability"></a>Chapter 7. Scalability</h3><ul>
+<li><p>Scaling coding practices</p>
+<ul>
+<li><p>Automated tests</p>
+<ul>
+<li>Unit tests</li>
+<li>Integration tests</li>
+<li>Acceptance tests</li>
+<li>Performance tests</li>
+<li>EST-DRIVEN DEVELOPMENT (TDD)</li>
+</ul>
+</li>
+<li><p>Split up the code</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>In programming, there are many different kinds of abstractions. We’ll just look at the three most common ones:</p>
+<ul>
+<li>Interfaces and modules</li>
+<li>Versioned artifacts</li>
+<li><p>Services</p>
+<ul>
+<li><p>Code reviews</p>
+<ul>
+<li>design reiews</li>
+<li>pair programming</li>
+<li>pre-commit reviews</li>
+<li>static analysis</li>
+</ul>
+</li>
+<li><p>Documentation</p>
+</li>
+<li>WRITTEN DOCUMENTATION</li>
+</ul>
+</li>
+</ul>
+<p>Written documentation consists of the readme, tutorials, reference manuals, and project websites.</p>
+<ul>
+<li>CODE DOCUMENTATION</li>
+<li>COMMUNITY DOCUMENTATION</li>
+</ul>
+<p>Scaling performance</p>
+<p>Improving performance is an iterative two-step process:</p>
+<ul>
+<li><p>Measure</p>
+</li>
+<li><p>Optimize</p>
+<ul>
+<li>Divide and conquer</li>
+<li>Caching</li>
+<li>Laziness</li>
+<li>Approximate correctness</li>
+<li>Asynchrony</li>
+<li>Redundancy</li>
+<li>Faster algorithms</li>
+</ul>
+</li>
+</ul>
+<h3 id="Chapter-8-Software-Delivery"><a href="#Chapter-8-Software-Delivery" class="headerlink" title="Chapter 8. Software Delivery"></a>Chapter 8. Software Delivery</h3><ul>
+<li><p>Build</p>
+<ul>
+<li>Version Control<ul>
+<li>WRITE GOOD COMMIT MESSAGES</li>
+<li>COMMIT EARLY AND OFTEN    </li>
+</ul>
+</li>
+<li>build tool</li>
+<li>CI<ul>
+<li>TRUNK-BASED DEVELOPMENT</li>
+<li>BRANCH BY ABSTRACTION</li>
+<li>FEATURE TOGGLES</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Deployment</p>
+<ul>
+<li>Hosting (Where)</li>
+<li>Configuration Management(What)<ul>
+<li>APPLICATION CONFIGURATION<ul>
+<li>VIRTUAL MACHINES</li>
+<li>CONTAINERS</li>
+<li>ORCHESTRATION TOOLS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DEPLOYMENT AUTOMATION</li>
+<li>Continuous Delivery<ul>
+<li>ROLLBACK</li>
+<li>BACKWARD COMPATIBILITY</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Monitoring</p>
+<ul>
+<li>Logging</li>
+<li>Metrics</li>
+<li>Alerting</li>
+</ul>
+</li>
+</ul>
+<h3 id="RECAP"><a href="#RECAP" class="headerlink" title="RECAP"></a>RECAP</h3><ul>
+<li><p>move fast and don’t break things.</p>
+</li>
+<li><p>what happens to the code after you write it is just as important for productivity. This includes integrating your code with other developers through version control and a build process, getting your code to production by setting up hosting, configuration management, and automated deployment, and ensuring your code keeps running in production through logging, metrics, and alerting.</p>
+</li>
+<li><p>DevOps</p>
+</li>
+</ul>
+<h2 id="Teams"><a href="#Teams" class="headerlink" title="Teams"></a>Teams</h2><h3 id="Chapter-9-Startup-Culture"><a href="#Chapter-9-Startup-Culture" class="headerlink" title="Chapter 9. Startup Culture"></a>Chapter 9. Startup Culture</h3><p>Actions, not words</p>
+<p>Core Ideology</p>
+<ul>
+<li>Mission</li>
+<li>concise</li>
+<li>clear</li>
+<li>timeless</li>
+<li>inspiring</li>
+<li>Core Values</li>
+</ul>
+<p>Organizational design</p>
+<ul>
+<li><p>Management-driven hierarchy</p>
+<ul>
+<li>set objrctives</li>
+<li>organize</li>
+<li>motivate and communicate</li>
+<li>measure</li>
+<li>develop people</li>
+</ul>
+</li>
+<li><p>distributed organization</p>
+</li>
+</ul>
+<p><a href="https://www.safaribooksonline.com/library/view/hello-startup/9781491910016/assets/hstu_0902.png" target="_blank" rel="external"></a></p>
+<p>Hiring and promotions</p>
+<ul>
+<li><p>The Peter Principle:every post tends to be occupied by an employee who is incompetent to carry out its duties</p>
+</li>
+<li><p>Management as a promotion(wrong)</p>
+</li>
+</ul>
+<p>Motivation</p>
+<ul>
+<li>Autonomy</li>
+<li>Mastery</li>
+<li>Purpose</li>
+</ul>
+<p>The office</p>
+<p>The ideal office for developers needs to have four things:</p>
+<ul>
+<li><p>A place where you can work with others.</p>
+</li>
+<li><p>A place where you can do focused work alone.</p>
+</li>
+<li><p>A place where you can get away from work.</p>
+</li>
+<li><p>A way to customize the office for your personal needs.</p>
+</li>
+</ul>
+<p>What kind of tools do developers typically want? Here’s a list to get you started:</p>
+<ul>
+<li><p>Desk built for programming (flat, large, with an adjustable height)</p>
+</li>
+<li><p>Comfortable chair</p>
+</li>
+<li><p>Fast laptop or desktop (max out the RAM, CPU, and hard drive)</p>
+</li>
+<li><p>One or two large monitors</p>
+</li>
+<li><p>Good mouse and keyboard</p>
+</li>
+<li><p>Fast Internet connection everywhere in the office</p>
+</li>
+<li><p>Plenty of power outlets</p>
+</li>
+<li><p>Whiteboard</p>
+</li>
+<li><p>Basic office supplies (notebooks, Post-its, pens, markers, printers)</p>
+</li>
+<li><p>Storage space (a place for a jacket, bag, and private items)</p>
+</li>
+</ul>
+<p>Remote work</p>
+<ul>
+<li><p>Benefits</p>
+<ul>
+<li>ideal for focused work</li>
+<li>save money</li>
+</ul>
+</li>
+<li><p>Drawbacks</p>
+<ul>
+<li>Meetings are harder</li>
+<li>interactions are much less frequent</li>
+<li>security</li>
+</ul>
+</li>
+</ul>
+<p>Best practices</p>
+<p>our team should work like an open source project [Tomayko 2012]. Open source projects are inherently distributed, so they have developed practices over the last 20 years to make this model work.</p>
+<ul>
+<li>Electronic</li>
+<li>Available</li>
+<li>Asynchronous</li>
+<li>Lock free</li>
+</ul>
+<p>Communication</p>
+<ul>
+<li>internal</li>
+<li>external</li>
+</ul>
+<p>Process</p>
+<ul>
+<li>A company’s core ideology is the why. The process is the how.</li>
+<li>The stronger the culture, the less corporate process a company needs. </li>
+</ul>
+<p>Software methodologies</p>
+<h4 id="Recap-1"><a href="#Recap-1" class="headerlink" title="Recap"></a>Recap</h4><blockquote>
+<p>Take a company and subtract the profit. What do you get? A &lt;startup. Take a company and subtract the people. What do &lt;you get? Nothing. It can’t exist.<br>-[Preston-Werner 2012], Tom Preston-Werner, GitHub Co-founder</p>
+</blockquote>
+<p>Companies should be about making people happy, not about profits. In other words, startups are about people.</p>
+<h3 id="Chapter-10-Getting-a-Job-at-a-Startup"><a href="#Chapter-10-Getting-a-Job-at-a-Startup" class="headerlink" title="Chapter 10. Getting a Job at a Startup"></a>Chapter 10. Getting a Job at a Startup</h3><p>Finding a startup job</p>
+<ul>
+<li>What industries and types of products are you interested in?</li>
+<li>What technologies are you passionate about?</li>
+<li>What type of business model are you interested in?</li>
+<li>What role are you looking for?</li>
+<li>What other factors are you looking for?</li>
+<li>What role are you looking for?</li>
+<li>What other factors are you looking for?</li>
+</ul>
+<p>Use your network</p>
+<p>Grow your network</p>
+<ul>
+<li>MEETUP GROUPS AND CONFERENCES Start your own!</li>
+<li>HACKATHONS AND COMPETITIONS ：go out, do two or three hackathons, and spend a couple weeks building projects.</li>
+<li>TALKS, BLOG POSTS, OPEN SOURCE</li>
+<li>Build an online identity </li>
+<li>Online job search</li>
+</ul>
+<p>Nailing the interview</p>
+<ul>
+<li>Coding on a whiteboard</li>
+<li>Thinking out loud</li>
+<li>Know yourself<br>Tell me about yourself.</li>
+</ul>
+<p>What projects have you worked on before?</p>
+<p>Why are you looking for a new job?</p>
+<p>Why do you want to work here?</p>
+<p>What is your ideal job?</p>
+<p>What do you want to be doing in five years? Ten years?</p>
+<p>What are your greatest strengths? Weaknesses?</p>
+<p>What is your greatest accomplishment?</p>
+<p>What was the toughest bug you ever fixed?</p>
+<p>What else should I have asked you?</p>
+<ul>
+<li>Know the company<br>What are the expectations for the role?</li>
+</ul>
+<p>What does success look like in this job?</p>
+<p>Who will be my manager?</p>
+<p>What projects will I work on?</p>
+<p>What is the tech stack?</p>
+<p>What are the hours like? How many of them are spent coding? In meetings?</p>
+<p>How do you build and release code?</p>
+<p>What are the company’s mission and values?</p>
+<p>What is the office like?</p>
+<p>What’s your favorite and least favorite part of working here?</p>
+<ul>
+<li>Short, repetitive CS 101 problems</li>
+</ul>
+<p>How to evaluate and negotiate a job offer</p>
+<ul>
+<li>salary</li>
+<li>equity</li>
+<li>benefits</li>
+</ul>
+<h4 id="Recap-2"><a href="#Recap-2" class="headerlink" title="Recap"></a>Recap</h4><p>Put yourself in the shoes of a startup founder and write down the traits of someone you would want to hire.</p>
+<p>Smart.</p>
+<p>Gets things done.</p>
+<p>Good culture fit.</p>
+<h3 id="Chapter-11-Hiring-for-Your-Startup"><a href="#Chapter-11-Hiring-for-Your-Startup" class="headerlink" title="Chapter 11. Hiring for Your Startup"></a>Chapter 11. Hiring for Your Startup</h3><p>Who to hire</p>
+<ul>
+<li>Co-founders</li>
+<li>Early hires</li>
+<li>Later hires</li>
+<li>10x developers</li>
+</ul>
+<p>What to look for</p>
+<ul>
+<li>SMART/GETS THINGS DONE</li>
+<li>CULTURE FIT</li>
+<li>GOOD COMMUNICATION SKILLS</li>
+<li>I WOULD BE OK REPORTING TO THEM</li>
+</ul>
+<p>Finding great candidates</p>
+<ul>
+<li>Referrals:everyone is a recruiter</li>
+<li>Employer branding</li>
+<li>Searching online</li>
+</ul>
+<p>The interview</p>
+<p>STEP 1: CONNECT<br>STEP 2: PHONE SCREENS<br>STEP 3: ON-SITE INTERVIEW</p>
+<p>Interview questions</p>
+<ul>
+<li><p>ASK THE CANDIDATE TO TEACH YOU SOMETHING</p>
+</li>
+<li><p>GIVE THE CANDIDATE A CHANCE TO LEARN SOMETHING</p>
+</li>
+<li><p>HAVE THE CANDIDATE DEMONSTRATE THEIR TECHNICAL SKILLS</p>
+</li>
+</ul>
+<p>Making an offer</p>
+<ul>
+<li>the oppotunity</li>
+<li>compensation</li>
+<li>benefits</li>
+<li>Follow-up and negotiation</li>
+</ul>
+<h3 id="Chapter-12-Learning"><a href="#Chapter-12-Learning" class="headerlink" title="Chapter 12. Learning"></a>Chapter 12. Learning</h3><p>Principles of learning</p>
+<ul>
+<li><p>Choose your skills wisely.</p>
+</li>
+<li><p>Dedicate time to learning.</p>
+</li>
+<li><p>Make learning a part of your job.</p>
+</li>
+</ul>
+<p>Learning techniques</p>
+<ul>
+<li>Study.<ul>
+<li>Read articles, blog posts, and books</li>
+<li>Read academic papers</li>
+<li>Take a class.</li>
+<li>Attend a talk, meetup group, or conference</li>
+<li>Read code, especially from open source projects.</li>
+</ul>
+</li>
+</ul>
+<p>three things that make my study time more effective</p>
+<ul>
+<li>set concrete, measurable goals</li>
+<li>take notes.</li>
+<li><p>involve your friends and coworkers in the learning process</p>
+</li>
+<li><p>Build.</p>
+</li>
+</ul>
+<p>A maker.</p>
+<p> Until you start making things, most of your learning, whether from books or from school, will feel largely useless.</p>
+<p>I started to try to make something of myself and I realized that I needed help.</p>
+<p>the best thing you can do is to find a project where you have to build something you don’t know how to build. </p>
+<ul>
+<li>Share.</li>
+</ul>
+<p>Who are the best software engineers in the world?</p>
+<p>What are the best software companies in the world?</p>
+<p>Why these names and not others? It’s because these engineers and companies not only do great work but also spend time telling you that they do great work.</p>
+<p>WHY YOU SHOULD SHARE</p>
+<ul>
+<li>Mastery: The best way to learn is to teach.</li>
+<li>Quality</li>
+<li>Labor :they are doing QA, for free.</li>
+<li>Marketing</li>
+<li>Ownership</li>
+</ul>
+<h2 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h2><p><a href="http://www.hello-startup.net/resources/recommended-reading/" target="_blank" rel="external">http://www.hello-startup.net/resources/recommended-reading/</a></p>
+<h2 id="思维导图下载"><a href="#思维导图下载" class="headerlink" title="思维导图下载"></a><a href="https://www.dropbox.com/sh/iaara0itw8dbw65/AAC-w0Z7zDcpIUfCdRys-h1La?dl=0" target="_blank" rel="external">思维导图下载</a></h2><p><img src="http://7bv8za.com1.z0.glb.clouddn.com/Hello.start-up.png" alt="MindNode"></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reading-Notes/" rel="tag">#Reading Notes</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/19/《七周七并发模型》笔记-导图/" rel="next" title="《七周七并发模型》笔记+导图">
+                <i class="fa fa-chevron-left"></i> 《七周七并发模型》笔记+导图
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/05/teams/"
+           data-title="Reading Notes of Hello, Startup-A Programmer’s guide to building products,technologies, and teams" data-url="http://zhouchaowei.com/2016/01/05/teams/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Outline"><span class="nav-number">1.</span> <span class="nav-text">Outline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-I-Products"><span class="nav-number">2.</span> <span class="nav-text">Part I: Products</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-1-Why-Startups"><span class="nav-number">2.1.</span> <span class="nav-text">Chapter 1.Why Startups</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-2-Startup-Ideas"><span class="nav-number">2.2.</span> <span class="nav-text">Chapter 2. Startup Ideas</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-3-Product-Design"><span class="nav-number">2.3.</span> <span class="nav-text">Chapter 3. Product Design</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Design"><span class="nav-number">2.3.1.</span> <span class="nav-text">Design</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-4-Data-and-Distribution"><span class="nav-number">2.4.</span> <span class="nav-text">Chapter 4. Data and Distribution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-II-Technologies"><span class="nav-number">3.</span> <span class="nav-text">Part II. Technologies</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-5-Choosing-a-Tech-Stack"><span class="nav-number">3.1.</span> <span class="nav-text">Chapter 5. Choosing a Tech Stack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Choosing-a-programming-language"><span class="nav-number">3.1.1.</span> <span class="nav-text">Choosing a programming language</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choosing-a-server-side-framework"><span class="nav-number">3.1.2.</span> <span class="nav-text">Choosing a server-side framework</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choosing-a-database-the-most-important-consideration-is-maturity"><span class="nav-number">3.1.3.</span> <span class="nav-text">Choosing a database - the most important consideration is maturity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recap"><span class="nav-number">3.1.4.</span> <span class="nav-text">Recap</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-6-Clean-Code"><span class="nav-number">3.2.</span> <span class="nav-text">Chapter 6. Clean Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-7-Scalability"><span class="nav-number">3.3.</span> <span class="nav-text">Chapter 7. Scalability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-8-Software-Delivery"><span class="nav-number">3.4.</span> <span class="nav-text">Chapter 8. Software Delivery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RECAP"><span class="nav-number">3.5.</span> <span class="nav-text">RECAP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Teams"><span class="nav-number">4.</span> <span class="nav-text">Teams</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-9-Startup-Culture"><span class="nav-number">4.1.</span> <span class="nav-text">Chapter 9. Startup Culture</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Recap-1"><span class="nav-number">4.1.1.</span> <span class="nav-text">Recap</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-10-Getting-a-Job-at-a-Startup"><span class="nav-number">4.2.</span> <span class="nav-text">Chapter 10. Getting a Job at a Startup</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Recap-2"><span class="nav-number">4.2.1.</span> <span class="nav-text">Recap</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-11-Hiring-for-Your-Startup"><span class="nav-number">4.3.</span> <span class="nav-text">Chapter 11. Hiring for Your Startup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-12-Learning"><span class="nav-number">4.4.</span> <span class="nav-text">Chapter 12. Learning</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐阅读"><span class="nav-number">5.</span> <span class="nav-text">推荐阅读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思维导图下载"><span class="nav-number">6.</span> <span class="nav-text">思维导图下载</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

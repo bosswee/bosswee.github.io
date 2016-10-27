@@ -1,0 +1,713 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="搬个板凳围观老程序员吐槽。。。。
+巴别塔：
+C++是地球上最糟糕的语言。
+亚马逊的伟大元老们只用两种语言：C和Lisp.
+其实糟糕的不是多重继承，而是程序员自己。
+名词王国里的执行：
+专门开了一章批判java认为一切都是对象的。。。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《程序员的呐喊》读书笔记">
+<meta property="og:url" content="http://zhouchaowei.com/2015/04/20/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e5-91-90-e5-96-8a-e3-80-8b-e8-af-bb-e4-b9-a6-e7-ac-94-e8-ae-b0/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="搬个板凳围观老程序员吐槽。。。。
+巴别塔：
+C++是地球上最糟糕的语言。
+亚马逊的伟大元老们只用两种语言：C和Lisp.
+其实糟糕的不是多重继承，而是程序员自己。
+名词王国里的执行：
+专门开了一章批判java认为一切都是对象的。。。">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2015/04/1-400x121.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2015/04/2-400x361.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2015/04/3-400x183.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2015/04/4-400x157.png">
+<meta property="og:updated_time" content="2015-09-19T12:11:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《程序员的呐喊》读书笔记">
+<meta name="twitter:description" content="搬个板凳围观老程序员吐槽。。。。
+巴别塔：
+C++是地球上最糟糕的语言。
+亚马逊的伟大元老们只用两种语言：C和Lisp.
+其实糟糕的不是多重继承，而是程序员自己。
+名词王国里的执行：
+专门开了一章批判java认为一切都是对象的。。。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> 《程序员的呐喊》读书笔记 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《程序员的呐喊》读书笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-04-20T14:00:41+08:00" content="2015-04-20">
+              2015-04-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Reading-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Reading notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/20/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e5-91-90-e5-96-8a-e3-80-8b-e8-af-bb-e4-b9-a6-e7-ac-94-e8-ae-b0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/20/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e5-91-90-e5-96-8a-e3-80-8b-e8-af-bb-e4-b9-a6-e7-ac-94-e8-ae-b0/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>搬个板凳围观老程序员吐槽。。。。</p>
+<p><strong>巴别塔：</strong></p>
+<p>C++是地球上最糟糕的语言。</p>
+<p>亚马逊的伟大元老们只用两种语言：C和Lisp.</p>
+<p>其实糟糕的不是多重继承，而是程序员自己。</p>
+<p><strong>名词王国里的执行：</strong></p>
+<p>专门开了一章批判java认为一切都是对象的。。。</p>
+<a id="more"></a>
+<p><strong>神秘机器的笔记：</strong></p>
+<p>讨论程序员中的保守派和自由派区别并分别举了例子。</p>
+<p>本质上说，保守派就是风险管理。</p>
+<p>静态类型毫无疑问是软件政治观点的分水岭，更是保守主义世界观的特征。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2015/04/1.png"><img src="http://zhouchaowei.com/wp-content/uploads/2015/04/1-400x121.png" alt="1"></a> <a href="http://zhouchaowei.com/wp-content/uploads/2015/04/2.png"><img src="http://zhouchaowei.com/wp-content/uploads/2015/04/2-400x361.png" alt="2"></a></p>
+<p>Google很保守。。。</p>
+<p><strong>摩尔定律就是胡扯：</strong></p>
+<p>学习很难。</p>
+<p>只有努力，去做一些自己不懂的东西，才会拓展自己的眼界。</p>
+<p>呆在学校是件很奢侈的事情。荒废时间只会让人更痛苦。</p>
+<p>主流语言的问题在于本质上它们依然是顺序执行，属于早期的冯诺依曼模型，无法脱离单机。</p>
+<p>把注意力放在并行上。</p>
+<p>细胞或者网格并行计算肯定会衍生出一整套完全不同的体系。</p>
+<p>人脑的操作系统可不是C++写的。</p>
+<p>远比我们现在用的语言生产力更高的语言是真的存在的。可惜它们的威力大都没办法在我们的硬件上发挥出来。大多数Java以外的JVM语言都有这个问题。Lisp也一样。</p>
+<p>摩尔定律是垃圾，应该改变也是我们的计算模型。</p>
+<p>我们在攻克癌症上也没什么进展，因为我们的电脑和编程语言都是可悲的垃圾。haha</p>
+<p>我们只不过是一群目不识丁的洞穴人，身处编程的石器时代。</p>
+<p><strong>If you find youreslf in a hole,stop digging.</strong></p>
+<p>如果你想要上进的话，唯一要做的就是持之以恒。</p>
+<p>当然你肯定要学着忍受学习的痛苦，每天努力一点，习惯成自然。<br><strong>变换：Java PK Ruby </strong></p>
+<p>（《重构》）当然这是在你读过书，而且是仔细度过以后，另外卆你得有足够的经验才能有被当头棒喝的感觉，否则这些经验教训是无法深入骨髓的。</p>
+<p>java中自动化重构根据所要解决的问题在ruby中根本不存在。</p>
+<p>额。。。有些人根本连试一下ruby都不愿意？。。。</p>
+<p>java是毛毛虫，ruby是蝴蝶。。。哈哈</p>
+<p><strong>弱类型机制够不够强</strong>？…</p>
+<h2 id="二-代码里的哲学"><a href="#二-代码里的哲学" class="headerlink" title="二.代码里的哲学"></a><strong>二.代码里的哲学</strong></h2><p><strong>软件需要哲学家：</strong></p>
+<p>大型组织几乎总是会表现出一些很典型的失败信号，而创始人是遇见不到这点的。</p>
+<p>要是没有建设性的观点，最好是闭上嘴。</p>
+<p>质疑是好事。</p>
+<p>代码的天敌：（继续吐槽java。。。）<br>任何聪明的团队都会尽一切努力避免代码成山。</p>
+<p>代码里能出现的问题就那么几种，首先是复杂度二是粘贴复制。</p>
+<p>设计模式不是特性。</p>
+<p>变大时java中无法回避的东西。</p>
+<p>想成为优秀的运动员都要进行交叉训练。程序员也要掌握各种特点不同的语言后，才能做出正确的设计。</p>
+<p>如果你一定要雇用一个X语言程序员，不妨找一个Y语言程序员。</p>
+<p>在使用动态机制时，重构在一定程度上必定是有缺失的。</p>
+<p><strong>合理的代码量：</strong></p>
+<p>如果不用java？我们用什么</p>
+<p>要解决代码量膨胀的唯一合理的方案就是换用另一种JVM语言。</p>
+<p><strong>下一个java</strong></p>
+<p>JRuby,Groovy,Jython,Rhino?</p>
+<p><strong>反对反宣传</strong>：</p>
+<p>营销才是关键。</p>
+<p>Ruby的老爹绝对胜过Python的老爹。</p>
+<p>斑比和哥斯拉</p>
+<p>关于Smalltalk之死</p>
+<p>绝大多数程序员都不喜欢学习新语言。</p>
+<p>语言限制其实是工程师自己折腾起来的。</p>
+<p><strong>程序员的数学：</strong></p>
+<p>传统观念没用了。</p>
+<p>懂编程的人学数学会更容易。<br>学校里教数学的方法都是错的。<br>数学知识是可以在空闲时间里慢慢积累的。</p>
+<p>对程序员来讲，离散数学里最有用的部分就是概率论。</p>
+<p>要是每门课都花一星期来介绍自己到底是干嘛的就好了。</p>
+<p>其他：统计，线代，数理逻辑，信息论，柯氏复杂性，微积分</p>
+<p><strong>学习数学的正确方法</strong>：<br>BFS,not DFS</p>
+<p>学习数学的正确方法应该是忘记那些算法和证明，去了解那些技术的方方面面。(什么时候使用）<br>运用书写的第一步就是要界定问题（比如DP)。<br>我觉得学习数学的最佳方式是每天花上15-30分钟浏览一下维基百科,知道你发现不弄懂它到底怎么回事就不行的时候。</p>
+<p>不要被习题抹杀了你对数学的兴趣。</p>
+<p>每天学一点数学。（30min)</p>
+<p><strong>土豪程序员的美食：</strong></p>
+<p>玩编译器的人通常在面试里的表现会相当出色。</p>
+<p>不懂编译器原理的人，也不懂计算机的原理。</p>
+<p>编译器会接收一串符号流，根据预先定义好的规划，分析出这串符号的结构，然后把它转换成另一串符号流。</p>
+<p>学习编译器，然后自己动手写DSL…</p>
+<p>大型系统都很烂</p>
+<p><strong>编译器阵营：</strong></p>
+<p>第一个大阶段就是解析（树）。第二个阶段是类型检查。三是代码生成。</p>
+<p>写一个简单的解释器可能是一生的工作。要做的工作根本看不到头。不开玩笑，真的是看不到头。</p>
+<h2 id="三-关于google"><a href="#三-关于google" class="headerlink" title="三.关于google"></a><strong>三.关于google</strong></h2><p>每个面试官心里都会有一套主题，甚至是特定的题目，让他们觉得可以准确的判断应聘者的水平。</p>
+<p>关于白板编程水平的热身…</p>
+<p>保持谦逊，开明，专注的态度。</p>
+<p>不要质疑面试官问题23333…</p>
+<p>不要害怕问问题。</p>
+<p>不要试图转移话题，尽力去解答。</p>
+<p>在写代码之前说说自己是怎么想的。</p>
+<p><strong>关于算法：</strong><br>无论如何，也不要在面试的时候去排序一个链表，哈哈。</p>
+<p>用数组实现hashmap.</p>
+<p>熟悉一种平衡二叉树。</p>
+<p>图的各种表示方法。</p>
+<p>只有你确定没办法用图算法来解的时候，才能考虑其他方案。</p>
+<p>认出一些NP问题。<br>离散数学。<br>关于OS,知道进程，线程，并发，锁，调度的概念。<br><strong>敏捷好，敏捷坏：</strong><br>没有银弹。</p>
+<p>敏捷方法论都是忽悠那些傻瓜用的。</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2015/04/3.png"><img src="http://zhouchaowei.com/wp-content/uploads/2015/04/3-400x183.png" alt="3"></a></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2015/04/4.png"><img src="http://zhouchaowei.com/wp-content/uploads/2015/04/4-400x157.png" alt="4"></a></p>
+<p>Noogler Fifteen。。。</p>
+<p>TL;DR(Too Long;Didn’t Read)</p>
+<hr>
+<p>即使是吐槽，也是有精彩之处的。关于编译器和ruby，是时候好好学习下啦</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/15/e7-94-b1leetcode-subsets-e9-97-ae-e9-a2-98-e5-bc-95-e5-8f-91-e7-9a-84arraylist-e6-b7-b1-e6-8b-b7-e8-b4-9d-e7-9a-84-e9-97-ae-e9-a2-98/" rel="next" title="由LeetCode SubSets问题引发的ArrayList深拷贝的问题">
+                <i class="fa fa-chevron-left"></i> 由LeetCode SubSets问题引发的ArrayList深拷贝的问题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/31/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e5-81-a5-e5-ba-b7-e6-8c-87-e5-8d-97-e3-80-8b-e7-9a-84-e7-ac-94-e8-ae-b0-e4-bb-a5-e5-8f-8a-e4-b8-aa-e4-ba-ba-e6-b8-85-e5-8d-95/" rel="prev" title="《程序员健康指南》的笔记以及个人清单">
+                《程序员健康指南》的笔记以及个人清单 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/04/20/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e5-91-90-e5-96-8a-e3-80-8b-e8-af-bb-e4-b9-a6-e7-ac-94-e8-ae-b0/"
+           data-title="《程序员的呐喊》读书笔记" data-url="http://zhouchaowei.com/2015/04/20/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e5-91-90-e5-96-8a-e3-80-8b-e8-af-bb-e4-b9-a6-e7-ac-94-e8-ae-b0/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二-代码里的哲学"><span class="nav-number">1.</span> <span class="nav-text">二.代码里的哲学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-关于google"><span class="nav-number">2.</span> <span class="nav-text">三.关于google</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

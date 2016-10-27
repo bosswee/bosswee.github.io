@@ -1,0 +1,602 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Maximum Depth of Binary Tree-返回二叉树的最大深度思路：（1）level order triversal，层级遍历，迭代，BFS（2）递归,返回左右子树中较大的子树长度，DFS### Same Tree-判断两个数是否相等思路：DFS,不断判断左右子树是否相同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode习题分类汇总- DFS、BFS篇">
+<meta property="og:url" content="http://zhouchaowei.com/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-dfs-e3-80-81bfs-e7-af-87/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="Maximum Depth of Binary Tree-返回二叉树的最大深度思路：（1）level order triversal，层级遍历，迭代，BFS（2）递归,返回左右子树中较大的子树长度，DFS### Same Tree-判断两个数是否相等思路：DFS,不断判断左右子树是否相同">
+<meta property="og:updated_time" content="2015-09-19T12:12:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode习题分类汇总- DFS、BFS篇">
+<meta name="twitter:description" content="Maximum Depth of Binary Tree-返回二叉树的最大深度思路：（1）level order triversal，层级遍历，迭代，BFS（2）递归,返回左右子树中较大的子树长度，DFS### Same Tree-判断两个数是否相等思路：DFS,不断判断左右子树是否相同">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> leetcode习题分类汇总- DFS、BFS篇 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                leetcode习题分类汇总- DFS、BFS篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-22T11:04:07+08:00" content="2015-06-22">
+              2015-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-dfs-e3-80-81bfs-e7-af-87/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-dfs-e3-80-81bfs-e7-af-87/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Maximum-Depth-of-Binary-Tree-返回二叉树的最大深度"><a href="#Maximum-Depth-of-Binary-Tree-返回二叉树的最大深度" class="headerlink" title="Maximum Depth of Binary Tree-返回二叉树的最大深度"></a><span style="color: #00ff00;">Maximum Depth of Binary Tree</span>-返回二叉树的最大深度</h3><div>思路：</div><br><div>（1）level order triversal，层级遍历，迭代，BFS</div><br><div>（2）递归,返回左右子树中较大的子树长度，DFS</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Same Tree</span>-判断两个数是否相等<br><br><div>思路：DFS,不断判断左右子树是否相同</div><br><div></div><br><div><br><br><br><a id="more"></a><br>### <span style="color: #00ff00;">Populating Next Right Pointers in Each Node</span>-完全二叉树连接每个右边的节点<br><br><div>思路：迭代，BFS,设置levelstart/cur 两个指针层级遍历??难道是DFS??</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Convert Sorted Array to Binary Search Tree</span>-有序数组转化为二叉搜索树<br><br><div>思路：DFS递归，二分法</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Balanced Binary Tree</span>-判断是否为平衡二叉树<br><br><div>思路：DFS递归，不断比较当前左右子树深度是否&lt;=1</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Symmetric Tree</span>-判断是否对称<br><br><div>思路：DFS递归or迭代，递归代码好写点</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Sum Root to Leaf Numbers</span>-计算路径的和<br><br><div>思路：递归或迭代，DFS传值累加，迭代容器选择queue</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Path Sum</span>-判断路径是否存在和为sum值<br><br><div>思路：同上，DFS传值，不断减去当前值</div><br><div></div><br><div><br><pre xml:space="preserve"><span style="font-family: georgia, palatina, serif;"><strong><span style="color: #00ff00;">Minimum Depth of Binary Tree</span>-二叉树的最小深度
+</strong></span>思路：BFS,维护level,DFS，维护最小值<br><br></pre><br><br>### <span style="color: #00ff00;">Binary Tree Right Side View</span>-返回左侧值的列表<br><br><div>思路：还是DFS,发现没什么好说的了…</div><br><div></div><br><pre xml:space="preserve"><br><br></pre><br><br>### <span style="color: #00ff00;">Flatten Binary Tree to Linked List</span>-二叉树展开为链表<br><br><div>思路：DFS,中左右遍历</div><br><div></div><br><div><br><div><br><pre xml:space="preserve"></pre><br></div><br><div></div><br><div><br><div><br><br>### <span style="color: #00ff00;">Binary Tree Maximum Path Sum</span><br><br>思路：</div><br><div><br><pre xml:space="preserve">1) Recursively solve this problem<br>2) Get largest left sum and right sum<br>2) Compare to the stored maximum</pre><br></div><br></div><br></div><br><pre xml:space="preserve"><br><br></pre><br><br>### <span style="color: #ff6600;">Recover Binary Search Tree</span>-恢复一颗有两个元素调换错了的二叉查找树<br><br><pre xml:space="preserve">思路：利用二叉查找树的主要性质，就是中序遍历是有序的性质。那么如果其中有元素被调换了，意味着中序遍历中必然出现违背有序的情况。那么会出现几次呢？有两种情况，如果是中序遍历相邻的两个元素被调换了，很容易想到就只需会出现一次违反情况，只需要把这个两个节点记录下来最后调换值就可以；<br>如果是不相邻的两个元素被调换了，举个例子很容易可以发现，会发生两次逆序的情况，那么这时候需要调换的元素应该是第一次逆序前面的元素，和第二次逆序后面的元素。比如1234567,1和5调换了，会得到5234167，逆序发生在52和41，我们需要把4和1调过来，那么就是52的第一个元素，41的第二个元素调换即可。<br>搞清楚了规律就容易实现了，中序遍历寻找逆序情况，调换的第一个元素，永远是第一个逆序的第一个元素，<br>而调换的第二个元素如果只有一次逆序，则是那一次的后一个，如果有两次逆序则是第二次的后一个。算法只需要一次中序遍历，所以时间复杂度是O(n)，空间是栈大小O(logn)。</pre><br><pre xml:space="preserve"></pre><br><div><strong><span style="color: #ff6600;">Construct Binary Tree from Inorder and Postorder Traversal</span>-已知中序和后序遍历构造BT</strong></div><br><div>思路：利用中序遍历的左中右和post的左右中，不断切分，map建立索引，dfs可以得出当前节点的左右子树，相当于一次树的遍历，时间N,空间N;</div><br><div><br><br>### <span style="color: #ff6600;">Construct Binary Tree from Preorder and Inorder Traversal</span>已知前序和中序遍历构造BT<br><br><div>思路：一样吧…利用中序遍历的左中右和pre的中左右，不断切分，map建立索引，dfs可以得出当前节点的左右子树，相当于一次树的遍历，时间N,空间N，这样的题目多练习就好。</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Clone Graph</span>-无向图的复制<br><br></div><br><div><br><pre xml:space="preserve">思路：图的复制，基于BFS，用到了Hashtable来去重<br><br>参考：<br>图的遍历有两种方式，BFS和DFS<br><br>这里使用BFS来解本题，BFS需要使用queue来保存neighbors<br><br>但这里有个问题，在clone一个节点时我们需要clone它的neighbors，而邻居节点有的已经存在，有的未存在，如何进行区分？<br><br>这里我们使用Map来进行区分，Map的key值为原来的node，value为新clone的node，当发现一个node未在map中时说明这个node还未被clone，<br><br>将它clone后放入queue中处理neighbors。<br><br>使用Map的主要意义在于充当BFS中Visited数组，它也可以去环问题，例如A–B有条边，当处理完A的邻居node，然后处理B节点邻居node时发现A已经处理过了<br><br>处理就结束，不会出现死循环！<br><br>queue中放置的节点都是未处理neighbors的节点！！！！<br><br></pre><br><br>### <span style="color: #00ff00;">Number of Islands</span>-0,1代表水和陆地，求陆地数量。<br><br><div>思路：<br><pre xml:space="preserve">DFS、BFS。只要遍历一遍，碰到一个1，就把它周围所有相连的1都标记为非1<br>，这样整个遍历过程中碰到的1的个数就是所求解。<br><br></pre><br><br>### <span style="color: #00ff00;">Course Schedule</span>-根据课程的前后判断是否可能修完<br><br><div>思路：<br><pre xml:space="preserve">本质是判断有向图中有没有闭环，DFS。</pre><br><pre xml:space="preserve">需要建立有向图，还是用二维数组来建立，和BFS不同的是，我们像现在需要一个一维数组visit来记录访问状态，<br> 大体思路是，先建立好有向图，然后从第一个门课开始，找其可构成哪门课，暂时将当前课程标记为已访问，然后对新得到的课程调用DFS<br> 递归，直到出现新的课程已经访问过了，则返回false，没有冲突的话返回true，然后把标记为已访问的课程改为未访问<br><br></pre><br><br>### <span style="color: #ff0000;">Course Schedule II</span>-根据课程前后返回可行的上课顺序<br><br><div>思路：拓扑排序</div><br><pre xml:space="preserve"></pre><br><br>### <span style="color: #00ff00;">Binary Tree Level Order Traversal</span>-二叉树的层级遍历<br><br><div>思路：设置levellast指针，用queue存储遍历，BFS</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Binary Tree Level Order Traversal II</span>-bottom-up的层级遍历<br><br>思路：和之前一样，用addfirst()就可以。</div><br><pre xml:space="preserve"></pre><br></div><br><pre xml:space="preserve"><span style="color: #00ff00;"> </span></pre><br><br>### <span style="color: #00ff00;">Surrounded Regions</span>-把围棋围起来的部分消灭掉<br><br><div>思路：<br><pre xml:space="preserve">BFS。对于每一个O，扫描其相邻节点，然后标示之，如果一个联通区域中有任何一个O在边界上，<br>则保留之，否则清除该联通域。<br>小数据可以过，但是大数据提示Memory Limit Exceeded，代码中唯一用到的就是visited这个map，所以，系统期望的方法应该是不需要辅助空间的。<br><br>转换一下思路，真的需要开辟一个map在存储访问信息吗？其实这个可以省掉的，既然已经知道连通区域必须至少一个元素是在四边，那么一开始直接从四边开始扫描就好了，所以无法connect到得元素都是应该被清除的。所以，算法如下：<br>1. 从四条边上的O元素开始BFS，所有相连的O都赋个新值，比如‘Y’<br>2. 扫描整个数组，所有现存的O元素全部置为X，所有Y元素置为O<br><br>这个思路是从边缘向内部找连通的‘O’的，所以DFS时，就没必要在判断边缘上的字母了，因此DFS中，i 和 j 的条件为：i &gt; 1, i &lt; row - 2; j &gt; 1, j &lt; col - 2。（为什么？如果是 i = 1 时，那么 dfs(board, i - 1,<br>j) 就是判断 [0, j] 了，而而边缘上的字母会被遍历判断的，这样就重复判断了，会导致栈溢出）。<br><br>DFS递归太深，容易栈溢出，这个代码可谓险过，最好还是用BFS。<br><br>Flood Fill方法的运用</pre><br></div><br><pre xml:space="preserve"></pre><br></div><br><pre xml:space="preserve"><br><span style="color: #ff0000;"><strong>总结：DFS,BFS主要用于树，图，矩阵的扫描，主要需要分清两者的应用情况和局限，其他需要了解一些常用的如Flood fill,KPM算法</strong></span>。这些题目一般思路清晰，但是容易出错。</pre><br></div><br></div><br></div><br></div><br></div><br></div><br></div><br></div><br></div><br></div>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-bit-manipulation-e7-af-87/" rel="next" title="leetcode习题分类汇总- Bit Manipulation篇">
+                <i class="fa fa-chevron-left"></i> leetcode习题分类汇总- Bit Manipulation篇
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/16/X了，顺便把博客从wp换到了hexo/" rel="prev" title="终于开始使用OS X了，顺便把博客从wp换到了hexo">
+                终于开始使用OS X了，顺便把博客从wp换到了hexo <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-dfs-e3-80-81bfs-e7-af-87/"
+           data-title="leetcode习题分类汇总- DFS、BFS篇" data-url="http://zhouchaowei.com/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-dfs-e3-80-81bfs-e7-af-87/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximum-Depth-of-Binary-Tree-返回二叉树的最大深度"><span class="nav-number">1.</span> <span class="nav-text">Maximum Depth of Binary Tree-返回二叉树的最大深度</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

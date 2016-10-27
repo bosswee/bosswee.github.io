@@ -1,0 +1,935 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Code Skills," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="序： 注重实效的程序员有哪些特征：
+@早起的采纳者，快速的改编者；@好奇；@批判的思考者；@有现实感；@多才多艺；
+Prompt1:Care about your craft;Prompt2:Think!About your work.
+我们采集的只是石头，却必须时刻展望未来的大教堂–采石工人的信条。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FD:《程序员修炼之道》5.10-5.18">
+<meta property="og:url" content="http://zhouchaowei.com/2014/05/10/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e4-bf-ae-e7-82-bc-e4-b9-8b-e9-81-93-e3-80-8b5-10/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="序： 注重实效的程序员有哪些特征：
+@早起的采纳者，快速的改编者；@好奇；@批判的思考者；@有现实感；@多才多艺；
+Prompt1:Care about your craft;Prompt2:Think!About your work.
+我们采集的只是石头，却必须时刻展望未来的大教堂–采石工人的信条。">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/1-300x118.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/2-300x178.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/3-300x142.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/4-300x282.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/05/5-300x111.png">
+<meta property="og:updated_time" content="2015-09-19T12:11:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FD:《程序员修炼之道》5.10-5.18">
+<meta name="twitter:description" content="序： 注重实效的程序员有哪些特征：
+@早起的采纳者，快速的改编者；@好奇；@批判的思考者；@有现实感；@多才多艺；
+Prompt1:Care about your craft;Prompt2:Think!About your work.
+我们采集的只是石头，却必须时刻展望未来的大教堂–采石工人的信条。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> FD:《程序员修炼之道》5.10-5.18 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                FD:《程序员修炼之道》5.10-5.18
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-05-10T13:26:08+08:00" content="2014-05-10">
+              2014-05-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Reading-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Reading notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/05/10/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e4-bf-ae-e7-82-bc-e4-b9-8b-e9-81-93-e3-80-8b5-10/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/05/10/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e4-bf-ae-e7-82-bc-e4-b9-8b-e9-81-93-e3-80-8b5-10/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>序： <strong>注重实效的程序员有哪些特征：</strong></p>
+<p>@早起的采纳者，快速的改编者；<br>@好奇；<br>@批判的思考者；<br>@有现实感；<br>@多才多艺；</p>
+<p>Prompt1:Care about your craft;<br>Prompt2:Think!About your work.</p>
+<p>我们采集的只是石头，却必须时刻展望未来的大教堂–采石工人的信条。</p>
+<a id="more"></a>
+<p>&nbsp;</p>
+<p><strong>第一章： A Pragmatic Philosophy</strong></p>
+<p>1.我的源码让猫给吃了</p>
+<p>所有弱点中，最大的弱点就是暴露弱点。</p>
+<p>负责</p>
+<p>Prompt3:Provide Options,Don’t make lame excuses.</p>
+<p>2.软件的熵</p>
+<p>Prompt4:Don’t live with Broken Windows.</p>
+<p>挑战：寻找破窗户，分析，你能做些什么？</p>
+<p>3.石头汤与煮青蛙</p>
+<p>Prompt5:Be a Catalyst for change.</p>
+<p>村民的角度</p>
+<p>Prompt6 : Remember the Big Picture.</p>
+<p>挑战：<strong>你能否确定你是在做石头汤还是青蛙汤？</strong></p>
+<p>4.足够好的软件<br>让你的用户参与权衡</p>
+<p>Prompt7:Make quality a requirements issue.</p>
+<p>知道何时止步</p>
+<p><strong>5.你的知识资产</strong></p>
+<p>知识上的投资总能得到最好的回报。</p>
+<p>经营你的资产<br>定期投资。<br>多元化。<br><strong>管理风险。</strong><br>低买高卖。<br>重新评估和平衡。</p>
+<p>Prompt8:Invest regularly in your knowledge portfolio</p>
+<p>目标</p>
+<p>每年至少学习一种新语言。<br>每季度读一本技术书籍。（月）<br>也要读非技术书籍。<br>上课。<br><strong>参加本地用户组织。</strong><br>试验不同的环境。<br>跟上潮流。<br>上网。</p>
+<p>（把握）学习的机会</p>
+<p>批判的思考</p>
+<p>Prompt9: Critically analyze what you read and hear.</p>
+<p><strong>6.交流</strong></p>
+<p>我相信，被打量比被忽略要好。</p>
+<p>知道你想要说什么<br>了解你的听众<br>选择时机<br>选择风格<br>让文档美观<br>让听众参与<br>做倾听者<br>回复他人</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/1.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/1-300x118.png" alt="1"></a></p>
+<p>Prompt10:It’s both what you say and the way you say it</p>
+<p>&nbsp;</p>
+<p><strong>第二章 A Progmatic Approach</strong></p>
+<p>&nbsp;</p>
+<p>7.<strong>重复的危害</strong></p>
+<p>系统中的每一项知识都必须具有单一，无歧义，权威的表示。</p>
+<p>Prompt11:DRY-Don’t repeat yourself</p>
+<p>重复是怎样发生的：</p>
+<p>imposed duplication;<br>信息的多种表示。<br>代码中的文档。<br>语言问题。<br>inadvertent duplication;<br>impatient duplication;<br>interdeveloper duplication;</p>
+<p>Prompt12 Make it easy to resue.</p>
+<p><strong>8.正交性</strong></p>
+<p>Prompt13 : Eliminate effects between unrelated things.</p>
+<p>提高生产率；<br>降低风险。</p>
+<p>项目团队？<br>设计？<br><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/2.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/2-300x178.png" alt="2"></a><br>不要依赖你无法控制的事物属性。<br>编码？</p>
+<p>让你的代码保持解耦。<br>避免使用全局数据；<br>避免编写类似的函数。</p>
+<p>测试？<br>文档？</p>
+<p><strong>运用DRY,寻求使系统中的重复降至最少；运用正交性原则，降低系统的各组件间的互相依赖。</strong></p>
+<p><strong>9.可撤销性</strong></p>
+<p>如果某个想法是你唯一的想法，再没有什么比这更危险的事情了。<br>Prompt14 ：There<br>are no final decisions</p>
+<p>维持灵活的架构。</p>
+<p><strong>10.曳光弹</strong></p>
+<p>提示15：Use tracer bullets to find the target.</p>
+<p>优点：<br>用户能够看到能工作的东西。<br>开发者构建了一个他们能在其中工作的结构。<br>你有了一个集成平台。<br>你有了可用于演示的东西。<br>你将更能感觉到工作的进展。</p>
+<p>曳光弹并非总能击中目标。</p>
+<p>曳光代码vs原型制作</p>
+<p><strong>原型制作生成用过就扔的代码，曳光弹虽然简约但构成了最终系统骨架的一部分。</strong></p>
+<p><strong>11.原型与便笺</strong></p>
+<p>应制作原型的事物<br>架构；已有系统的新功能；外部数据的结构或内容；第三方工具或组建；性能问题；用户界面设计。。。</p>
+<p>提示16：Prototype to learn .</p>
+<p>忽略正确，完整，健壮性和风格。</p>
+<p>在你着手制作人和基于代码的原型之前，先确定每个人都理解你正在编写用过就扔的代码。</p>
+<p><strong>12 领域语言</strong></p>
+<p>语言的界限就是一个人的世界的界限。</p>
+<p>提示17 Program close to the problem domain</p>
+<p><strong>实现小型语言</strong></p>
+<p>java程序员可以选用javaCC。<br>数据语言与命令语言</p>
+<p>独立语言与嵌入式语言</p>
+<p>易于开发还是易于维护</p>
+<p><strong>13.估算</strong></p>
+<p>提示18:Estimate to avoid surprises</p>
+<p>多准确才足够准确</p>
+<p>你的估算来自哪里（他人）</p>
+<p>理解提问内容</p>
+<p><strong>建立系统的模型</strong></p>
+<p>把模型分解为组件</p>
+<p>给每个参数指定值</p>
+<p>计算答案</p>
+<p>追踪你的估算能力</p>
+<p>估算项目进度</p>
+<p>检查需求-分析风险-设计，实现，集成-向用户确认。</p>
+<p>提示19：Iterate the schedule with the code.</p>
+<p>早被要求进行估算时说什么：</p>
+<p>我等会儿回答你。</p>
+<p><strong>挑战：开始写估算日志，如果你的错误率大于50%,设法找出你的估算误入歧途的地方。</strong></p>
+<p>&nbsp;</p>
+<p><strong>第三章 The Basic Tools</strong></p>
+<p><strong>14.纯文本的威力</strong></p>
+<p>提示20 Keep knowledge in plain text.</p>
+<p>缺点：<br>1.与二进制相比空间更多2.解释和处理代价昂贵。</p>
+<p>文本的威力：</p>
+<p>保证不过时<br>杠杆作用<br>更易于测试</p>
+<p><strong>15.shell游戏</strong></p>
+<p>任何一样工具的适用范围都局限于工具预期要完成的任务、</p>
+<p>提示21：Use the power of command shells.<br>在windows下使用Unix工具（Cygwin)</p>
+<p><strong>16强力编辑</strong></p>
+<p>提示22：Use a single editor well.</p>
+<p>编辑器特性：</p>
+<p>可配置，可扩展，可编程。</p>
+<p>生产率：notepad×…自动缩进很有用…</p>
+<p>有哪些编辑器可以用？<br>（学emacs去了）</p>
+<p>挑战：<strong>学习你家编辑器使用的语言</strong>，你是否知道你的编辑器所能做的每一件事情？<br><strong>17.源码控制（SCCS)</strong></p>
+<p>进步远非变化组成，而是取决于好记性，不能记住过去的人，被判重复过去。</p>
+<p>提示23：Always use source code control</p>
+<p>源码控制与构建：自动的和可重复的产品构建。</p>
+<p><strong>18.调试</strong></p>
+<p>这是痛苦的事：<br>看着你自己的烦扰，并且知道，不是别人，而是你自己一人所致。</p>
+<p>调试的心理学</p>
+<p>提示24：Fix the problem,not the blame;</p>
+<p>调试的思维方式</p>
+<p>最容易欺骗的一个人是自己。</p>
+<p>提示25：Don’t panic</p>
+<p>从何处开始：<br>与报告bug的用户面谈；<br>无情的测试；</p>
+<p>测试策略：</p>
+<p>1.使你的数据可视化；<br>2.跟踪；<br><strong>3.橡皮鸭调试法；</strong><br>4.消除过程</p>
+<p>提示26：Select isn’t broken.</p>
+<p>5.造成惊讶的元素</p>
+<p>提示27：Don’t assume it-Prove it.</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/3.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/3-300x142.png" alt="3"></a></p>
+<p><strong>19.文本操纵</strong></p>
+<p><strong>提示28 Learn a text manipulation language.(perl?)</strong></p>
+<p>应用示例：<br>数据库schema维护，测试数据生成，web文档…<br><strong>20.代码生成器</strong></p>
+<p>提示29：ｗｒｉｔｅ　ｃｏｄｅ　ｔｈａｔ　ｗｒｉｔｅｓ　ｃｏｄｅ．</p>
+<p>被动代码生成器<br>＠创建新的源文件；<br>＠在编程语言之间进行一次性转换；<br>＠生成查找表等</p>
+<p>主动代码生成器</p>
+<p>无论合适发现自己设法让两种完全不同的环境一起工作，都应该考虑使用。<br>代码生成不一定要很复杂；<br>代码生成器不一定要生成代码．．．<br><strong>第四章　Ｐｒａｇｍａｔｉｃ　Ｐａｒａｎｏｉａ</strong><br>提示30：You can’t write perfect software.</p>
+<p>当每个人都确实要对你不利时，偏执就是一个好主意。</p>
+<p><strong>21 按合约设计</strong></p>
+<p>没有什么比常识和坦率更让人感到惊讶。</p>
+<p>例程与任何潜在调用者的合约可解读为：<br>如果调用者满足了例程的所有前条件，例程应该保证在其完成时，所有后条件和不变项为真。<br>提示31 ：Design with contracts.</p>
+<p>Listovtihuan原则：<br>子类必须要能通过基类的接口使用，而使用者无需知道其区别。</p>
+<p>断言；<br>语言支持：有内建的DBC支持的语言（如eiffel)会自动检查。其他如java有一些预处理器（iContract)作为特殊注释嵌入在原始源码中的合约。<br>DBC与早崩溃</p>
+<p>不变项的其他用法：<br>循环不变项，语义不变项。</p>
+<p>动态合约与代理</p>
+<p><strong>22.死程序不说谎</strong></p>
+<p>提示32：Crash early</p>
+<p>要崩溃，不要破坏</p>
+<p><strong>23 断言式编程</strong></p>
+<p>在自责中有一种满足感，当我们责备自己时，会觉得再没有人有权责备我们。</p>
+<p>提示33： If it can’t happen,.use assertions to ensure taht it won’t.</p>
+<p>让断言开着。</p>
+<p>Heisenbug:不要让调试改变被调试系统的行为</p>
+<p><strong>24.何时使用异常</strong></p>
+<p>异常表示即时的，非局部的控制转移.</p>
+<p>不支持异常的语言常常具有其他的非局部控制转移机制（C的longjmp/setjmp)。</p>
+<p>提示34：Using exceptions for exceptional problems.</p>
+<p><strong>25 怎样配平资源</strong></p>
+<p>提示35 Finish what you start.</p>
+<p>分配某项资源的例程或对象应该负责接触该资源的分配。</p>
+<p>嵌套的分配</p>
+<p>无论是谁分配的资源，它都应该负责接触该资源的分配。</p>
+<p>对象与异常</p>
+<p>对象出作用域或被垃圾回收时，对象的析构器会结合粗所包装资源的分配。</p>
+<p>配平与异常</p>
+<p>在java中配平资源</p>
+<p>采用finally…</p>
+<p>当你无法配平资源时，为内存分配设立一个语义不变项。</p>
+<p>检查配平</p>
+<p>使用puriy等工具…</p>
+<p>有些开发者故意在使用完某个对象时，把该对象变量设为null,这为什么是个好主意？</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>第五章 Bend,or Break</strong></p>
+<p>&nbsp;</p>
+<p><strong>26. 解耦与得墨忒耳法则</strong></p>
+<p>函数的得墨忒耳法则</p>
+<p>提示36：Minimize coupling between moudules.</p>
+<p><strong>27. 元程序设计</strong></p>
+<p>再多的天才也无法胜过对细节的专注</p>
+<p>动态配置</p>
+<p>提示37：Configure,don’t integrate.</p>
+<p>元数据（metadata)驱动的应用</p>
+<p>提示38：Put abstractions in code,details in metadata.</p>
+<p>一个例子：EJB这样的分布式系统。</p>
+<p><strong>28 时间耦合</strong></p>
+<p>我们需要容许并发，并考虑解除任何时间或次序上的依赖。<br>工作流分析：</p>
+<p>使用UML活动图。</p>
+<p>提示：Analyze workflow to improve concurrency.</p>
+<p>架构</p>
+<p>提示40：Design using services</p>
+<p>为并发进行设计</p>
+<p>更整洁的接口</p>
+<p>提示41 Always design for courrency.</p>
+<p>部署</p>
+<p><strong>29. 它只是视图</strong></p>
+<p>发布/订阅</p>
+<p>MVC:</p>
+<p>提示42 Separate views from models</p>
+<p>Java 树视图</p>
+<p><strong>30.黑板</strong></p>
+<p>实现黑板</p>
+<p>提示43 Use blackboards to coordinate workflow.<br><strong>第六章 While you are coding</strong></p>
+<p><strong>31 靠巧合编程</strong></p>
+<p>实现的偶然，语境的偶然，隐含的假定</p>
+<p>提示44 Don’t program by coincidence</p>
+<p>怎样深思熟虑的编程</p>
+<p>总是意识到你在做什么！<br>不要盲目的编程。<br>按照计划行事。<br>依靠可靠的事物。<br>为你的假定建立文档<br>不要只是测试你的代码；<br>为你的工作划分优先级。<br>不要做历史的奴隶。</p>
+<p><strong>32 算法速率</strong></p>
+<p>O()表示法(时间复杂度)</p>
+<p>常识估算</p>
+<p>简单循环:O（n) ;<br>嵌套循环：O(n^2);<br>二分法：O(lg(n)),O(ln(n));<br>分而治之：（如快速排序） O(nln(n)).<br>组合：失去控制…</p>
+<p>实践中的算法速率</p>
+<p>提示45 Estimate the order of your algorithms.</p>
+<p>不能确定？运行它，画几个点看趋势。</p>
+<p>提示：Test your estimates</p>
+<p>最好的并非总是最好的.</p>
+<p><strong>33.重构Refectoring</strong></p>
+<p>你应当在何时进行重构</p>
+<p>重复；<br>非正交的设计；<br>过时的知识；<br>性能。</p>
+<p>提示47：Refactor early,refactor often;</p>
+<p>怎样进行重构：<br>1.不要试图同时增加功能；<br>2.重构前确保拥有良好的测试；<br>3.采取短小，深思熟虑的步骤。</p>
+<p><strong>34 易于测试的代码</strong></p>
+<p>单元测试</p>
+<p>针对合约进行测试</p>
+<p>提示48 Design to test</p>
+<p>编写单元测试</p>
+<p>1.一些例子，说明怎样使用你的模块的所有功能；<br>2.用以构建回归测试，以验证未来对代码的任何改动是否正确。</p>
+<p>使用测试装备</p>
+<p>用以指定设置与清理的标准途径。<br>用以选择个别或所有可用测试的方法；<br>分析输出是否有预期意外结果的手段；<br>标准化的故障报告形式；</p>
+<p>构建测试窗口</p>
+<p>测试文化</p>
+<p>提示49：Test your software,or your users will.</p>
+<p><strong>35.邪恶的向导</strong></p>
+<p>提示50 Don’t use wizard code you don’t understand.<br><strong>第七章 Before the project</strong></p>
+<p>提示51 Don’t gather requirements-Dig for them</p>
+<p>挖掘需求</p>
+<p>提示52 Work with a User to think like a user.</p>
+<p>建立需求文档</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/4.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/4-300x282.png" alt="4"></a></p>
+<p>用例图</p>
+<p>可以用UML活动图捕捉工作流，而且有时要为手边的事物建模，概念层类图很有用，但它只是工具。</p>
+<p>规定过度，需求是需要。</p>
+<p>看远些</p>
+<p>提示53 Abstractions live longer than details.</p>
+<p>再抹一层薄薄的薄荷</p>
+<p>管理需求增长的关键是向项目出资人指出每项新特性对项目进度的影响。</p>
+<p>维护词汇表</p>
+<p>提示54 Use a Project Glossary.</p>
+<p>把话说出来</p>
+<p>把需求制作成超文本文档。</p>
+<p><strong>自由度</strong></p>
+<p>你必须挑战如何先人之见，并评估它们是否是真实的，必须遵守的约束。</p>
+<p>提示55 Don’t think outside the box-find the box.</p>
+<p>一定有更容易的方法</p>
+<p><strong>问问自己以下的问题：</strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/05/5.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/05/5-300x111.png" alt="5"></a></p>
+<p>特别是：它必须以这种方式完成吗？</p>
+<p><strong>38 等你准备好</strong>。</p>
+<p>有时犹豫的人会得以保全。</p>
+<p>提示56 Listen to nagging doubts-Start when you’re ready.</p>
+<p><strong>软件开发仍然不是科学，让你的直觉为你的表演做出贡献。</strong></p>
+<p>&nbsp;</p>
+<p><strong>39 规范陷阱</strong></p>
+<p>提示57 Some things are better done than described.</p>
+<p><strong>40.圆圈与箭头</strong></p>
+<p>提示58 Don’t Be a slave to formal methods.</p>
+<p>提示59 Wxpensive tools do not produce better designs.<br><strong>第八章 Pragmatic Projects</strong></p>
+<p><strong>41 注重实效的团队</strong></p>
+<p>不要留破窗户</p>
+<p>质量只可能来源于全体团队成员都做出自己的贡献。</p>
+<p>煮青蛙</p>
+<p>与之战斗。确保每个人都主动监视环境的变化。指定chief water tester。</p>
+<p>交流</p>
+<p>营销诀窍：创立品牌</p>
+<p>不要重复你自己</p>
+<p>正交性</p>
+<p>提示60 Organize around functionality,not job functions.</p>
+<p>自动化</p>
+<p>知道何时停止会话</p>
+<p><strong>42 无处不在的自动化</strong></p>
+<p>提示61 Don’t use manual procedures</p>
+<p>自动化工具：cron.</p>
+<p>项目编译-生成代码-回归测试-构建自动化-最终构建-自动化管理-网站生成-批准流程…</p>
+<p><strong>43 无情的测试</strong></p>
+<p>提示62Tst early,test often,test automatically.</p>
+<p>提示63 Coding ain’t done ‘til all the tests run.</p>
+<p><strong>测试什么</strong></p>
+<p>主要类型：<br>单元测试；<br>集成测试；<br>验证和校验validation and verification.（用户告诉了你他妈需要什么，但那时他们需要的吗）;<br>资源耗尽，错误及恢复（磁盘，内存，带宽,分辨率？）;<br>性能，压力测试;<br>可用性测试。</p>
+<p><strong>怎样测试</strong></p>
+<p>回归测试；（当前测试输出与先前的值对比）<br>测试数据；<br>演练GUI系统；<br>对测试进行测试；</p>
+<p>提示64 Use saboteurs to test your testing.<br>彻底测试。</p>
+<p>提示65 Test state coverage,not code coverage.</p>
+<p><strong>何时进行测试</strong></p>
+<p>把网收紧</p>
+<p>提示66 Find bugs once.</p>
+<p><strong>44.全都是写</strong></p>
+<p>提示67 Treat English as just another programming language.</p>
+<p>提示68 Build documentation in,don’t bolt it on</p>
+<p>不应出现在源码注释中的一些内容：</p>
+<p>代码中的注释：<br>文件中的代码导出的函数的列表；<br>修订历史；<br>该文件使用的其他文件的列表；<br>文件名；</p>
+<p>可执行文档</p>
+<p>打印还是编排</p>
+<p>建议使用一些更为现代的文档标记方案</p>
+<p><strong>45 极大的期望</strong></p>
+<p>提示69 Gently exceed your users’ expectations.</p>
+<p>交流期望</p>
+<p>额外的一英里<br>要设法让你的用户惊讶，了解什么特性会使他们真的高兴。</p>
+<p><strong>46 傲慢与偏见</strong></p>
+<p>提示70 Sign your work.</p>
+<p>这是我编写的，我对自己的工作负责。</p>
+<p><strong>附录A Resourses</strong></p>
+<p>专业协会 ACM,IEEE</p>
+<p>建设藏书库</p>
+<p>期刊/行业商务周刊/书籍/分析与设计/团队与项目/具体环境/web…</p>
+<p>&nbsp;</p>
+<p>（end</p>
+<p>短评：主要写作为一个程序员应有的一些职业习惯，先记着，以后开发时实践。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Code-Skills/" rel="tag">#Code Skills</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/05/03/e5-ad-a6-e4-b9-a0-e7-94-9f-e6-b4-bb2014-e5-b9-b45-e6-9c-88/" rel="next" title="学习$生活@2014年5月">
+                <i class="fa fa-chevron-left"></i> 学习$生活@2014年5月
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/05/19/fd-e5-a4-a7-e8-af-9d-e8-ae-be-e8-ae-a1-e6-a8-a1-e5-bc-8f5-19/" rel="prev" title="FD：“大话设计模式”5.19-5.26">
+                FD：“大话设计模式”5.19-5.26 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/05/10/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e4-bf-ae-e7-82-bc-e4-b9-8b-e9-81-93-e3-80-8b5-10/"
+           data-title="FD:《程序员修炼之道》5.10-5.18" data-url="http://zhouchaowei.com/2014/05/10/e3-80-8a-e7-a8-8b-e5-ba-8f-e5-91-98-e4-bf-ae-e7-82-bc-e4-b9-8b-e9-81-93-e3-80-8b5-10/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

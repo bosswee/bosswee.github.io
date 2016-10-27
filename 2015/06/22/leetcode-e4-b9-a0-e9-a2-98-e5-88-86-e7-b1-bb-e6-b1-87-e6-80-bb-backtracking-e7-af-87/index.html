@@ -1,0 +1,698 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="N-Queens-返回N格子中N个棋子不能毗邻的所有解法 思路：
+这种棋盘类的题目一般是回溯法,依次放置每行的皇后。在放置的时候，要保持当前的状态为合法，即当前放置位置的同一行、同一列、两条对角线上都不存在皇后，其实本质还是DFS,只是加一个判断，然后把结果转化成string，解题的时候注意方法的拆分以保持逻辑清晰，比如判断是否安全一个方法，dfs一个，print一个方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode习题分类汇总- Backtracking篇">
+<meta property="og:url" content="http://zhouchaowei.com/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-backtracking-e7-af-87/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="N-Queens-返回N格子中N个棋子不能毗邻的所有解法 思路：
+这种棋盘类的题目一般是回溯法,依次放置每行的皇后。在放置的时候，要保持当前的状态为合法，即当前放置位置的同一行、同一列、两条对角线上都不存在皇后，其实本质还是DFS,只是加一个判断，然后把结果转化成string，解题的时候注意方法的拆分以保持逻辑清晰，比如判断是否安全一个方法，dfs一个，print一个方法。">
+<meta property="og:updated_time" content="2015-09-19T12:12:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode习题分类汇总- Backtracking篇">
+<meta name="twitter:description" content="N-Queens-返回N格子中N个棋子不能毗邻的所有解法 思路：
+这种棋盘类的题目一般是回溯法,依次放置每行的皇后。在放置的时候，要保持当前的状态为合法，即当前放置位置的同一行、同一列、两条对角线上都不存在皇后，其实本质还是DFS,只是加一个判断，然后把结果转化成string，解题的时候注意方法的拆分以保持逻辑清晰，比如判断是否安全一个方法，dfs一个，print一个方法。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> leetcode习题分类汇总- Backtracking篇 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                leetcode习题分类汇总- Backtracking篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-22T11:00:55+08:00" content="2015-06-22">
+              2015-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-backtracking-e7-af-87/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-backtracking-e7-af-87/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="N-Queens-返回N格子中N个棋子不能毗邻的所有解法"><a href="#N-Queens-返回N格子中N个棋子不能毗邻的所有解法" class="headerlink" title="N-Queens-返回N格子中N个棋子不能毗邻的所有解法"></a><span style="color: #00ff00;">N-Queens</span>-返回N格子中N个棋子不能毗邻的所有解法</h3><p><div> 思路：</div></p>
+<pre xml:space="preserve">这种棋盘类的题目一般是回溯法,依次放置每行的皇后。在放置的时候，要保持当前的状态为合法，即当前放置位置的同一行、同一列、两条对角线上都不存在皇后，其实本质还是DFS,只是加一个判断，然后把结果转化成string，解题的时候注意方法的拆分以保持逻辑清晰，比如判断是否安全一个方法，dfs一个，print一个方法。
+
+
+<a id="more"></a>
+
+</pre>
+
+<h3 id="N-Queens-II-同上，返回所有解法的数量"><a href="#N-Queens-II-同上，返回所有解法的数量" class="headerlink" title="N-Queens II-同上，返回所有解法的数量"></a><span style="color: #00ff00;">N-Queens II</span>-同上，返回所有解法的数量</h3><p><div>思路：同上，反而简单了。</div></p>
+<p><div></div></p>
+<div>
+
+<h3 id="Generate-Parentheses-给N对（），给出所有的组合方式"><a href="#Generate-Parentheses-给N对（），给出所有的组合方式" class="headerlink" title="Generate Parentheses-给N对（），给出所有的组合方式"></a><span style="color: #00ff00;">Generate Parentheses</span>-给N对（），给出所有的组合方式</h3><p><div>思路：DFS+backtraceing+具体判断</div></p>
+<pre xml:space="preserve">
+1\. Left代表余下的'('的数目
+
+2\. right代表余下的')'的数目
+
+3\. 注意right余下的数目要大于left,否则就是非法的，比如，先放一个')'就是非法的。
+
+4\. 任何一个小于0，也是错的。
+
+5\. 递归的时候，我们只有2种选择，就是选择'('还是选择')'。
+
+6\. 递归的时候，一旦在结果的路径上尝试过'('还是选择')'，都需要回溯，即是sb.deleteCharAt(sb.length() - 1);
+
+</pre>
+
+<h3 id="Permutations-返回数组的全排列"><a href="#Permutations-返回数组的全排列" class="headerlink" title="Permutations-返回数组的全排列"></a><span style="color: #00ff00;">Permutations</span>-返回数组的全排列</h3><p><div>思路：每个数字当可以插入至当前列表的任意位置，明白这点就ok了。</div></p>
+<p><div></div></p>
+<div>
+
+<h3 id="Permutations-II-返回有重复数字数组的全排列"><a href="#Permutations-II-返回有重复数字数组的全排列" class="headerlink" title="Permutations II-返回有重复数字数组的全排列"></a><span style="color: #00ff00;">Permutations II</span>-返回有重复数字数组的全排列</h3><p><div>思路：只是判断而已。</div><br></p></div><p></p>
+<div>
+
+<h3 id="Combinations-给定1-n以及个数，返回所有组合"><a href="#Combinations-给定1-n以及个数，返回所有组合" class="headerlink" title="Combinations-给定1-n以及个数，返回所有组合"></a><span style="color: #00ff00;">Combinations</span>-给定1-n以及个数，返回所有组合</h3><p><div>思路：用list来做容器，queue来dfs.</div></p>
+<p><div></div></p>
+<pre xml:space="preserve">在包含问题的所有解的解空间树中，按照深度优先搜索的策略，从根结点出发深度探索解空间树。
+当探索到某一结点时，要先判断该结点是否包含问题的解，如果包含，就从该结点出发继续探索下去，如果该结点不包含问题的解，
+则逐层向其祖先结点回溯。（其实回溯法就是对隐式图的深度优先搜索算法）。
+若用回溯法求问题的所有解时，要回溯到根，且根结点的所有可行的子树都要已被搜索遍才结束。</pre>
+</div>
+</div>
+<div></div>
+<div>
+<div> **<span style="color: #00ff00;">SubSets</span>-返回所有子数组，原数组无重复**</div>
+<div>思路：dfs，回溯，注意list的浅拷贝和深拷贝。</div>
+<div></div>
+<div>
+<div>**<span style="color: #00ff00;">SubSets II</span> -返回所有子数组，原数组有重复**</div>
+<div>**思路：依然是dfs，回溯，只是要注意消除重复的情况，加到容器里的时候加个判断就可以了，时间n2**</div>
+</div>
+<div>
+
+### <span style="color: #00ff00;">Combination Sum</span>-给定目标值返回数组中所有=target值的排列组合，元素可以重复利用
+
+<div>思路：**回溯，dfs**,因为不清楚当前元素利用的次数，所以是NP问题。</div>
+<div></div>
+<div>
+<div>**<span style="color: #00ff00;">Combination Sum II</span>-给定目标值返回数组中所有=target值的排列组合，元素不能重复利用**</div>
+<div>**思路：回溯，dfs,和前一题类似，只是返回i+1而已。全排列的问题好像都是一个模型..**</div>
+<div>** **</div>
+</div>
+</div>
+</div>
+
+
+<pre xml:space="preserve"></pre>
+<div>**<span style="color: #00ff00;">Combination Sum III</span> -给定元素个数从1-9中选取指定元素，求等于目标值的排列组合。**</div>
+<div>**思路：依然是回溯，dfs，只不过传的参数多一点而已**</div>
+<div>** **</div>
+<div>
+
+### <span style="color: #00ff00;">Palindrome Partitioning</span>-返回所有回文的切分
+
+<div>思路：返回所有组合的问题一般都是dfs，同上</div>
+<div></div>
+<div>
+
+### <span style="color: #00ff00;">Letter Combinations of a Phone Number</span>-给出数字键组合列出所有可能的字母组合。
+
+<div>思路：
+<pre xml:space="preserve">先把对应关系存储起来（利用数组下标），然后想办法遍历,DFS或者BFS，可以借助queue</pre>
+</div>
+</div>
+** **
+
+</div>
+<pre xml:space="preserve"><span style="color: #ff0000;">
+**总结：**</span></pre>
+<pre xml:space="preserve">**<span style="color: #ff0000;">在包含问题的所有解的解空间树中，按照深度优先搜索的策略，从根结点出发深度探索解空间树。</span>**
+**<span style="color: #ff0000;">当探索到某一结点时，要先判断该结点是否包含问题的解，如果包含，就从该结点出发继续探索下去，如果该结点不包含问题的解，</span>**
+**<span style="color: #ff0000;">则逐层向其祖先结点回溯。（其实回溯法就是对隐式图的深度优先搜索算法）。</span>**
+**<span style="color: #ff0000;">若用回溯法求问题的所有解时，要回溯到根，且根结点的所有可行的子树都要已被搜索遍才结束。
+常常出现在求所有组合或者排列的题目中，思路往往比较固定。</span>**</pre>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-hashcode-e7-af-87/" rel="next" title="leetcode习题分类汇总-HashCode篇">
+                <i class="fa fa-chevron-left"></i> leetcode习题分类汇总-HashCode篇
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-stackheap-e7-af-87/" rel="prev" title="leetcode习题分类汇总- Stack/Heap篇">
+                leetcode习题分类汇总- Stack/Heap篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-backtracking-e7-af-87/"
+           data-title="leetcode习题分类汇总- Backtracking篇" data-url="http://zhouchaowei.com/2015/06/22/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-backtracking-e7-af-87/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#N-Queens-返回N格子中N个棋子不能毗邻的所有解法"><span class="nav-number">1.</span> <span class="nav-text">N-Queens-返回N格子中N个棋子不能毗邻的所有解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#N-Queens-II-同上，返回所有解法的数量"><span class="nav-number">2.</span> <span class="nav-text">N-Queens II-同上，返回所有解法的数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-Parentheses-给N对（），给出所有的组合方式"><span class="nav-number">3.</span> <span class="nav-text">Generate Parentheses-给N对（），给出所有的组合方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Permutations-返回数组的全排列"><span class="nav-number">4.</span> <span class="nav-text">Permutations-返回数组的全排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Permutations-II-返回有重复数字数组的全排列"><span class="nav-number">5.</span> <span class="nav-text">Permutations II-返回有重复数字数组的全排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Combinations-给定1-n以及个数，返回所有组合"><span class="nav-number">6.</span> <span class="nav-text">Combinations-给定1-n以及个数，返回所有组合</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

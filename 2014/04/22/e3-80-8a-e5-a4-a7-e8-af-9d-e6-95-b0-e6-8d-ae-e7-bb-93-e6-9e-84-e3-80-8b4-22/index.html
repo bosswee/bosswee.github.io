@@ -1,0 +1,917 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Data Structre," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="第一章：数据结构绪论
+你的数据结构是怎么学的？
+
+最终的结果一定是：你对着别人很牛地说：数据结构，就那么回事。
+&amp;nbsp;
+第二章：算法
+2.4算法定义：算法是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表示一个或多个操作。
+2.5算法特性：输入，输出，有穷性，确定性和可行性。
+2.6算法的设计要求：具有正确性，可读性，健壮性，高效率和低存储量的特征。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《大话数据结构》4.22-5.9(...)">
+<meta property="og:url" content="http://zhouchaowei.com/2014/04/22/e3-80-8a-e5-a4-a7-e8-af-9d-e6-95-b0-e6-8d-ae-e7-bb-93-e6-9e-84-e3-80-8b4-22/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="第一章：数据结构绪论
+你的数据结构是怎么学的？
+
+最终的结果一定是：你对着别人很牛地说：数据结构，就那么回事。
+&amp;nbsp;
+第二章：算法
+2.4算法定义：算法是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表示一个或多个操作。
+2.5算法特性：输入，输出，有穷性，确定性和可行性。
+2.6算法的设计要求：具有正确性，可读性，健壮性，高效率和低存储量的特征。">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/11-300x283.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/24-300x68.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/38-300x82.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/41-300x151.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/51-300x118.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/61-300x291.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/71-300x161.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/81-300x151.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/9-300x213.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/10-300x163.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/111-300x143.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/121-300x194.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/15-300x158.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/131-300x140.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/141-300x115.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/161-300x69.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/171-300x131.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/181-300x176.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/19-300x178.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/201-300x92.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/211-300x138.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/221-300x113.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/231-300x217.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/241-300x134.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/251-300x269.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/261-300x165.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/271-300x265.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/281-300x221.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/291-300x264.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/301-300x215.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/311-300x193.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/321-300x268.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/331-300x101.png">
+<meta property="og:image" content="http://zhouchaowei.com/wp-content/uploads/2014/04/341-300x240.png">
+<meta property="og:updated_time" content="2015-09-19T11:48:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《大话数据结构》4.22-5.9(...)">
+<meta name="twitter:description" content="第一章：数据结构绪论
+你的数据结构是怎么学的？
+
+最终的结果一定是：你对着别人很牛地说：数据结构，就那么回事。
+&amp;nbsp;
+第二章：算法
+2.4算法定义：算法是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表示一个或多个操作。
+2.5算法特性：输入，输出，有穷性，确定性和可行性。
+2.6算法的设计要求：具有正确性，可读性，健壮性，高效率和低存储量的特征。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> 《大话数据结构》4.22-5.9(...) | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《大话数据结构》4.22-5.9(...)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-04-22T08:16:45+08:00" content="2014-04-22">
+              2014-04-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Reading-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Reading notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/04/22/e3-80-8a-e5-a4-a7-e8-af-9d-e6-95-b0-e6-8d-ae-e7-bb-93-e6-9e-84-e3-80-8b4-22/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/22/e3-80-8a-e5-a4-a7-e8-af-9d-e6-95-b0-e6-8d-ae-e7-bb-93-e6-9e-84-e3-80-8b4-22/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong><span><span><span><span>第一章：数据结构绪论</span></span></span></span></strong></p>
+<p><span><span><span><span>你的数据结构是怎么学的？</span></span></span></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/11.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/11-300x283.png" alt="1"></a></p>
+<p><span><span><span><span>最终的结果一定是：你对着别人很牛地说：数据结构，就那么回事。</span></span></span></span></p>
+<p>&nbsp;</p>
+<p><strong><span><span><span><span>第二章：算法</span></span></span></span></strong></p>
+<p><span><span><span><span>2.4算法定义：算法是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表示一个或多个操作。</span></span></span></span></p>
+<p><span><span><span><span>2.5算法特性：输入，输出，有穷性，确定性和可行性。</span></span></span></span></p>
+<p><span><span><span><span>2.6算法的设计要求：具有正确性，可读性，健壮性，高效率和低存储量的特征。</span></span></span></span></p>
+<a id="more"></a>
+<p><strong><span><span>2.7算法效率的度量方法</span></span></strong><br><span><span>事后统计方法（不允采纳</span></span><br><span><span>）；</span></span><br><span><span>事前分析估算方法。（</span></span><br><span><span>统计）</span></span></p>
+<p><span><span>一个程序的运行时间，依赖于算法的好坏和问题的输入规模。</span></span></p>
+<p><span><span>最终，在分析程序的运行时间时，最重要的是把程序看成是独立与程序设计语言的一系列步骤。</span></span></p>
+<p><strong><span><span>2.8函数的渐进增长</span></span></strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/24.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/24-300x68.png" alt="2"></a></p>
+<p><span><span>判断一个算法的效率时，函数中的常熟和其他次要项常常可以忽略，而更应该关注主项（最高阶项）的阶数。</span></span></p>
+<p><span><span>某个算法，随着n的增大，它会越来越优于另一算法，或者越来越差于另一算法。</span></span></p>
+<p><strong><span><span>2.9算法时间复杂度</span></span></strong></p>
+<p><span><span>算法时间复杂度定义：</span></span></p>
+<p><span><span>在进行算法分析时，语句的总执行次数T(n)是关于问题规模n的函数，进而分析T(n)随n的变化情况并确定T(n)的数量级算法的时间复杂度，也就是算法的时间量度，基座：T(n) = O(f(n))。它表示随着问题规模n的增大，算法执行时间的增长率和f(n)的f(n)的增长率相同，称作算法的渐进时间复杂度，简称为时间复杂度。其中f(n)是问题规模n的某个函数。</span></span></p>
+<p><span><span>大õ记法。</span></span></p>
+<p><span><span>随着Ñ的增大，为T（n）增长最慢的算法为最优算法。</span></span></p>
+<p><strong><span><span>推导大ø阶方法：</span></span></strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/38.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/38-300x82.png" alt="3"></a></p>
+<p><span><span>常数阶：</span></span><br><span><span>（高斯算法）</span></span><br><span><span>时间复杂度：O（1）</span></span></p>
+<p><span><span>执行次数恒定，不随着Ñ的变大而变化。</span></span></p>
+<p><strong><span><span>线性阶：</span></span></strong></p>
+<p><span><span>分析算法的复杂度，关键就是要复习循环结构的运行情况。</span></span></p>
+<p><span><span>INT I，</span></span><br><span><span>就（i = 0;我&lt;N; i + +）{ </span></span><br><span><span>…}</span></span></p>
+<p><span><span>时间复杂度为O（N）。</span></span></p>
+<p><strong><span><span>对数阶：</span></span></strong></p>
+<p><span><span>诠释计数= 1，</span></span><br><span><span>而（计数&lt;N）</span></span><br><span><span>{ </span></span><br><span><span>数=数* 2; </span></span><br><span><span>…}</span></span></p>
+<p><span><span>时间复杂度O（LOGN）</span></span></p>
+<p><strong><span><span>平方阶</span></span></strong><span><span>：</span></span></p>
+<p><span><span>循环嵌套：为O（n * n）的</span></span></p>
+<p><span><span>理解大O推导不算难，难的是对数列的一些相关运算，这更多的是考察你的数学知识和能力。</span></span></p>
+<p><strong><span><span>2.10常见的时间复杂度</span></span></strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/41.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/41-300x151.png" alt="4"></a></p>
+<p><strong><span><span>2.11最坏情况与平均情况</span></span></strong></p>
+<p><span><span>平均运行时间是所有情况中最有意义的，因为它是期望的运行时间。</span></span></p>
+<p><span><span>一般在没有特殊说明的情况下，都是指最坏时间复杂度。</span></span></p>
+<p><strong><span><span>2.12算法空间复杂度</span></span></strong></p>
+<p><span><span>算法的空间复杂度通过计算算法所需的存储空间实现，算法空间复杂度的计算公式记作：S(n)=O(f(n)),其中，n为问题的规模，f(n)为语句关于n所占存储空间的函数。</span></span><br><span><span>2.13总结回顾（略）</span></span></p>
+<p><span><span>好好利用算法分析的工具，和改进自己的代码，让计算机更轻松一点。</span><strong><span>第三章线性表</span></strong></span></p>
+<p><span><span>清单定义：0个或多个数据元素的有限序列。</span></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/51.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/51-300x118.png" alt="5"></a></p>
+<p><span><span>在较复杂的线性表中，一个数据元素可以由若干个数据项组成。</span><strong><span>3.3线性表的抽象数据类型</span></strong></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/61.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/61-300x291.png" alt="6"></a></p>
+<p><strong><span><span>3.4线性表的顺序存储结构</span></span></strong></p>
+<p><span><span>指的是用一段地址连续的存储单元依次存储线性表的数据元素。</span></span></p>
+<p><span><span>用一堆数组来实现顺序结构。</span></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/71.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/71-300x161.png" alt="7"></a></p>
+<p><strong><span><span>3.4.3数据长度与线性表长度区别</span></span></strong></p>
+<p><span><span>线性表长度&lt;=数组长度</span></span></p>
+<p><strong><span><span>3.4.4地址计算方法</span></span></strong></p>
+<p><span><span>存储器中的每个存储单元都有自己的编号，这个编号称为地址。</span></span></p>
+<p><span><span>我们常把其称为随机存储结构。</span></span></p>
+<p><strong><span><span>3.5顺序存储结构的插入与删除</span></span></strong></p>
+<p><span><span>获得元素操作；</span></span><br><span><span>插入操作；</span></span><br><span><span>删除操作；</span></span><br><span><span>说明：顺序存储结构，</span></span><strong><span><span>在存储，读取数据时，不管在哪个位置，时间复杂度都是O(1);插入或删除时，时间复杂度都是O(n).</span></span></strong><br><span><span>进一步说明：它比较适合元素个数不太变化，而更多的是存取数据的应用。</span></span></p>
+<p><span><span>顺序存储的优缺点：</span></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/81.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/81-300x151.png" alt="8"></a></p>
+<p><strong><span><span>3.6线性表的链式存储结构</span></span></strong></p>
+<p><span><span>顺序存储结构不足的解决办法。</span></span><br><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/9.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/9-300x213.png" alt="9"></a></p>
+<p><span><span>链表中第一个节点的存储位置叫做头指针。</span></span><br><span><span>有时，会在单链表的第一个节点前附设一个节点，称为头结点。</span><strong><span>头指针和头结点异同：</span></strong></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/10.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/10-300x163.png" alt="10"></a></p>
+<p><span><span>结点由存放数据元素的数据域存放后继结点地址的指针域组成。</span></span></p>
+<p><span><span>单链表的读取：核心思想：工作指针后移，时间复杂度为O（n）。</span></span></p>
+<p><span><span>单链表的插入与删除</span></span></p>
+<p><span><span>时间复杂度O(n),但只需要第一次遍历指针，为O(n)，接下来知识通过赋值移动指针，为O(1)，</span></span><strong><span><span>对于插入或删除数据越频繁的操作，单链表的效率优势越明显。</span></span></strong><br><strong><span><span>3.9单链表的整表创建</span></span></strong></p>
+<p><span><span>顺序存储结构的创建- “数组初始化; </span></span><br><span><span>单链表的创建：动态生成链表。</span></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/111.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/111-300x143.png" alt="11"></a></p>
+<p><strong><span><span>3.10单链表的整表删除</span></span></strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/121.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/121-300x194.png" alt="12"></a></p>
+<p><span><span>3.11 </span></span><strong><span><span>单链表结构与顺序存储结构优缺点</span></span></strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/15.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/15-300x158.png" alt="15"></a></p>
+<p><span><span>3.12 </span></span><strong><span><span>静态链表</span></span></strong></p>
+<p><span><span>C具有指针能力，后来的面向对象JAVA,C#等因为启用对象引用机制，间接实现了指针的某些作用。那么basic那些早期语言呢</span></span><br><span><span>用数组来代替指针的链表叫做静态链表，这种描述方法叫…游标实现法。</span></span></p>
+<p><span><span>静态链表优缺点：</span></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/131.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/131-300x140.png" alt="13"></a></p>
+<p><span><span>理解这样的思考方式即可。</span></span></p>
+<p><strong><span><span>3.13循环链表</span></span></strong></p>
+<p><span><span>将单链表中终端结点的指针端由空指针改为指向头结点，就使得整个单链表形成一个环，这种头尾相接的单链表称为单循环链表，简称circular链表。</span></span></p>
+<p><strong><span><span>3.14双向链表</span></span></strong></p>
+<p><span><span>双链表是在单链表的每个结点中，再设置一个指向其前驱结点的前指针域。</span></span></p>
+<p><span><span>代价：。在插入和删除时，需要更改两个指针变量用空间换时间</span><strong><span>3.15总结回顾</span></strong></span></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/141.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/141-300x115.png" alt="14"></a></p>
+<p><strong><span><span>人生要像线性表的链式存储结构，任何位置都可以插入和删除。</span></span></strong><br><strong><span><span>第四章栈与队列</span></span></strong></p>
+<p><span><span>栈什么。</span></span><strong><span><span>限定仅在表尾进行插入状语从句删除操作的线性表。</span></span></strong></p>
+<p><span><span>队列什么。</span></span><strong><span><span>只允许在一端进行插入操作，而在另一端进行删除操作的线性表。</span></span></strong></p>
+<p>(4.25-5.3没看书…惭愧）</p>
+<p>&nbsp;</p>
+<p>栈的定义：<br>先进后出的线性表，简称LIFO结构。</p>
+<p>4.4.<strong>栈的顺序存储结构</strong></p>
+<p>进栈操作push,出战操作pop，时间复杂度均为O(1).<br><strong>4.5 两栈共享空间</strong></p>
+<p>针对具有相同数据类型的栈，常用于一个栈增长另一个在缩短的情况。</p>
+<p><strong>4.6 栈的链式存储结构及实现</strong></p>
+<p>进栈操作push,出战操作pop，时间复杂度均为O(1).</p>
+<p>元素变化不可预测使用链栈，在可控范围内，使用顺序栈。</p>
+<p>4.7 栈的作用-简化程序设计。</p>
+<p><strong>4.8 栈的应用-递归</strong></p>
+<p>4.8.1斐波那契数列实现</p>
+<p>当n&gt;1,F(n)=F(n-1)+F(n-2).</p>
+<p><strong>4.8.2递归定义：</strong></p>
+<p>把一个直接调用自己或通过一系列的调用语句间接地调用自己的函数，称为递归函数。</p>
+<p>每个递归定义至少有一个条件，满足递归不再进行，即不再引用自身而是返回值退出。</p>
+<p><strong>迭代和递归区别：循环结构VS选择结构，内存占用大小。</strong></p>
+<p>编译器使用栈实现递归。</p>
+<p><strong>4.9 栈的应用-四则运算表达式求值</strong></p>
+<p>4.9.1 后缀（逆波兰）表示法定义</p>
+<p>不需要括号的后缀表达式。（所有符号都是在要运算数字的后面出现。）</p>
+<p>4.9.2 后缀表达式计算结果</p>
+<p><strong>栈用来进出运算的数字。</strong></p>
+<p>4.9.3 中缀表达式（标准四则运算表达式）转后缀表达式</p>
+<p><strong>栈用来进出运算的符号。</strong><br><strong>4.10 队列的定义：</strong></p>
+<p>队列是只允许在一端进行插入操作，而在另一端进行删除操作的线性表。</p>
+<p>先进先出的线性表，简称FIFO。插入端为队尾。</p>
+<p><strong>4.12 循环队列</strong></p>
+<p>4.12.1 队列顺序存储的不足</p>
+<p>删除队头要全部移动，引入指针front,rear导致假溢出。</p>
+<p><strong>4.12.2 循环队列定义</strong></p>
+<p>把队列这种头尾相接的顺序存储结构称为循环队列。<br><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/161.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/161-300x69.png" alt="16"></a><br>面临数组可能会溢出的问题。</p>
+<p><strong>4.13 队列的链式存储结构及实现</strong></p>
+<p>尾进头出的单链表。</p>
+<p>出队和入队操作。</p>
+<p>无法预估队列长度时，采用链队列。</p>
+<p>4.14 总结回顾</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/171.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/171-300x131.png" alt="17"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>第五章 串</strong></p>
+<p>string是用0个或多个字符组成的有限序列，字符串。</p>
+<p>&nbsp;</p>
+<p>5.5串的顺序存储结构及链式存储结构。</p>
+<p>5.6 朴素的模式匹配算法（字串的定位操作通常称为串的模式匹配。）</p>
+<p>诶个遍历…</p>
+<p><strong>5.7 KMP模式匹配算法</strong></p>
+<p>仅当模式与主串之间存在许多“部分匹配”的情况下体现其优势。<br><strong>第六章 树</strong></p>
+<p>&nbsp;</p>
+<p>树是n(n&gt;=0)个结点的有限集，n=0称为空树。在任意一棵空树中，（1）有且只有一个特定的称为root的结点；（2）当n&gt;1时，其余结点可分为m(m&gt;0)个互不相交的有限集T1,T2.。。Tn,其中每一个集合本身又是一棵树，并且称为根的SubTree.</p>
+<p>6.2.1<strong>结点分类</strong></p>
+<p>&nbsp;</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/181.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/181-300x176.png" alt="18"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>6.22<strong>结点关系</strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/19.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/19-300x178.png" alt="19"></a></p>
+<p>6.2.3其他概念</p>
+<p>结点的Level从根开始定义起，根为第一层，根的孩子为第二层，最大层次称为depth或高度。</p>
+<p>有序树VS无序树。</p>
+<p>森林是m颗互不相交的树的集合。</p>
+<p><strong>线性表与树的结构差异：</strong></p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/201.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/201-300x92.png" alt="20"></a><br>6.4 <strong>树的存储结构</strong></p>
+<p>6.4.1 <strong>双亲表示法</strong></p>
+<p>在每个结点中，附设一个指示器指示其双亲结点到链表的位置。</p>
+<p>一个存储结构设计的是否合理，取决于基于该存储结构的运算是否适合，是否方便，时间复杂度好不好等。</p>
+<p>6.4.2 <strong>孩子表示法</strong></p>
+<p>每个结点由多个指针域，其中每个指针指向一棵子树的根节点，我们把这种方法叫做重链表表示法。<br>把每个结点的孩子结点排列起来，以单链表作存储结构，则n个结点由n个孩子链表，如果是叶子结点则此单链表为空，然后n个头指针又组成一个线性表，采用顺序存储结构，存放进一个一维数组中。<br>6.4.3 <strong>孩子兄弟表示法</strong><br>任意一棵树，它的结点第一个孩子如果存在就是唯一的，它的右兄弟如果存在也是唯一的。一次，我们设置两个指针，分别指向该结点的第一个孩子和此结点的右兄弟。</p>
+<p>&nbsp;</p>
+<p><strong>6.5 二叉树的定义</strong></p>
+<p>&nbsp;</p>
+<p>Binary Tree 是 n(n&gt;=0)个结点的有限集合，该集合或者为空集（称为空二叉树）,或者由一个根结点和两颗互不相交的，分别称为根结点的左子树和右子树的二叉树组成。</p>
+<p>&nbsp;</p>
+<p>特点：左右有顺序。</p>
+<p><strong>特殊二叉树：</strong><br>1.（左/右）斜树<br>2.满二叉树<br>3.完全二叉树（如图，无空挡）</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/211.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/211-300x138.png" alt="21"></a></p>
+<p><strong>6.6 二叉树的性质</strong></p>
+<p>1.在第i层上至多有2^(i-1)个结点（i&gt;=1).<br>2.深度为k的二叉树至多有2^k-1个节点（k&gt;=1).<br>3.对于任何一颗二叉树T,如果其终端结点数为N0，度为2的结点数为N2,则N0=N2+1.</p>
+<p>(如图，5=4+1）</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/221.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/221-300x113.png" alt="22"></a></p>
+<p>4.具有n个结点的完全二叉树的深度为| log2N|+1 (|x| 表示不大于x的最大整数）。</p>
+<ol>
+<li><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/231.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/231-300x217.png" alt="23"></a></li>
+</ol>
+<p>6.7 <strong>二叉树的存储结构</strong></p>
+<p>二叉树的顺序存储结构，只应用于完全二叉树，否则会造成极大浪费。</p>
+<p>极端情况：</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/241.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/241-300x134.png" alt="24"></a></p>
+<p><strong>6.7.2二叉链表</strong></p>
+<p>为它涉及一个数据域和两个指针域。</p>
+<p>6.8 <strong>二叉树的遍历traversing</strong></p>
+<p>是指从根结点出发，按照某种次序依次访问二叉树中所有结点，使得每个结点被访问一次且仅仅被访问一次。</p>
+<p>1.前序遍历</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/251.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/251-300x269.png" alt="25"></a></p>
+<p>2.中序遍历</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/261.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/261-300x165.png" alt="26"></a></p>
+<p>3.后序遍历</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/271.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/271-300x265.png" alt="27"></a></p>
+<p>4.层序遍历</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/281.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/281-300x221.png" alt="28"></a></p>
+<p>计算机只会处理线性排序，这样把结点变为有意义的线性排序。</p>
+<p>遍历算法（略，较简单）。</p>
+<p>6.9<strong> 二叉树的建立</strong></p>
+<p>生成结点，扩展二叉树。</p>
+<p>6.10 <strong>线索二叉树</strong></p>
+<p>向前驱和后继的指针成为，加上线索的二叉树称为线索链表，相应的二叉树称为Threaded Binary Tree.</p>
+<p>对二叉树以某种次序遍历使其变为线索二叉树的过程是线索化。</p>
+<p>所用二叉树需经常遍历或查找结点时需要某种遍历序列中的前驱和后继时采用。</p>
+<p>6.11 <strong>树，森林与二叉树的转换。</strong><br>1.树林换为二叉树</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/291.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/291-300x264.png" alt="29"></a></p>
+<p>2.森林转换为二叉树</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/301.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/301-300x215.png" alt="30"></a></p>
+<p>3.二叉树转换为树</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/311.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/311-300x193.png" alt="31"></a></p>
+<p>4.二叉树转换为森林</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/321.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/321-300x268.png" alt="32"></a></p>
+<p>6.11.5 <strong>树与森林的遍历</strong></p>
+<p>从根结点or后跟结点，注意不是访问，略。</p>
+<p><strong>树的先跟遍历和后跟遍历完全可以用二叉树的前序遍历和中序遍历的算法实现。</strong></p>
+<p>&nbsp;</p>
+<p><strong>6.12 赫夫曼树及其应用（压缩技术）</strong></p>
+<p>定义与原理：</p>
+<p>从树中一个结点到另一个结点之间的分支构成两个结点之间的路径，路径上的分支数目称为路径长度。树的路径长度就是从树根到每一结点的路径长度之和。</p>
+<p>带权路径长度WPL最小的二叉树称其为赫尔曼树（最优二叉树）</p>
+<p>编码：<br><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/331.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/331-300x101.png" alt="33"></a></p>
+<p>&nbsp;</p>
+<p><strong>第七章 图</strong></p>
+<p>Graph 是由顶点的有穷非空集合和顶点之间边的集合组成，通常表示为G(V,E),其中，G表示一个图，V是G中顶点的集合，E是图G中边的集合。</p>
+<p>在图中，数据元素，称为顶点（Vertex)</p>
+<p>各种定义：</p>
+<p>无向边Edge,组成无向图，（A,B).</p>
+<p>有向边（弧，Arc),&lt;A,B&gt;.</p>
+<p>在图中，若不存在顶点到其自身的边，且同一条边不重复出现，称为简单图。<br>在无向图中，如果任意两个顶点之间都存在边，称为无向完全图。</p>
+<p>在有向途中，如果任意两个顶点之间都存在方向互为相反的两条弧，称为有向完全图。</p>
+<p>有很少条边或弧的图称为稀疏图，繁殖称为稠密图。</p>
+<p>与图的边或弧相关的数叫做权（Weight),这种带权的图通常称为网（Network).</p>
+<p>G1的V和E均真属于G2,则为G2 子图 Subgraph.<br><strong>7.2.2 图的顶点与边间关系</strong></p>
+<p>很晕，看图吧…</p>
+<p><a href="http://zhouchaowei.com/wp-content/uploads/2014/04/341.png"><img src="http://zhouchaowei.com/wp-content/uploads/2014/04/341-300x240.png" alt="34"></a></p>
+<p><strong>7.4 图的存储结构</strong></p>
+<p>…….</p>
+<p>之后就没看，看了下目录，除了图，还有两章讲查找和排序，这本书够折磨人的，待我日后回过神来再把余下的研究完。</p>
+<p>至于收获：嗯，至少了解数据结构的基本知识了……</p>
+<p>我会回来的…</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Data-Structre/" rel="tag">#Data Structre</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/04/17/e3-80-8a-e5-8d-93-e6-9c-89-e6-88-90-e6-95-88-e7-9a-84-e7-a8-8b-e5-ba-8f-e5-91-98-e3-80-8b4-17/" rel="next" title="持续的细节优化-《卓有成效的程序员》4.17-4.22（待续...)">
+                <i class="fa fa-chevron-left"></i> 持续的细节优化-《卓有成效的程序员》4.17-4.22（待续...)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/05/03/e5-ad-a6-e4-b9-a0-e7-94-9f-e6-b4-bb2014-e5-b9-b45-e6-9c-88/" rel="prev" title="学习$生活@2014年5月">
+                学习$生活@2014年5月 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/04/22/e3-80-8a-e5-a4-a7-e8-af-9d-e6-95-b0-e6-8d-ae-e7-bb-93-e6-9e-84-e3-80-8b4-22/"
+           data-title="《大话数据结构》4.22-5.9(...)" data-url="http://zhouchaowei.com/2014/04/22/e3-80-8a-e5-a4-a7-e8-af-9d-e6-95-b0-e6-8d-ae-e7-bb-93-e6-9e-84-e3-80-8b4-22/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

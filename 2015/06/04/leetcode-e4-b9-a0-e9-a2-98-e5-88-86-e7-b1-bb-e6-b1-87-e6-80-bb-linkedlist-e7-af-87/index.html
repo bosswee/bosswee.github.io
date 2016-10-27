@@ -1,0 +1,605 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Linked List Cycle-原地判断链表是否有圆圈思路：fast-slow指针，只要存在cycle，fast最终会赶上slow;### Remove Duplicates from Sorted List-去除有序链表中的重复值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode习题分类汇总-LinkedList篇">
+<meta property="og:url" content="http://zhouchaowei.com/2015/06/04/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-linkedlist-e7-af-87/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="Linked List Cycle-原地判断链表是否有圆圈思路：fast-slow指针，只要存在cycle，fast最终会赶上slow;### Remove Duplicates from Sorted List-去除有序链表中的重复值">
+<meta property="og:updated_time" content="2015-09-19T12:12:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode习题分类汇总-LinkedList篇">
+<meta name="twitter:description" content="Linked List Cycle-原地判断链表是否有圆圈思路：fast-slow指针，只要存在cycle，fast最终会赶上slow;### Remove Duplicates from Sorted List-去除有序链表中的重复值">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> leetcode习题分类汇总-LinkedList篇 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                leetcode习题分类汇总-LinkedList篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-04T13:27:15+08:00" content="2015-06-04">
+              2015-06-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/04/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-linkedlist-e7-af-87/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/04/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-linkedlist-e7-af-87/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Linked-List-Cycle-原地判断链表是否有圆圈"><a href="#Linked-List-Cycle-原地判断链表是否有圆圈" class="headerlink" title="Linked List Cycle-原地判断链表是否有圆圈"></a><span style="color: #00ff00;">Linked List Cycle</span>-原地判断链表是否有圆圈</h3><div>思路：fast-slow指针，只要存在cycle，fast最终会赶上slow;</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Remove Duplicates from Sorted List</span>-去除有序链表中的重复值<br><br><br><a id="more"></a><br><div>思路：前后两个指针遍历判断即可，时间N</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Remove Duplicates from Sorted List II</span>-把&gt;1次出现的元素都去掉<br><br><div>思路：还是维护fakehead,pre,cur,判断是否有重复，遍历，迭代or递归。</div><br></div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Merge Two Sorted Lists</span>-归并两个有序链表<br><br><div>思路：链表的归并排序中的merge操作，逻辑清晰</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Swap Nodes in Pairs</span>-每两个交换链表相邻节点，常量空间<br><br><div>思路: 常量空间所以不能用递归，设置一个fakehead,while循环即可，这种题目容易出错，画图比较好。</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Reverse Linked List</span> -翻转单链表，递归or迭代<br><br><div>思路：所谓翻转，其实就是把下一个数不断的转移到上一个数之前，比如1234,21 34,321 4,4321完成，画张图就一目了然。</div><br></div>
+
+<h3 id="Linked-List-Cycle-II-判断链表是否有循环，如果有返回循环开始的地方"><a href="#Linked-List-Cycle-II-判断链表是否有循环，如果有返回循环开始的地方" class="headerlink" title="Linked List Cycle II-判断链表是否有循环，如果有返回循环开始的地方"></a><span style="color: #00ff00;">Linked List Cycle II</span>-判断链表是否有循环，如果有返回循环开始的地方</h3><div>思路：图网上一堆，所以说…链表的问题首先还是要画图<br><pre xml:space="preserve"><br>第一次相遇时slow走过的距离：a+b，fast走过的距离：a+b+c+b。<br><br>因为fast的速度是slow的两倍，所以fast走的距离是slow的两倍，有 2(a+b) = a+b+c+b，可以得到a=c（这个结论很重要！）。<br><br>我们发现L=b+c=a+b，也就是说，从一开始到二者第一次相遇，循环的次数就等于环的长度。<br><br>2. 我们已经得到了结论a=c，那么让两个指针分别从X和Z开始走，每次走一步，那么正好会在Y相遇！也就是环的第一个节点。</pre><br></div><br></div><br>扩展问题：<br><br>1. 环的长度是多少？<br><br>2. 如何找到环中第一个节点（即Linked List Cycle II）？<br><br>3. 如何将有环的链表变成单链表（解除环）？<br><br>4. 如何判断两个单链表是否有交点？如何找到第一个相交的节点？<br><br></div><br><div><br><br>### <span style="color: #00ff00;">Intersection of Two Linked Lists</span>- 判断两个链表是否有交叉，并返回交叉节点<br><br><div>思路：先计算 AB 的长度，然后把两个链表切割到一样的长度开始判断，时间N空间1；</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Convert Sorted List to Binary Search Tree</span>-把链表转换为BST<br><br><div>思路：BST左》中》右，关键在于找到中间节点，先计算长度/快慢指针，然后DFS遍历，按照左中右的顺序，自底向上构造二叉树，当然也可以自上而下…</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Partition List-</span>切分链表，把&lt;x的节点放在左边，其他放在右边<br><br><div>思路：（1）依然是双指针，画图，找到第一个&gt;=x的节点记录好，然后把左边所有&lt;x的节点放在它左边。</div><br><div>（2）创建两个dummy1,dummy2节点，遍历一遍，cur1遍历dummy1存放&lt;x的节点，cur2遍历dummy2存放&gt;x的节点，最后两个节点连在一起即可，注意cur2.next要设置为null,否则就成为head循环了</div><br><div><br><br>### <span style="color: #00ff00;">Remove Nth Node From End of List</span>-去除链表的倒数第N个元素，尝试一次遍历搞定<br><br><div>思路：快慢指针，快指针先行N步骤，之后前后保持N的距离，fast到末尾后，slow skip掉下一个节点即可。</div><br><span style="color: #00ff00;"> </span></div><br><strong><span style="color: #00ff00;"> Insertion Sort List</span>-链表的插入排序</strong></div><br><div>思路：设置一个fakehead,然后和插入排序一样，设置一个pre节点，cur节点，遍历，每次在pre-cur之前寻找合适位置插入，保持cur左边有序。时间还是N2.<br></div><br><div><br><br>### <span style="color: #00ff00;">Reverse Linked List II</span>-根据m,n值翻转链表，1&lt;=m&lt;=n&lt;=length 一次遍历<br><br><div>思路：这样的题目关键是不要怕麻烦，一定要画多几个链表图，一步一步演算，这样思路就很清晰了。设置一个fakehead(或者不设置之后进行判断，设置两个m,n节点，维护一个premNode,中间保持m-n距离遍历到指定位置，然后把m不断插入到n后直到m,n相遇。</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Remove Linked List Elements-</span>去掉链表中国所有的指定值<br><br><div>思路：设置fakehead节点, pre,cur指针遍历就行</div><br></div><br><div><br><br>### <span style="color: #00ff00;">Reverse Nodes in k-Group</span>-以k为组翻转链表<br><br><div>思路：循环的翻转链表，只需要维护一个count值就可以，本质还是翻转。多加练习</div><br></div><br><div><br><br>### <span style="color: #ff6600;">Copy List with Random Pointer</span>-复制有任意指针的链表<br><br><div>思路：插入拷贝节点，复制random指针，分解至两个独立列表<br><pre xml:space="preserve"><br><strong><span style="color: #ff0000; font-size: 18px;">Sort List </span><span style="font-size: 14px;">—— 常量空间下 O(nlogn)时间排序链表</span></strong><br><br>思路：链表的归并排序，一开始想到快排，后来发现递归调用不满足要求，所以归并可以采取迭代的方式mergesort以及merge，当然递归的代码更加容易理解一点，有点理解为啥不要在面试的时候回答链表的题目了，太容易出错了</pre><br></div><br></div>
+
+<h3 id="Rotate-List-翻转链表k个体位"><a href="#Rotate-List-翻转链表k个体位" class="headerlink" title="Rotate List-翻转链表k个体位"></a><span style="color: #00ff00;">Rotate List</span>-翻转链表k个体位</h3><div>思路：还是利用fast-slow指针，fakehead等常见手法，写烂了…只是主要要用k%i判断k是否大于链表的长度i;</div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Add Two Numbers</span>-两个链表每个节点分别表示一个数字，求数字相加的第三个链表，可以进位<br><br><div>思路： carry表示进位，p1,p2,p3遍历，考虑链表长度不同的状况</div><br></div><br><div><br><br>### <span style="color: #00ff00;">Merge k Sorted Lists</span>-归并k个有序链表<br><br><div>思路：<br><div><br><div>（1）<br><pre>这道题目在分布式系统中非常常见，来自不同client的sorted list要在central server上面merge起来。<br> 这个题目一般有两种做法，下面一一介绍并且分析复杂度。 第一种做法比较容易想到，就是有点类似于MergeSort的思路,<br> 就是分治法，不了解MergeSort的朋友，请参见归并排序-维基百科，是一个比较经典的O(nlogn)的排序算法，<br>还是比较重要的。思路是先分成两个子任务，然后递归求子任务，最后回溯回来。这个题目也是这样，先把k个list分成两半，然后继续划分，知道剩下两个list就合并起来我们来分析一下上述算法的时间复杂度。假设总共有k个list，每个list的最大长度是n，那么运行时间满足递推式T(k) = 2T(k/2)+O(n<em>k)。根据主定理，可以算出算法的总复杂度是O(nklogk) 。如果不了解主定理的朋友，可以参见主定理-维基百科。空间复杂度的话是递归栈的大小O(logk)。<br><br>（2）接下来我们来看第二种方法。这种方法用到了堆的数据结构，思路比较难想到，但是其实原理比较简单。维护一个大小为k的堆，</em></pre><br><pre> 每次取堆顶的最小元素放到结果中，然后读取该元素的下一个元素放入堆中，重新维护好。因为每个链表是有序的，每次又是去当前k<br>个元素中最小的，所以当所有链表都读完时结束，这个时候所有元素按从小到大放在结果链表中。<br> 这个算法每个元素要读取一次，即是kn次，然后每次读取元素要把新元素插入堆中要logk的复杂度，<br> 所以总时间复杂度是O(nklogk)。空间复杂度是堆的大小，即为O(k)。<br>感觉就是<span style="color: #ff0000;">链表的堆排序实现</span>嘛。自己感觉还是挺少见的…</pre><br></div><br></div><br></div><br><div></div><br><div><br><br>### <span style="color: #00ff00;">Reorder List</span>-Given a singly linked list <em>L</em>: _L_0→_L_1→…→<em>L__n</em>-1→_L_n,<br>reorder it to: _L_0→<em>L__n</em>→_L_1→<em>L__n</em>-1→_L_2→<em>L__n</em>-2→…<br><br><div><br><br><em> </em> <em><br><br></em></div><br><div>思路：<br><pre>(1)Break list in the middle to two lists (use fast &amp; slow pointers)<br>(2)Reverse the order of the second list<br>(3)Merge two list back together<br>其实很多题目可以归约为其他若干个基础问题的综合，比如这题的fast-slow指针，链表的翻转，链表的插入。<br><br><span style="color: #800000;">总结</span>：链表的题目不多，难度也不大，但是容易出错，做这些题的要点就两个：<span style="color: #008000;"><em>*1.画图。2.掌握基本的fast-slow指针，翻转，归并等技巧灵活运用。</em></span></pre><br></div><br></div><br></div><br></div><br></div><br></div><br></div>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/02/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-array-e7-af-87/" rel="next" title="leetcode习题分类汇总-Array篇">
+                <i class="fa fa-chevron-left"></i> leetcode习题分类汇总-Array篇
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/07/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-string-e7-af-87/" rel="prev" title="leetcode习题分类汇总-String篇">
+                leetcode习题分类汇总-String篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/06/04/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-linkedlist-e7-af-87/"
+           data-title="leetcode习题分类汇总-LinkedList篇" data-url="http://zhouchaowei.com/2015/06/04/leetcode-e4-b9-a0-e9-a2-98-e5-88-86-e7-b1-bb-e6-b1-87-e6-80-bb-linkedlist-e7-af-87/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linked-List-Cycle-原地判断链表是否有圆圈"><span class="nav-number">1.</span> <span class="nav-text">Linked List Cycle-原地判断链表是否有圆圈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linked-List-Cycle-II-判断链表是否有循环，如果有返回循环开始的地方"><span class="nav-number">2.</span> <span class="nav-text">Linked List Cycle II-判断链表是否有循环，如果有返回循环开始的地方</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rotate-List-翻转链表k个体位"><span class="nav-number">3.</span> <span class="nav-text">Rotate List-翻转链表k个体位</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,642 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="今天花了好久才设置成功的，勿喷，感觉自己好脑残的说~~下面说下设置步骤：
+1.官网下载最新版的JDK，下压缩格式的那种，rpm格式ubuntu是不支持安装的，要转换成其他格式，总之很烦，还不一定成功，然后我就放弃了。
+2 sudo  mv jdk### /opt,然后解压就可以啦（好吧，我现在才知道木有权限可以使用sudo…)
+3:到了这一步应该有两种方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu下设置java环境变量的过程2013.12.13">
+<meta property="og:url" content="http://zhouchaowei.com/2013/12/13/ubuntu-e4-b8-8b-e8-ae-be-e7-bd-aejava-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e7-9a-84-e8-bf-87-e7-a8-8b/index.html">
+<meta property="og:site_name" content="Wee's Blog">
+<meta property="og:description" content="今天花了好久才设置成功的，勿喷，感觉自己好脑残的说~~下面说下设置步骤：
+1.官网下载最新版的JDK，下压缩格式的那种，rpm格式ubuntu是不支持安装的，要转换成其他格式，总之很烦，还不一定成功，然后我就放弃了。
+2 sudo  mv jdk### /opt,然后解压就可以啦（好吧，我现在才知道木有权限可以使用sudo…)
+3:到了这一步应该有两种方法">
+<meta property="og:updated_time" content="2015-09-19T07:59:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu下设置java环境变量的过程2013.12.13">
+<meta name="twitter:description" content="今天花了好久才设置成功的，勿喷，感觉自己好脑残的说~~下面说下设置步骤：
+1.官网下载最新版的JDK，下压缩格式的那种，rpm格式ubuntu是不支持安装的，要转换成其他格式，总之很烦，还不一定成功，然后我就放弃了。
+2 sudo  mv jdk### /opt,然后解压就可以啦（好吧，我现在才知道木有权限可以使用sudo…)
+3:到了这一步应该有两种方法">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Wee'
+    }
+  };
+</script>
+
+  <title> ubuntu下设置java环境变量的过程2013.12.13 | Wee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wee's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">唐虞揖逊三杯酒，汤武征诛一局棋</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ubuntu下设置java环境变量的过程2013.12.13
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2013-12-13T21:39:00+08:00" content="2013-12-13">
+              2013-12-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java-Study/" itemprop="url" rel="index">
+                    <span itemprop="name">Java Study</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/12/13/ubuntu-e4-b8-8b-e8-ae-be-e7-bd-aejava-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e7-9a-84-e8-bf-87-e7-a8-8b/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/12/13/ubuntu-e4-b8-8b-e8-ae-be-e7-bd-aejava-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e7-9a-84-e8-bf-87-e7-a8-8b/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天花了好久才设置成功的，勿喷，感觉自己好脑残的说~~下面说下设置步骤：</p>
+<p>1.官网下载最新版的JDK，下压缩格式的那种，rpm格式ubuntu是不支持安装的，要转换成其他格式，总之很烦，还不一定成功，然后我就放弃了。</p>
+<p>2 sudo  mv jdk### /opt,然后解压就可以啦（好吧，我现在才知道木有权限可以使用sudo…)</p>
+<p>3:到了这一步应该有两种方法</p>
+<a id="more"></a>
+<p>第一种：</p>
+<p>A 配置PATH, 使PATH包含JDK安装目录下的bin目录<br>目的: 将JDK带来的开发工具(命令)扩展到OS中.<br>如: export PATH=/opt/jdk/bin:$PATH<br>B 配置JAVA_HOME, JAVA_HOME指向JDK的安装目录<br>JAVA_HOME 的作用: 是指导”某些Java软件”找到JDK<br>如: tomcat 服务器 就使用 JAVA_HOME<br>实例: export JAVA_HOME=/opt/jdk</p>
+<p>C 配置CLASSPATH, 指向Java类的部署目录或者Jar文件<br>用来为JVM 指明Java类的搜索路径, Java在执行类的时候<br>在CLASSPATH指示的路径下查找类文件.<br>实例: export CLASSPATH=.</p>
+<p>第二种：</p>
+<p>配置jdk环境变量：</p>
+<p>在启动终端并输入</p>
+<div><br><div><strong>
+</strong><br><div></div><br></div>
+
+<ol>
+<li><p>gedit /etc/profile<br></p></li></ol></div><br>在末尾添加一下配置，保存并退出<p></p>
+<div><br><div></div>
+
+<li><p>#set jdk environment</p>
+</li>
+<li>export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_21</li>
+<li>export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH</li>
+<li>export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH<br></li></div><br>终端输入一下命令使配置生效<div><br><div></div>
+
+
+<ul>
+<li>source /etc/profile</li>
+<li>最后检查一下是否成功配置：java -version(话说我中间木有加空格键然后纠结了好久~）</li>
+<li>好啦，还有一种方法是直接不上官网利用ubuntu内置的jdk配置的，不过貌似下的很慢我也就没试啦。</li>
+<li>最后学习去了，设置个变量花了这么久~好忧伤~<br>——————————————————————————-ps第一种方法是临时设置，第二种是永久设置（再次开机后生效），因为它是一个初始化脚本。。。</li>
+</ul>
+<p></p></div><p></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/12/10/e8-8b-b1-e8-af-ad-e5-ad-a6-e4-b9-a0-e7-9a-84-e4-b8-80-e4-ba-9b-e5-bb-ba-e8-ae-ae/" rel="next" title="英语学习的一些建议2013.12.10">
+                <i class="fa fa-chevron-left"></i> 英语学习的一些建议2013.12.10
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/12/14/java-e5-ad-a6-e4-b9-a0-e4-b9-8b-e8-b7-af-e6-9b-b4-e6-96-b0-e4-b8-ad-e3-80-82-e3-80-82-e3-80-82/" rel="prev" title="学习$生活  @2013年12月">
+                学习$生活  @2013年12月 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/12/13/ubuntu-e4-b8-8b-e8-ae-be-e7-bd-aejava-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e7-9a-84-e8-bf-87-e7-a8-8b/"
+           data-title="ubuntu下设置java环境变量的过程2013.12.13" data-url="http://zhouchaowei.com/2013/12/13/ubuntu-e4-b8-8b-e8-ae-be-e7-bd-aejava-e7-8e-af-e5-a2-83-e5-8f-98-e9-87-8f-e7-9a-84-e8-bf-87-e7-a8-8b/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Wee" />
+          <p class="site-author-name" itemprop="name">Wee</p>
+          <p class="site-description motion-element" itemprop="description">奋斗过，爱过，挣扎过</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wee2014"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
